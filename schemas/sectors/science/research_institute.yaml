@@ -1,0 +1,37 @@
+schema: kelston.science.research_institute
+version: 1.0.0
+status: stable
+title: Research Institute
+description: >
+  An organization that studies the town and its world - the observatory,
+  the soils lab, the standards research bureau. Institutes are
+  organizations first; what this adds is what they study and the open
+  promise that what they learn belongs to everyone.
+extends: kelston.core.organization
+identity:
+  prefix: RSRCH
+fields:
+  home_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The civic parcel the institute works from.
+  fields_of_study:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.study_field
+      description: A field of study the institute works in.
+    description: The fields of study the institute works in as mainstays.
+  has_night_observation:
+    type: boolean
+    default: false
+    description: >
+      Whether the institute runs night-band observation programs - sky
+      watches, nocturnal wildlife counts - which pair naturally with
+      night-band staff.
+  is_open_archive:
+    type: boolean
+    default: true
+    description: Whether the institute files its findings in the public record for any citizen to read.

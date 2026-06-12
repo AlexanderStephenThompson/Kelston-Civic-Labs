@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.rescue_specialty
+version: 1.0.0
+description: >
+  The rescue disciplines a warden post or rescue station can field. Each
+  specialty maps to real capabilities - water rescue needs swimmers, aerial
+  rescue needs flight - so coverage is checkable, not assumed.
+ordered: false
+terms:
+  - code: water_rescue
+    label: Water rescue
+    description: Recovery from rivers, harbors, and the submerged tier.
+  - code: aerial_rescue
+    label: Aerial rescue
+    description: Reaching the canopy, rooftops, and citizens stranded aloft.
+  - code: burrow_rescue
+    label: Burrow rescue
+    description: Tunnel collapse response and below-ground search.
+  - code: cliff_rescue
+    label: Cliff rescue
+    description: Highlands rope-and-claw work on faces and ledges.
+  - code: fire_response
+    label: Fire response
+    description: Containing and dousing structure and grass fires.
+  - code: general_response
+    label: General response
+    description: Everyday ground-tier assistance, escort, and first aid.

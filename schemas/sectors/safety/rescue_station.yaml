@@ -1,0 +1,47 @@
+schema: kelston.safety.rescue_station
+version: 1.0.0
+status: stable
+title: Rescue Station
+description: >
+  A located, equipped point a rescue crew launches from - a boathouse on
+  the shore, a perch tower over the canopy, a shored tunnel head at the
+  burrow tier. Stations make response coverage a thing on the map, not a
+  promise in a drawer.
+extends: kelston.core.place
+identity:
+  prefix: RSTN
+fields:
+  post:
+    type: ref
+    entity: kelston.safety.warden_post
+    required: true
+    description: The warden post that crews this station.
+  primary_specialty:
+    type: vocab
+    vocabulary: kelston.vocab.rescue_specialty
+    required: true
+    description: The rescue discipline this station is equipped for first.
+  coverage_radius:
+    type: quantity
+    unit: meter
+    required: true
+    description: How far from the station the crew can reach within the response standard.
+  has_water_launch:
+    type: boolean
+    default: false
+    description: Whether the station can put a crew straight into the water.
+  has_landing_perch:
+    type: boolean
+    default: false
+    description: Whether the station has a perch for flighted crews to launch and land.
+constraints:
+  - id: water_rescue_stations_launch_from_water
+    description: A water rescue station can put its crew straight into the water.
+    when: { field: primary_specialty, op: eq, value: water_rescue }
+    check: { field: has_water_launch, op: eq, value: true }
+  - id: station_specialty_is_one_the_post_fields
+    description: A station's primary specialty is among the disciplines its post can field.
+    check:
+      field: primary_specialty
+      op: in
+      other_field: post.rescue_specialties

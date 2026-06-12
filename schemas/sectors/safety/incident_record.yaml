@@ -1,0 +1,55 @@
+schema: kelston.safety.incident_record
+version: 1.0.0
+status: stable
+title: Incident Record
+description: >
+  One safety incident and its response, from first report to resolution.
+  Incident records sit on the civic record spine, so the town can ask
+  honest questions about where harm happens and how fast help arrives.
+extends: kelston.core.civic_record
+identity:
+  prefix: INCDT
+fields:
+  responding_post:
+    type: ref
+    entity: kelston.safety.warden_post
+    required: true
+    description: The warden post that answered the call.
+  incident_kind:
+    type: vocab
+    vocabulary: kelston.vocab.incident_kind
+    required: true
+    description: The kind of event this record describes.
+  severity:
+    type: vocab
+    vocabulary: kelston.vocab.incident_severity
+    required: true
+    description: How serious the incident proved to be.
+  occurred_at:
+    type: datetime
+    required: true
+    description: When the incident happened, as best the responders could fix it.
+  realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm where the incident occurred.
+  is_resolved:
+    type: boolean
+    default: false
+    description: Whether the incident has been closed out.
+  resolved_at:
+    type: datetime
+    description: When the incident was closed out, once it has been.
+constraints:
+  - id: resolved_incidents_carry_a_resolution_time
+    description: A closed incident says when it was closed.
+    when: { field: is_resolved, op: eq, value: true }
+    check: { field: resolved_at, op: present }
+  - id: water_emergencies_go_to_water_capable_posts
+    description: A water emergency is answered by a post that fields water rescue.
+    when: { field: incident_kind, op: eq, value: water_emergency }
+    check:
+      field: responding_post.rescue_specialties
+      op: contains
+      value: water_rescue

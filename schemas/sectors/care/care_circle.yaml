@@ -1,0 +1,44 @@
+schema: kelston.care.care_circle
+version: 1.0.0
+status: stable
+title: Care Circle
+description: >
+  A small standing group of citizens organized around one neighbor who
+  needs support - the signature unit of Kelston mutual aid. A circle
+  exists from the day neighbors agree to share the looking-after, whether
+  or not a lodge ever gets involved.
+identity:
+  prefix: CCIR
+fields:
+  focus_citizen:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen the circle gathers around.
+  coordinating_lodge:
+    type: ref
+    entity: kelston.care.care_lodge
+    description: The care lodge backing the circle, when one does.
+  formed_on:
+    type: date
+    required: true
+    description: The day the circle agreed to form.
+  support_kinds:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.care_support
+      description: A kind of support the circle has signed up to provide.
+    description: The kinds of support the circle provides, from shared meals to basking watch.
+  gathering_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    description: >
+      The shift band the circle gathers and visits in - always the focus
+      citizen's own preferred band, because care comes on their hours.
+constraints:
+  - id: circle_gathers_on_focus_citizens_hours
+    description: When a circle sets a gathering band, it is the focus citizen's preferred band.
+    when: { field: gathering_band, op: present }
+    check: { field: gathering_band, op: eq, other_field: focus_citizen.active_hours_preference }

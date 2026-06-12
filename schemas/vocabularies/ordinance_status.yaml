@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.ordinance_status
+version: 1.0.0
+description: >
+  Where an ordinance stands in its life. Standards are living documents in
+  Kelston, so the stage is data the registry can query, not a stamp on a
+  drawer.
+ordered: false
+terms:
+  - code: proposed
+    label: Proposed
+    description: Drafted and before the assembly, not yet binding.
+  - code: adopted
+    label: Adopted
+    description: Voted in by the assembly and currently binding.
+  - code: amended
+    label: Amended
+    description: Binding in a revised form; the amendment history lives in the record.
+  - code: retired
+    label: Retired
+    description: No longer binding, kept in the public record for reference.

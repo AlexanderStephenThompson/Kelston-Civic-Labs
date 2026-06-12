@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.art_form
+version: 1.0.0
+description: >
+  The art forms Kelston's companies and festivals work in. Forms are
+  declared data so venues, instruments, and stagings can be matched to the
+  bodies and bands that perform them.
+ordered: false
+terms:
+  - code: music
+    label: Music
+    description: Song and instrumental work, with instruments built in size-class ranges.
+  - code: theater
+    label: Theater
+    description: Staged drama and comedy played across the town's tiers.
+  - code: dance
+    label: Dance
+    description: Movement work in every locomotion mode, from swim ballet to aerial display.
+  - code: storytelling
+    label: Storytelling
+    description: Spoken and signed tales, the dusk-band heart of the commons.
+  - code: visual_craft
+    label: Visual craft
+    description: Painting, carving, weaving for show, and the public murals.
+  - code: festival_craft
+    label: Festival craft
+    description: Lanterns, floats, costumes, and the seasonal spectacle trades.

@@ -1,0 +1,40 @@
+schema: kelston.media.notice_post
+version: 1.0.0
+status: stable
+title: Notice Post
+description: >
+  A fixed point where one channel reaches the public - a chime tower on
+  the square, a print board by the tram stop, a beacon lamp on a rooftop,
+  a drum station in the under-market. Posts are places, so every citizen
+  can find the nearest one in their own tier.
+extends: kelston.core.place
+identity:
+  prefix: NPST
+fields:
+  maintainer:
+    type: ref
+    entity: kelston.media.signal_house
+    required: true
+    description: The signal house that keeps the post working.
+  channel:
+    type: vocab
+    vocabulary: kelston.vocab.signal_channel
+    required: true
+    description: The single channel this post carries.
+  reach_radius:
+    type: quantity
+    unit: meter
+    required: true
+    description: How far the post carries - earshot, sightline, or felt range.
+  commissioned_on:
+    type: date
+    description: The day the post first carried a dispatch.
+constraints:
+  - id: beacons_sit_high
+    description: A beacon light is read from the aerial lanes, so it sits at canopy or rooftop level.
+    when: { field: channel, op: eq, value: beacon_light }
+    check: { field: vertical_tier, op: in, value: [canopy, rooftop] }
+  - id: drum_lines_sit_low
+    description: A drum line is felt through the ground, so its station sits in the burrow tier.
+    when: { field: channel, op: eq, value: drum_line }
+    check: { field: vertical_tier, op: eq, value: burrow }

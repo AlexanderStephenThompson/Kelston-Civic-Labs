@@ -1,0 +1,22 @@
+vocabulary: kelston.vocab.utility_service
+version: 1.0.0
+description: >
+  The essential services the utilities sector delivers - power, water,
+  warmth, and the composting cycle that returns everything to the soil.
+ordered: false
+terms:
+  - code: solar_power
+    label: Solar power
+    description: Electricity from the rooftop and terrace solar arrays.
+  - code: hydro_power
+    label: Hydro power
+    description: Electricity from the mill races and river wheels.
+  - code: water_supply
+    label: Water supply
+    description: Clean water drawn, treated, and piped to homes and works.
+  - code: waste_composting
+    label: Waste composting
+    description: Collection and hot-composting of organic waste back into soil.
+  - code: heat_distribution
+    label: Heat distribution
+    description: Shared warmth piped to basking rooms and Frostlands homes.

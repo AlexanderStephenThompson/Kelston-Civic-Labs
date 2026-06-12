@@ -1,0 +1,76 @@
+# Taxonomy data for the care sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: care
+
+industries:
+  - id: IND-car-elder-care
+    conforms_to: kelston.core.industry@1.0.0
+    sector: care
+    name: Elder Care
+    description: Lodge and at-home support for elders of every lifespan band.
+  - id: IND-car-early-years
+    conforms_to: kelston.core.industry@1.0.0
+    sector: care
+    name: Early Years Care
+    description: Day dens and nest-minding for the town's youngest, in every band.
+  - id: IND-car-mutual-aid
+    conforms_to: kelston.core.industry@1.0.0
+    sector: care
+    name: Mutual Aid
+    description: Care circles, neighbor networks, and the coordination that keeps them going.
+  - id: IND-car-respite
+    conforms_to: kelston.core.industry@1.0.0
+    sector: care
+    name: Respite & Recovery Support
+    description: Short stays and stand-in care so family carers can rest.
+
+roles:
+  - id: ROL-car-lodge-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-elder-care
+    name: Lodge Keeper
+    description: Runs an elder lodge's days - meals, rhythms, and the comfort of the house.
+    required_capabilities: []
+  - id: ROL-car-elder-companion
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-elder-care
+    name: Elder Companion
+    description: Spends unhurried time with elders, paced to each lifespan band.
+    required_capabilities: []
+  - id: ROL-car-grooming-aide
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-elder-care
+    name: Grooming & Molt Aide
+    description: Helps with fur, feathers, and sheds that aging joints cannot reach.
+    required_capabilities: [fine_handling]
+  - id: ROL-car-den-minder
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-early-years
+    name: Den Minder
+    description: Minds the day den's littlest with warmth and an unflappable nose count.
+    required_capabilities: []
+  - id: ROL-car-night-den-minder
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-early-years
+    name: Night Den Minder
+    description: Minds the night-band den while nocturnal parents work.
+    required_capabilities: [night_work]
+  - id: ROL-car-circle-coordinator
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-mutual-aid
+    name: Circle Coordinator
+    description: Forms care circles, keeps their rosters honest, and fills the gaps.
+    required_capabilities: []
+  - id: ROL-car-burrow-visitor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-mutual-aid
+    name: Burrow Visitor
+    description: Carries visits and errands down into the warren-tier homes.
+    required_capabilities: [burrowing]
+  - id: ROL-car-respite-carer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-car-respite
+    name: Respite Carer
+    description: Steps in for a family carer so they can sleep, work, or simply breathe.
+    required_capabilities: []

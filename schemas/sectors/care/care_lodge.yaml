@@ -1,0 +1,44 @@
+schema: kelston.care.care_lodge
+version: 1.0.0
+status: stable
+title: Care Lodge
+description: >
+  An organization that gives daily support - an elder lodge, an early-years
+  day den, a respite house, a mutual-aid hall. Lodges are organizations
+  first; what this adds is who the house can truly hold and keep
+  comfortable, because care begins with a building that fits.
+extends: kelston.core.organization
+identity:
+  prefix: CLDG
+fields:
+  home_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The civic parcel the lodge stands on.
+  lifespan_bands_served:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.lifespan_band
+      description: A lifespan band the lodge is paced for.
+    description: >
+      The lifespan bands the lodge serves. Elder care is band-aware - a
+      brief-band shrew is an elder at twelve, a venerable tortoise at
+      ninety - and the lodge's rhythms are set accordingly.
+  clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the lodge's rooms and doorways admit.
+  climate_provisions:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.climate_provision
+      description: A climate provision the lodge maintains beyond ambient.
+    description: Climate provisions the lodge maintains, such as heated basking for ectotherm elders.
+  resident_capacity:
+    type: integer
+    description: How many citizens the lodge can host overnight; absent for day-only lodges.

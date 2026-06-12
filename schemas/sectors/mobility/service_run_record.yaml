@@ -1,0 +1,47 @@
+schema: kelston.mobility.service_run_record
+version: 1.0.0
+status: stable
+title: Service Run Record
+description: >
+  One completed run of one transit service - the unit the timetable is
+  audited against. Run records are how the town knows its night service
+  is real and its vehicles actually fit the riders who showed up.
+extends: kelston.core.civic_record
+identity:
+  prefix: SRUN
+fields:
+  operator:
+    type: ref
+    entity: kelston.mobility.transit_line_operator
+    required: true
+    description: The operator that ran the service.
+  run_on:
+    type: date
+    required: true
+    description: The day the run was made.
+  shift_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The band the run departed in.
+  passenger_count:
+    type: integer
+    required: true
+    description: How many riders boarded over the whole run.
+  largest_rider_size_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    description: The size class of the largest rider carried, for fit auditing.
+constraints:
+  - id: night_runs_need_a_night_operator
+    description: A run in the night band belongs to an operator that offers night service.
+    when: { field: shift_band, op: eq, value: night }
+    check: { field: operator.has_night_service, op: eq, value: true }
+  - id: riders_fit_the_fleet
+    description: The largest rider carried never exceeds the fleet's clearance class.
+    when: { field: largest_rider_size_class, op: present }
+    check:
+      field: largest_rider_size_class
+      op: lte
+      other_field: operator.fleet_clearance_class
+      vocabulary: kelston.vocab.size_class

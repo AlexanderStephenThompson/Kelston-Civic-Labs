@@ -1,0 +1,81 @@
+# Taxonomy data for the environment sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: environment
+
+industries:
+  - id: IND-environment-wetlands
+    conforms_to: kelston.core.industry@1.0.0
+    sector: environment
+    name: Wetland Stewardship
+    description: Tending the marshes, fens, and reed beds that filter the town's water.
+  - id: IND-environment-canopy-survey
+    conforms_to: kelston.core.industry@1.0.0
+    sector: environment
+    name: Canopy Survey
+    description: Watching the standing forests from the branches up.
+  - id: IND-environment-waterways
+    conforms_to: kelston.core.industry@1.0.0
+    sector: environment
+    name: River & Shore Stewardship
+    description: Keeping the river corridors and tidal shores healthy end to end.
+  - id: IND-environment-drylands
+    conforms_to: kelston.core.industry@1.0.0
+    sector: environment
+    name: Dryland & Highland Care
+    description: Holding the dunes and tending the fragile alpine meadows.
+  - id: IND-environment-records
+    conforms_to: kelston.core.industry@1.0.0
+    sector: environment
+    name: Survey Records & Planning
+    description: Turning surveys into condition records, care plans, and the wild census.
+
+roles:
+  - id: ROL-environment-wetland-steward
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-wetlands
+    name: Wetland Steward
+    description: Works the marsh edge - reed cutting, channel clearing, nest watching.
+    required_capabilities: [swimming]
+  - id: ROL-environment-canopy-surveyor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-canopy-survey
+    name: Canopy Surveyor
+    description: Climbs the survey routes and reads the crown's health up close.
+    required_capabilities: [climbing]
+  - id: ROL-environment-overflight-spotter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-canopy-survey
+    name: Overflight Spotter
+    description: Flies the wide transects that no ground survey can cover.
+    required_capabilities: [flight]
+  - id: ROL-environment-river-walker
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-waterways
+    name: River Walker
+    description: Surveys a river corridor bank to bank, season after season.
+    required_capabilities: []
+  - id: ROL-environment-tidepool-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-waterways
+    name: Tidepool Warden
+    description: Works the tidal shore between the tides, pool by pool.
+    required_capabilities: [swimming]
+  - id: ROL-environment-dune-holder
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-drylands
+    name: Dune Holder
+    description: Plants and tends the deep-rooted pioneers that hold the sand.
+    required_capabilities: [burrowing]
+  - id: ROL-environment-night-census-taker
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-records
+    name: Night Census Taker
+    description: Counts the wild residents who are only awake after dark.
+    required_capabilities: [night_work]
+  - id: ROL-environment-survey-recorder
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-environment-records
+    name: Survey Recorder
+    description: Keeps the survey ledger and drafts the care plans it calls for.
+    required_capabilities: []

@@ -1,0 +1,45 @@
+schema: kelston.finance.ledger_entry
+version: 1.0.0
+status: stable
+title: Kelmark Ledger Entry
+description: >
+  One movement of kelmarks on the credit union's books - a deposit, a
+  loan, a pool contribution or payout. Extends the civic record, so the
+  town's money sits on the same event spine as everything else it does.
+extends: kelston.core.civic_record
+identity:
+  prefix: LGR
+fields:
+  union:
+    type: ref
+    entity: kelston.finance.credit_union
+    required: true
+    description: The credit union whose books carry the entry.
+  member:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The member whose account the entry moves.
+  entry_kind:
+    type: vocab
+    vocabulary: kelston.vocab.kelmark_entry_kind
+    required: true
+    description: What kind of movement this entry records.
+  amount:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: Kelmarks moved by the entry, always a positive number.
+  pool:
+    type: ref
+    entity: kelston.finance.mutual_pool
+    description: The mutual pool involved, for contribution and payout entries.
+constraints:
+  - id: pool_payouts_name_their_pool
+    description: A pool payout always says which pool it drew from.
+    when: { field: entry_kind, op: eq, value: pool_payout }
+    check: { field: pool, op: present }
+  - id: pool_contributions_name_their_pool
+    description: A pool contribution always says which pool it paid into.
+    when: { field: entry_kind, op: eq, value: pool_contribution }
+    check: { field: pool, op: present }

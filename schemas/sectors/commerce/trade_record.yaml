@@ -1,0 +1,40 @@
+schema: kelston.commerce.trade_record
+version: 1.0.0
+status: stable
+title: Trade Record
+description: >
+  One completed exchange at a market stall - goods handed over, kelmarks
+  settled. Extends the civic record, so every trade sits on the same event
+  spine as harvests, permits, and the rest of the town's day.
+extends: kelston.core.civic_record
+identity:
+  prefix: TRD
+fields:
+  stall:
+    type: ref
+    entity: kelston.commerce.market_stall
+    required: true
+    description: The stall where the exchange took place.
+  seller:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The organization that sold the goods.
+  buyer:
+    type: ref
+    entity: kelston.core.citizen
+    description: The citizen who bought, when the trade was signed rather than anonymous.
+  goods_description:
+    type: text
+    required: true
+    description: Plain words for what changed hands.
+  settled_price:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: The total settled for the trade, in kelmarks.
+  traded_during:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band the trade was struck in.

@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.habitat_condition
+version: 1.0.0
+description: >
+  How a surveyed habitat is faring, from failing to thriving. Ordered, so
+  stewardship plans can compare surveys mechanically - a reserve that drops
+  a band triggers a follow-up by rule, not by memory.
+ordered: true
+terms:
+  - code: failing
+    label: Failing
+    description: Core habitat function is breaking down; immediate intervention needed.
+  - code: strained
+    label: Strained
+    description: Under visible pressure - declining cover, water, or wild residents.
+  - code: stable
+    label: Stable
+    description: Holding steady; routine stewardship is enough.
+  - code: thriving
+    label: Thriving
+    description: Rich, regenerating, and full of wild residents.

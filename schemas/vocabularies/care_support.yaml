@@ -1,0 +1,32 @@
+vocabulary: kelston.vocab.care_support
+version: 1.0.0
+description: >
+  The kinds of help a care circle or lodge provides. Species-honest by
+  design - basking watches and hibernation checks are real care work in
+  Kelston, recorded alongside meals and errands.
+ordered: false
+terms:
+  - code: daily_visits
+    label: Daily visits
+    description: A regular knock and a look-in, the backbone of mutual aid.
+  - code: shared_meals
+    label: Shared meals
+    description: Cooking, delivering, or eating together so nobody dines alone.
+  - code: mobility_escort
+    label: Mobility escort
+    description: Company and steadying help on errands, transit, and stairs or ramps.
+  - code: grooming_and_molt_care
+    label: Grooming and molt care
+    description: Help with fur, feathers, and sheds that aging paws cannot reach.
+  - code: basking_watch
+    label: Basking watch
+    description: Checking that an ectotherm elder's warm spots are working and used.
+  - code: hibernation_check
+    label: Hibernation check
+    description: Scheduled look-ins on a citizen in seasonal torpor.
+  - code: errand_running
+    label: Errand running
+    description: Fetching groceries, post, and prescriptions on someone's behalf.
+  - code: companionship
+    label: Companionship
+    description: Time spent together for its own sake - the oldest medicine.

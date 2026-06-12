@@ -1,0 +1,82 @@
+# Taxonomy data for the education sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: education
+
+industries:
+  - id: IND-edu-early-learning
+    conforms_to: kelston.core.industry@1.0.0
+    sector: education
+    name: Early Learning
+    description: The dens and nest-rooms where the youngest citizens learn to learn.
+  - id: IND-edu-lyceum
+    conforms_to: kelston.core.industry@1.0.0
+    sector: education
+    name: Primary & Lyceum
+    description: The shared foundation and broad upper study every citizen passes through.
+  - id: IND-edu-guild-training
+    conforms_to: kelston.core.industry@1.0.0
+    sector: education
+    name: Guild Training
+    description: Trade apprenticeships taught at the bench, the plot, and the waterline.
+  - id: IND-edu-lifelong
+    conforms_to: kelston.core.industry@1.0.0
+    sector: education
+    name: Lifelong Learning
+    description: Open courses, the lending library, and study circles in every band.
+
+roles:
+  - id: ROL-edu-den-teacher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-early-learning
+    name: Den Teacher
+    description: Teaches the early years through play, patience, and snack time.
+    required_capabilities: []
+  - id: ROL-edu-night-den-teacher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-early-learning
+    name: Night Den Teacher
+    description: Runs the night-band den so nocturnal pups learn wide awake.
+    required_capabilities: [night_work]
+  - id: ROL-edu-lyceum-instructor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-lyceum
+    name: Lyceum Instructor
+    description: Teaches the broad upper courses and helps learners find their path.
+    required_capabilities: []
+  - id: ROL-edu-pacing-counselor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-lyceum
+    name: Pacing Counselor
+    description: Fits each learner's course load to their lifespan band and their life.
+    required_capabilities: []
+  - id: ROL-edu-guild-master
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-guild-training
+    name: Guild Master
+    description: Teaches a trade by doing it alongside the apprentices.
+    required_capabilities: []
+  - id: ROL-edu-canopy-instructor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-guild-training
+    name: Canopy Craft Instructor
+    description: Teaches canopy framing and high work where the high work happens.
+    required_capabilities: [climbing]
+  - id: ROL-edu-swim-instructor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-guild-training
+    name: Swim-Way Instructor
+    description: Teaches water safety and shoreline trades from in the water.
+    required_capabilities: [swimming]
+  - id: ROL-edu-librarian
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-lifelong
+    name: Librarian
+    description: Keeps the lending library and finds the right book for the right paw.
+    required_capabilities: []
+  - id: ROL-edu-circle-host
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-edu-lifelong
+    name: Study Circle Host
+    description: Convenes open study circles in whichever band the circle keeps.
+    required_capabilities: []

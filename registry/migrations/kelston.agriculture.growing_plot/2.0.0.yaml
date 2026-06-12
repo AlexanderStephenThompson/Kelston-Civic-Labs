@@ -1,0 +1,29 @@
+# Migration: growing_plot 1.x -> 2.0.0
+#
+# The 2.0.0 standard renamed `keeper` to `steward` (the town-wide word for
+# the responsible citizen), split drainage behavior out of the combined 1.x
+# soil codes into its own drainage_class field, and simplified soil_class
+# to pure texture classes.
+#
+# Operation order matters: drainage is derived from the LEGACY soil codes,
+# so derive_field runs before map_vocab rewrites them.
+
+migration:
+  schema: kelston.agriculture.growing_plot
+  from: ">=1.0.0 <2.0.0"
+  to: 2.0.0
+  summary: >
+    Renamed keeper to steward; split soil_class into soil_class (texture)
+    plus drainage_class (water behavior).
+
+operations:
+  - rename_field: { from: keeper, to: steward }
+  - derive_field:
+      name: drainage_class
+      using: python:agriculture.derive_drainage_from_legacy_soil
+  - map_vocab:
+      field: soil_class
+      mapping:
+        loam_wet: loam
+        loam_dry: loam
+        clay_heavy: clay

@@ -1,0 +1,37 @@
+schema: kelston.recreation.parks_trust
+version: 1.0.0
+status: stable
+title: Parks Trust
+description: >
+  An organization that keeps recreation grounds for everyone - the commons
+  greens, the swim-ways, the climbing groves, the glide parks. Trusts are
+  organizations first, so the registry already knows their realm, staff,
+  and hours.
+extends: kelston.core.organization
+identity:
+  prefix: TRST
+fields:
+  grounds_count:
+    type: integer
+    required: true
+    description: Number of distinct grounds the trust keeps.
+  maintained_area:
+    type: quantity
+    unit: hectare
+    required: true
+    description: Combined area under the trust's care.
+  open_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band during which the trust's grounds are open and watched.
+    description: >
+      The shift bands during which the grounds are open and watched - the
+      glide parks open at dawn, the basking grounds run through the day,
+      the night greens stay lit for the nocturnal.
+  includes_rescue_watch:
+    type: boolean
+    default: false
+    description: Whether the trust staffs its own water and cliff rescue watch.

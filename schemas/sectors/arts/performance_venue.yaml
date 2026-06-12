@@ -1,0 +1,45 @@
+schema: kelston.arts.performance_venue
+version: 1.0.0
+status: stable
+title: Performance Venue
+description: >
+  A place built for showing art - a commons amphitheater, a canopy stage,
+  a shoreline hall with a submerged gallery. Venues declare what bodies
+  they seat, because a show no grand-class neighbor can attend is only
+  half a show.
+extends: kelston.core.place
+identity:
+  prefix: VNUE
+fields:
+  steward_organization:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The organization that keeps and books the venue.
+  stage_area:
+    type: quantity
+    unit: square_meter
+    required: true
+    description: Performable stage surface.
+  seat_count:
+    type: integer
+    required: true
+    description: Audience places across all galleries and perches.
+  audience_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the house can seat comfortably.
+  has_aerial_perches:
+    type: boolean
+    default: false
+    description: Whether the house keeps perch galleries for flighted audiences.
+  has_submerged_gallery:
+    type: boolean
+    default: false
+    description: Whether the house keeps a swim-in gallery below the waterline.
+constraints:
+  - id: aerial_perches_need_headroom
+    description: A house with perch galleries cannot itself sit in the burrow tier.
+    when: { field: has_aerial_perches, op: eq, value: true }
+    check: { field: vertical_tier, op: ne, value: burrow }

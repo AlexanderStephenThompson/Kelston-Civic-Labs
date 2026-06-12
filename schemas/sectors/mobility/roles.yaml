@@ -1,0 +1,93 @@
+# Taxonomy data for the mobility sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: mobility
+
+industries:
+  - id: IND-mobility-tramways
+    conforms_to: kelston.core.industry@1.0.0
+    sector: mobility
+    name: Tramways
+    description: Ground-tier and micro-gauge tram lines and the depots that keep them rolling.
+  - id: IND-mobility-waterways
+    conforms_to: kelston.core.industry@1.0.0
+    sector: mobility
+    name: Waterways
+    description: Ferries and tended swim lines along the Shorelines and rivers.
+  - id: IND-mobility-aerial-lanes
+    conforms_to: kelston.core.industry@1.0.0
+    sector: mobility
+    name: Aerial Lanes
+    description: Charted glideways and the perch stations that anchor them.
+  - id: IND-mobility-burrow-transit
+    conforms_to: kelston.core.industry@1.0.0
+    sector: mobility
+    name: Burrow Transit
+    description: Shuttle tunnels and warren connections of the burrow tier.
+  - id: IND-mobility-planning
+    conforms_to: kelston.core.industry@1.0.0
+    sector: mobility
+    name: Transit Planning & Timetables
+    description: Network design, timetabling across shift bands, and accessibility auditing.
+
+roles:
+  - id: ROL-mobility-tram-driver
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-tramways
+    name: Tram Driver
+    description: Drives a scheduled tram service and signs its run records.
+    required_capabilities: []
+  - id: ROL-mobility-micro-tram-fitter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-tramways
+    name: Micro-Tram Fitter
+    description: Maintains the small-gauge fleet with tiny-scale precision.
+    required_capabilities: [fine_handling]
+  - id: ROL-mobility-ferry-pilot
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-waterways
+    name: Ferry Pilot
+    description: Pilots harbor and river ferries between landings.
+    required_capabilities: []
+  - id: ROL-mobility-swim-line-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-waterways
+    name: Swim-Line Warden
+    description: Patrols and tends the underwater commuter routes.
+    required_capabilities: [swimming]
+  - id: ROL-mobility-glideway-marshal
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-aerial-lanes
+    name: Glideway Marshal
+    description: Keeps the aerial lanes ordered and guides arrivals onto the perches.
+    required_capabilities: [flight]
+  - id: ROL-mobility-perch-station-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-aerial-lanes
+    name: Perch Station Keeper
+    description: Runs a canopy or rooftop perch station through its open bands.
+    required_capabilities: [climbing]
+  - id: ROL-mobility-burrow-shuttle-driver
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-burrow-transit
+    name: Burrow Shuttle Driver
+    description: Runs the below-ground shuttles through the warren tunnels.
+    required_capabilities: [burrowing]
+  - id: ROL-mobility-night-line-driver
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-tramways
+    name: Night Line Driver
+    description: Drives the night-band services that carry nocturnal commuters.
+    required_capabilities: [night_work]
+  - id: ROL-mobility-timetable-planner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-planning
+    name: Timetable Planner
+    description: Builds the timetables that keep every shift band connected.
+    required_capabilities: []
+  - id: ROL-mobility-accessibility-auditor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-mobility-planning
+    name: Accessibility Auditor
+    description: Measures stops and vehicles against the clearance and provision standards.
+    required_capabilities: []

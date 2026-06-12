@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.study_field
+version: 1.0.0
+description: >
+  The fields of study Kelston's research institutes work in. The town
+  studies what it lives with - its soils, skies, waters, citizens, and
+  the standards that hold it all together.
+ordered: false
+terms:
+  - code: soils_and_growing
+    label: Soils and growing
+    description: Soil science, crop trials, and everything the soils lab tests.
+  - code: weather_and_sky
+    label: Weather and sky
+    description: Forecasting, the observatory's night work, and aerial-lane conditions.
+  - code: waters_and_wetlands
+    label: Waters and wetlands
+    description: Stream health, shoreline change, and the submerged commons.
+  - code: species_wellbeing
+    label: Species wellbeing
+    description: How housing, scheduling, and care actually serve each species.
+  - code: materials_and_craft
+    label: Materials and craft
+    description: Timbers, fibers, ceramics, and the testing that keeps builds honest.
+  - code: standards_research
+    label: Standards research
+    description: Studying the town's own schemas and vocabularies so they keep fitting life.

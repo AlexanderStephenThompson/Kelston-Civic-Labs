@@ -1,0 +1,76 @@
+# Taxonomy data for the commerce sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: commerce
+
+industries:
+  - id: IND-commerce-shopkeeping
+    conforms_to: kelston.core.industry@1.0.0
+    sector: commerce
+    name: Shopkeeping
+    description: Storefront trade in every realm, from tiny-nook counters to grand-clearance emporiums.
+  - id: IND-commerce-market-halls
+    conforms_to: kelston.core.industry@1.0.0
+    sector: commerce
+    name: Market Halls
+    description: Running the covered trading floors - stalls, pitch rosters, and floor order.
+  - id: IND-commerce-night-trade
+    conforms_to: kelston.core.industry@1.0.0
+    sector: commerce
+    name: Night Trade
+    description: The Drylands night markets and every after-dark counter in town.
+  - id: IND-commerce-provisioning
+    conforms_to: kelston.core.industry@1.0.0
+    sector: commerce
+    name: Provisioning & Wholesale
+    description: Bulk buying, warehousing, and supplying the shops and stalls.
+
+roles:
+  - id: ROL-commerce-shopkeeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-shopkeeping
+    name: Shopkeeper
+    description: Keeps a storefront stocked, priced, and welcoming through its trading bands.
+    required_capabilities: []
+  - id: ROL-commerce-nook-trader
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-shopkeeping
+    name: Nook Trader
+    description: Runs the micro-scale counters built for tiny-class customers and wares.
+    required_capabilities: [fine_handling]
+  - id: ROL-commerce-hall-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-market-halls
+    name: Hall Warden
+    description: Assigns stalls, keeps the floor orderly, and settles pitch disputes.
+    required_capabilities: []
+  - id: ROL-commerce-stall-holder
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-market-halls
+    name: Stall Holder
+    description: Trades from a pitch on a hall floor, week in and week out.
+    required_capabilities: []
+  - id: ROL-commerce-under-market-trader
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-market-halls
+    name: Under-Market Trader
+    description: Works the burrow-level stalls beneath the hall floors.
+    required_capabilities: [burrowing]
+  - id: ROL-commerce-night-stallkeeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-night-trade
+    name: Night Stallkeeper
+    description: Trades the night-band floors where the Drylands markets peak.
+    required_capabilities: [night_work]
+  - id: ROL-commerce-provisioner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-provisioning
+    name: Provisioner
+    description: Buys in bulk and keeps the shops and stalls supplied between market days.
+    required_capabilities: []
+  - id: ROL-commerce-freight-hand
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-commerce-provisioning
+    name: Freight Hand
+    description: Moves the heavy crates and barrels through the warehouse rows.
+    required_capabilities: [heavy_handling]

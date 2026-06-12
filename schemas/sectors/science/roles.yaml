@@ -1,0 +1,82 @@
+# Taxonomy data for the science sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: science
+
+industries:
+  - id: IND-sci-observation
+    conforms_to: kelston.core.industry@1.0.0
+    sector: science
+    name: Observation & Sky Watch
+    description: The observatory, the weather masts, and the long patient watches.
+  - id: IND-sci-field-survey
+    conforms_to: kelston.core.industry@1.0.0
+    sector: science
+    name: Field Survey
+    description: Stations and rounds that measure soils, waters, and the wild edges.
+  - id: IND-sci-laboratory
+    conforms_to: kelston.core.industry@1.0.0
+    sector: science
+    name: Laboratory Science
+    description: Bench work - samples in, careful numbers out.
+  - id: IND-sci-standards
+    conforms_to: kelston.core.industry@1.0.0
+    sector: science
+    name: Standards Research
+    description: Studying whether the town's schemas and guarantees still fit life as lived.
+
+roles:
+  - id: ROL-sci-sky-watcher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-observation
+    name: Sky Watcher
+    description: Works the observatory dome through the night band, when the sky is honest.
+    required_capabilities: [night_work]
+  - id: ROL-sci-weather-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-observation
+    name: Weather Keeper
+    description: Reads the masts and posts the forecast every citizen plans around.
+    required_capabilities: []
+  - id: ROL-sci-canopy-surveyor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-field-survey
+    name: Canopy Surveyor
+    description: Works the high stations - masts, perch counts, and crown health.
+    required_capabilities: [climbing]
+  - id: ROL-sci-waters-surveyor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-field-survey
+    name: Waters Surveyor
+    description: Tends the stream gauges and kelp frames from in the water.
+    required_capabilities: [swimming]
+  - id: ROL-sci-soils-surveyor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-field-survey
+    name: Soils Surveyor
+    description: Cores, samples, and reads the ground from inside it.
+    required_capabilities: [burrowing]
+  - id: ROL-sci-laboratory-analyst
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-laboratory
+    name: Laboratory Analyst
+    description: Turns field samples into careful, repeatable numbers at the bench.
+    required_capabilities: [fine_handling]
+  - id: ROL-sci-instrument-wright
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-laboratory
+    name: Instrument Wright
+    description: Builds and calibrates the gauges, scopes, and scales everyone trusts.
+    required_capabilities: [fine_handling]
+  - id: ROL-sci-standards-researcher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-standards
+    name: Standards Researcher
+    description: Tests the town's schemas against lived experience and files what breaks.
+    required_capabilities: []
+  - id: ROL-sci-records-statistician
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-sci-standards
+    name: Records Statistician
+    description: Reads the civic event spine for patterns the town should know about.
+    required_capabilities: []

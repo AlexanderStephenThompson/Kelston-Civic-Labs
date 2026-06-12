@@ -1,0 +1,76 @@
+# Taxonomy data for the utilities sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: utilities
+
+industries:
+  - id: IND-utilities-power
+    conforms_to: kelston.core.industry@1.0.0
+    sector: utilities
+    name: Power Generation
+    description: The solar terraces, mill races, and the grid that ties them together.
+  - id: IND-utilities-water
+    conforms_to: kelston.core.industry@1.0.0
+    sector: utilities
+    name: Water Works
+    description: Drawing, treating, and piping clean water to every home and works.
+  - id: IND-utilities-waste
+    conforms_to: kelston.core.industry@1.0.0
+    sector: utilities
+    name: Waste & Composting
+    description: Collection rounds and the hot-composting yards that close the soil loop.
+  - id: IND-utilities-heat
+    conforms_to: kelston.core.industry@1.0.0
+    sector: utilities
+    name: Heat Distribution
+    description: Shared warmth piped to basking rooms, greenhouses, and Frostlands homes.
+
+roles:
+  - id: ROL-utilities-solar-terrace-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-power
+    name: Solar Terrace Keeper
+    description: Cleans, angles, and reads the rooftop and terrace arrays.
+    required_capabilities: [climbing]
+  - id: ROL-utilities-mill-wright
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-power
+    name: Mill Wright
+    description: Keeps the river wheels and mill races turning in every season.
+    required_capabilities: []
+  - id: ROL-utilities-intake-diver
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-water
+    name: Intake Diver
+    description: Inspects and clears the submerged intakes and screens.
+    required_capabilities: [swimming]
+  - id: ROL-utilities-pipe-fitter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-water
+    name: Pipe Fitter
+    description: Lays and mends the water mains, above ground and below.
+    required_capabilities: [burrowing]
+  - id: ROL-utilities-meter-reader
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-water
+    name: Meter Reader
+    description: Walks the rounds and signs the meter reading records.
+    required_capabilities: []
+  - id: ROL-utilities-compost-master
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-waste
+    name: Compost Master
+    description: Builds and turns the hot piles that give waste back to the soil.
+    required_capabilities: [heavy_handling]
+  - id: ROL-utilities-night-collection-runner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-waste
+    name: Night Collection Runner
+    description: Runs the quiet night-band collection rounds through the realms.
+    required_capabilities: [night_work]
+  - id: ROL-utilities-heat-line-tender
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-utilities-heat
+    name: Heat Line Tender
+    description: Balances the warmth lines so every basking room gets its share.
+    required_capabilities: []

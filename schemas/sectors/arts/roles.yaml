@@ -1,0 +1,82 @@
+# Taxonomy data for the arts sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: arts
+
+industries:
+  - id: IND-arts-performance
+    conforms_to: kelston.core.industry@1.0.0
+    sector: arts
+    name: Performance
+    description: Theater, music, dance, and storytelling on the town's stages.
+  - id: IND-arts-venues
+    conforms_to: kelston.core.industry@1.0.0
+    sector: arts
+    name: Venues & Stagecraft
+    description: Keeping the houses, rigging the stages, and seating every size class.
+  - id: IND-arts-archives
+    conforms_to: kelston.core.industry@1.0.0
+    sector: arts
+    name: Cultural Archives
+    description: Collecting and keeping the town's works, scores, and festival lore.
+  - id: IND-arts-festival-craft
+    conforms_to: kelston.core.industry@1.0.0
+    sector: arts
+    name: Festival Craft
+    description: Lanterns, floats, costumes, and the seasonal spectacles of every realm.
+
+roles:
+  - id: ROL-arts-performer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-performance
+    name: Performer
+    description: Acts, plays, dances, or tells on the town's stages.
+    required_capabilities: []
+  - id: ROL-arts-aerial-dancer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-performance
+    name: Aerial Dancer
+    description: Performs the flight displays above the amphitheater bowls.
+    required_capabilities: [flight]
+  - id: ROL-arts-swim-balladeer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-performance
+    name: Swim Balladeer
+    description: Performs in the submerged galleries of the shoreline halls.
+    required_capabilities: [swimming]
+  - id: ROL-arts-night-chorister
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-performance
+    name: Night Chorister
+    description: Sings the night-band programs for the nocturnal house.
+    required_capabilities: [night_work]
+  - id: ROL-arts-house-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-venues
+    name: House Keeper
+    description: Runs a venue's bookings, doors, and seating across every gallery.
+    required_capabilities: []
+  - id: ROL-arts-canopy-rigger
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-venues
+    name: Canopy Rigger
+    description: Rigs the high stages, perch galleries, and lantern lines.
+    required_capabilities: [climbing]
+  - id: ROL-arts-archivist
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-archives
+    name: Archivist
+    description: Catalogs scores, scripts, and festival records for the town's memory.
+    required_capabilities: []
+  - id: ROL-arts-instrument-fitter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-festival-craft
+    name: Instrument Fitter
+    description: Builds and adjusts instruments across the size-class ranges, paw to wing.
+    required_capabilities: [fine_handling]
+  - id: ROL-arts-float-wright
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-arts-festival-craft
+    name: Float Wright
+    description: Frames and hauls the grand festival floats down the parade ways.
+    required_capabilities: [heavy_handling]

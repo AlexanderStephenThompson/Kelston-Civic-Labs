@@ -1,0 +1,82 @@
+# Taxonomy data for the health sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: health
+
+industries:
+  - id: IND-hlt-clinical-care
+    conforms_to: kelston.core.industry@1.0.0
+    sector: health
+    name: Clinical Care
+    description: Diagnosis and treatment at the clinics and the realm infirmary.
+  - id: IND-hlt-preventive
+    conforms_to: kelston.core.industry@1.0.0
+    sector: health
+    name: Preventive & Community Health
+    description: Checkups, screenings, and the outreach rounds that catch trouble early.
+  - id: IND-hlt-species-medicine
+    conforms_to: kelston.core.industry@1.0.0
+    sector: health
+    name: Species Medicine
+    description: The specialist crafts - molt and shed care, beak and dental work, hibernation medicine.
+  - id: IND-hlt-apothecary
+    conforms_to: kelston.core.industry@1.0.0
+    sector: health
+    name: Apothecary & Remedies
+    description: Compounding, dosing by size class, and the herb gardens behind the dispensary.
+
+roles:
+  - id: ROL-hlt-clinician
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-clinical-care
+    name: Clinician
+    description: Sees patients, leads care plans, and signs the visit records.
+    required_capabilities: []
+  - id: ROL-hlt-night-clinician
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-clinical-care
+    name: Night Clinician
+    description: Holds the night-band surgery so nocturnal patients are seen wide awake.
+    required_capabilities: [night_work]
+  - id: ROL-hlt-aquatic-therapist
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-clinical-care
+    name: Aquatic Therapist
+    description: Runs recovery sessions in the swim treatment pools, in the water with the patient.
+    required_capabilities: [swimming]
+  - id: ROL-hlt-rounds-nurse
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-preventive
+    name: Rounds Nurse
+    description: Walks the outreach rounds, doing checkups where citizens actually live.
+    required_capabilities: []
+  - id: ROL-hlt-canopy-rounds-nurse
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-preventive
+    name: Canopy Rounds Nurse
+    description: Carries the rounds up to the aeries and canopy homes.
+    required_capabilities: [flight]
+  - id: ROL-hlt-molt-specialist
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-species-medicine
+    name: Molt & Shed Specialist
+    description: Sees citizens through difficult molts and sheds with steady, gentle hands.
+    required_capabilities: [fine_handling]
+  - id: ROL-hlt-hibernation-physician
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-species-medicine
+    name: Hibernation Physician
+    description: Prepares patients for torpor and watches over them until spring.
+    required_capabilities: []
+  - id: ROL-hlt-apothecary
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-apothecary
+    name: Apothecary
+    description: Compounds remedies and doses honestly across five size classes.
+    required_capabilities: [fine_handling]
+  - id: ROL-hlt-dispensary-runner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-hlt-apothecary
+    name: Dispensary Runner
+    description: Delivers prescriptions to homebound patients in every realm and band.
+    required_capabilities: []

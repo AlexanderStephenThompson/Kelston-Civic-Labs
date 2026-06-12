@@ -1,0 +1,38 @@
+schema: kelston.finance.credit_union
+version: 1.0.0
+status: stable
+title: Credit Union
+description: >
+  A member-owned organization that keeps kelmark accounts, makes loans
+  from its shared reserve, and stewards the mutual pools. Credit unions
+  are organizations first, so the registry already knows their realm,
+  industry, and hours.
+extends: kelston.core.organization
+identity:
+  prefix: CRU
+fields:
+  member_count:
+    type: integer
+    required: true
+    description: Number of citizens holding membership shares.
+  reserve_balance:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: Kelmarks held in the union's common reserve.
+  member_lending_limit:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: The most any one member may have on loan at once, in kelmarks.
+  includes_insurance_pools:
+    type: boolean
+    default: true
+    description: Whether the union stewards mutual pools alongside its accounts.
+constraints:
+  - id: lending_limit_within_reserve
+    description: No single member's lending limit exceeds the common reserve itself.
+    check:
+      field: member_lending_limit
+      op: lte
+      other_field: reserve_balance

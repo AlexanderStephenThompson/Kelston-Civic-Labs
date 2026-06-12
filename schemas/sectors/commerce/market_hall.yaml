@@ -1,0 +1,43 @@
+schema: kelston.commerce.market_hall
+version: 1.0.0
+status: stable
+title: Market Hall
+description: >
+  An organization that runs a covered trading floor - a commons exchange,
+  a shoreline fish hall, or a Drylands night market. Market halls are
+  organizations first, so staffing and registry queries already understand
+  them; the hall's stalls are places of their own.
+extends: kelston.core.organization
+identity:
+  prefix: MKTH
+fields:
+  home_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The parcel the hall stands on.
+  stall_count:
+    type: integer
+    required: true
+    description: Number of tradeable stalls on the hall's floor plan.
+  trading_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band during which the floor is open for trade.
+    description: The shift bands during which the floor is open for trade.
+  is_night_market:
+    type: boolean
+    default: false
+    description: Whether this hall is one of the night markets, peaking after dark.
+  has_burrow_level:
+    type: boolean
+    default: false
+    description: Whether the hall keeps an under-market level for burrow-tier trade.
+constraints:
+  - id: night_markets_trade_in_the_night_band
+    description: A night market's floor is open through the night band, by definition.
+    when: { field: is_night_market, op: eq, value: true }
+    check: { field: trading_bands, op: contains, value: night }

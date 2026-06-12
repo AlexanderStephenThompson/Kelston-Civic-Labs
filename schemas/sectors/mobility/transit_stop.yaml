@@ -1,0 +1,59 @@
+schema: kelston.mobility.transit_stop
+version: 1.0.0
+status: stable
+title: Transit Stop
+description: >
+  A named place where citizens board and leave a transit service - a tram
+  halt, a ferry landing, a glideway perch station, a burrow shuttle mouth.
+  A stop's accessibility is plain data, so route planning can promise a
+  citizen every stop on the way actually fits them.
+extends: kelston.core.place
+identity:
+  prefix: STOP
+fields:
+  operator:
+    type: ref
+    entity: kelston.mobility.transit_line_operator
+    required: true
+    description: The operator whose service calls at this stop.
+  mode:
+    type: vocab
+    vocabulary: kelston.vocab.transit_mode
+    required: true
+    description: The transit mode served at this stop.
+  boarding_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: >
+      The largest size class that can board here comfortably - platform
+      height, gate width, and headroom all measured in.
+  served_shift_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band during which services call here.
+    description: The shift bands during which services call at this stop.
+  has_heated_waiting_room:
+    type: boolean
+    default: false
+    description: Whether the stop offers a warmed waiting room for ectotherm riders.
+  has_landing_perch:
+    type: boolean
+    default: false
+    description: Whether the stop has a landing perch for flighted arrivals.
+  has_water_boarding:
+    type: boolean
+    default: false
+    description: Whether riders can board directly from the water here.
+constraints:
+  - id: glideway_stops_sit_aloft
+    description: A glideway stop is a perch station, up at the canopy or rooftop tier.
+    when: { field: mode, op: eq, value: aerial_glideway }
+    check: { field: vertical_tier, op: in, value: [canopy, rooftop] }
+  - id: water_modes_board_from_the_water
+    description: Ferry landings and swim-line stops let riders board from the water.
+    when: { field: mode, op: in, value: [ferry, swim_line] }
+    check: { field: has_water_boarding, op: eq, value: true }

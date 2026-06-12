@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.kelmark_entry_kind
+version: 1.0.0
+description: >
+  The kinds of movement a kelmark ledger entry can record at the credit
+  union. Entry kinds are a closed list so the town's books always balance
+  by category, not by free-text guesswork.
+ordered: false
+terms:
+  - code: deposit
+    label: Deposit
+    description: Kelmarks placed into a member's account for safekeeping.
+  - code: withdrawal
+    label: Withdrawal
+    description: Kelmarks drawn out of a member's account.
+  - code: loan_advance
+    label: Loan advance
+    description: Kelmarks lent to a member from the union's reserve.
+  - code: loan_repayment
+    label: Loan repayment
+    description: Kelmarks returned by a member against an outstanding loan.
+  - code: pool_contribution
+    label: Pool contribution
+    description: A member's regular share paid into a mutual pool.
+  - code: pool_payout
+    label: Pool payout
+    description: Kelmarks paid out of a mutual pool to a member in need.

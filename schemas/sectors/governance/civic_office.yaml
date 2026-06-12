@@ -1,0 +1,40 @@
+schema: kelston.governance.civic_office
+version: 1.0.0
+status: stable
+title: Civic Office
+description: >
+  An organization that does the town's public business - the registry of
+  record, the assembly secretariat, the standards office. Offices are
+  organizations first, so staffing and registry queries already understand
+  them; what this adds is jurisdiction and the promise of a staffed counter.
+extends: kelston.core.organization
+identity:
+  prefix: CVOF
+fields:
+  mandate:
+    type: text
+    required: true
+    description: One plain sentence on what this office is charged to do.
+  jurisdiction_realms:
+    type: list
+    required: true
+    items:
+      type: ref
+      entity: kelston.core.realm
+      description: A realm this office serves.
+    description: The realms this office serves; every realm appears in some office's list.
+  public_counter_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band when the public counter is staffed.
+    description: >
+      The shift bands when the public counter is staffed. Offices spread
+      their counters across bands so a nocturnal citizen is served in their
+      own hours, not asked to fight their biology for a permit.
+  is_registry_authority:
+    type: boolean
+    default: false
+    description: Whether this office may issue and amend records of the civic registry.

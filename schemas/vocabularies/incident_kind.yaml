@@ -1,0 +1,25 @@
+vocabulary: kelston.vocab.incident_kind
+version: 1.0.0
+description: >
+  The kinds of event the safety sector responds to and records. One shared
+  list keeps every warden post's ledger comparable across realms.
+ordered: false
+terms:
+  - code: missing_citizen
+    label: Missing citizen
+    description: A citizen unaccounted for past their expected return.
+  - code: water_emergency
+    label: Water emergency
+    description: A citizen or structure in trouble in or under the water.
+  - code: fall_or_collapse
+    label: Fall or collapse
+    description: A fall from height or a structural or tunnel collapse.
+  - code: fire
+    label: Fire
+    description: An uncontrolled fire in a structure or landscape.
+  - code: dispute
+    label: Dispute
+    description: A conflict between citizens referred to wardens or mediation.
+  - code: hazard_report
+    label: Hazard report
+    description: A reported danger - a weak branch, a flooded path, an open shaft.

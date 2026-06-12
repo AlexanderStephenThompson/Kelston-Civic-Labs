@@ -1,0 +1,45 @@
+schema: kelston.recreation.swim_way
+version: 1.0.0
+status: stable
+title: Swim-Way
+description: >
+  A kept channel of open water for recreation - a marked river run, a
+  shoreline lap lane, a still pond loop. Swim-ways declare their depth and
+  the largest swimmer they admit, so an otter pup and a crocodile elder
+  each find water that fits.
+extends: kelston.core.place
+identity:
+  prefix: SWIM
+fields:
+  trust:
+    type: ref
+    entity: kelston.recreation.parks_trust
+    required: true
+    description: The parks trust that keeps the swim-way.
+  channel_length:
+    type: quantity
+    unit: meter
+    required: true
+    description: Marked swimmable length from entry to exit.
+  channel_depth:
+    type: quantity
+    unit: meter
+    required: true
+    description: Typical depth along the marked channel.
+  largest_swimmer_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the channel admits safely.
+  has_haul_out_ledges:
+    type: boolean
+    default: true
+    description: Whether the way keeps rest ledges where swimmers can haul out.
+  is_current_assisted:
+    type: boolean
+    default: false
+    description: Whether a natural current carries swimmers along the run.
+constraints:
+  - id: swim_ways_are_submerged
+    description: A swim-way is open water, so it sits in the submerged tier by definition.
+    check: { field: vertical_tier, op: eq, value: submerged }

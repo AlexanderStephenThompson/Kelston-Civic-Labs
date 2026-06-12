@@ -1,0 +1,82 @@
+# Taxonomy data for the safety sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: safety
+
+industries:
+  - id: IND-safety-wardens
+    conforms_to: kelston.core.industry@1.0.0
+    sector: safety
+    name: Warden Service
+    description: Patrol, presence, and the first response to anything amiss.
+  - id: IND-safety-rescue
+    conforms_to: kelston.core.industry@1.0.0
+    sector: safety
+    name: Rescue Services
+    description: Water, aerial, burrow, and cliff rescue crews and their stations.
+  - id: IND-safety-mediation
+    conforms_to: kelston.core.industry@1.0.0
+    sector: safety
+    name: Dispute Mediation
+    description: Trained mediators who settle conflicts before they harden.
+  - id: IND-safety-fire
+    conforms_to: kelston.core.industry@1.0.0
+    sector: safety
+    name: Fire Response
+    description: Watching for, containing, and dousing structure and grass fires.
+
+roles:
+  - id: ROL-safety-patrol-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-wardens
+    name: Patrol Warden
+    description: Walks a beat, knows its citizens, and writes the incident records.
+    required_capabilities: []
+  - id: ROL-safety-night-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-wardens
+    name: Night Warden
+    description: Keeps the night band safe for the town's nocturnal half.
+    required_capabilities: [night_work]
+  - id: ROL-safety-water-rescuer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-rescue
+    name: Water Rescuer
+    description: Goes into the rivers, harbors, and submerged tier after citizens in trouble.
+    required_capabilities: [swimming]
+  - id: ROL-safety-aerial-rescuer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-rescue
+    name: Aerial Rescuer
+    description: Reaches the canopy, rooftops, and anyone stranded aloft.
+    required_capabilities: [flight]
+  - id: ROL-safety-burrow-rescuer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-rescue
+    name: Burrow Rescuer
+    description: Digs and shores the way to citizens caught in tunnel collapses.
+    required_capabilities: [burrowing]
+  - id: ROL-safety-cliff-rescuer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-rescue
+    name: Cliff Rescuer
+    description: Works the Highlands faces and ledges on rope and claw.
+    required_capabilities: [climbing]
+  - id: ROL-safety-dispute-mediator
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-mediation
+    name: Dispute Mediator
+    description: Hears both sides and helps citizens find their own settlement.
+    required_capabilities: []
+  - id: ROL-safety-fire-crew-lead
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-fire
+    name: Fire Crew Lead
+    description: Leads the pump line and the heavy work of containment.
+    required_capabilities: [heavy_handling]
+  - id: ROL-safety-fire-watcher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-safety-fire
+    name: Fire Watcher
+    description: Watches the dry-season horizons from the high perch towers.
+    required_capabilities: [flight]

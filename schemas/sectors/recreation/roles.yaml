@@ -1,0 +1,76 @@
+# Taxonomy data for the recreation sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: recreation
+
+industries:
+  - id: IND-recreation-commons-keeping
+    conforms_to: kelston.core.industry@1.0.0
+    sector: recreation
+    name: Commons Keeping
+    description: Tending the greens, trails, and basking grounds open to all.
+  - id: IND-recreation-swim-ways
+    conforms_to: kelston.core.industry@1.0.0
+    sector: recreation
+    name: Swim-Ways
+    description: Keeping the marked water runs safe, clear, and fairly shared.
+  - id: IND-recreation-climbing-groves
+    conforms_to: kelston.core.industry@1.0.0
+    sector: recreation
+    name: Climbing Groves
+    description: Maintaining the climbing trees, holds, and canopy courses.
+  - id: IND-recreation-glide-parks
+    conforms_to: kelston.core.industry@1.0.0
+    sector: recreation
+    name: Glide Parks
+    description: Running the launch perches, thermals, and landing lawns of the aerial parks.
+
+roles:
+  - id: ROL-recreation-commons-gardener
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-commons-keeping
+    name: Commons Gardener
+    description: Keeps the greens mown, planted, and welcoming in every season.
+    required_capabilities: []
+  - id: ROL-recreation-trail-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-commons-keeping
+    name: Trail Keeper
+    description: Walks and mends the trail network between the grounds.
+    required_capabilities: []
+  - id: ROL-recreation-night-green-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-commons-keeping
+    name: Night Green Warden
+    description: Watches the lit greens through the night band for the nocturnal regulars.
+    required_capabilities: [night_work]
+  - id: ROL-recreation-swim-warden
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-swim-ways
+    name: Swim Warden
+    description: Patrols the channels in the water, marking hazards and minding the young.
+    required_capabilities: [swimming]
+  - id: ROL-recreation-channel-tender
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-swim-ways
+    name: Channel Tender
+    description: Clears snags, resets markers, and keeps the haul-out ledges sound.
+    required_capabilities: [swimming]
+  - id: ROL-recreation-grove-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-climbing-groves
+    name: Grove Keeper
+    description: Inspects the climbing trees and canopy courses limb by limb.
+    required_capabilities: [climbing]
+  - id: ROL-recreation-glide-marshal
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-glide-parks
+    name: Glide Marshal
+    description: Sequences launches and landings through the park's air lanes.
+    required_capabilities: [flight]
+  - id: ROL-recreation-perch-wright
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-recreation-glide-parks
+    name: Perch Wright
+    description: Builds and maintains the launch perches and landing rails.
+    required_capabilities: [climbing]

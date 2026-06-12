@@ -1,0 +1,23 @@
+vocabulary: kelston.vocab.signal_channel
+version: 1.0.0
+description: >
+  The channels Kelston's media houses publish through. Channels map to
+  sensoria and tiers, not just habits: chimes carry to the burrow tier,
+  beacons serve the flighted lanes, and print waits patiently for everyone.
+ordered: false
+terms:
+  - code: chime_tower
+    label: Chime tower
+    description: Audible bell and tone signals that carry across tiers, burrow included.
+  - code: print_sheet
+    label: Print sheet
+    description: The printed town sheet, posted and circulated in size-class editions.
+  - code: courier_post
+    label: Courier post
+    description: Carried messages and parcels moved by ground and wing couriers.
+  - code: beacon_light
+    label: Beacon light
+    description: Lamp and shutter signals read from the aerial lanes and high perches.
+  - code: drum_line
+    label: Drum line
+    description: Low resonant drum relays felt underground along the burrow tier.

@@ -1,0 +1,19 @@
+vocabulary: kelston.vocab.incident_severity
+version: 1.0.0
+description: >
+  How serious an incident is, from minor to critical. Ordered, so dispatch
+  rules and reviews can compare severities mechanically.
+ordered: true
+terms:
+  - code: minor
+    label: Minor
+    description: Handled on the spot with no lasting harm.
+  - code: moderate
+    label: Moderate
+    description: Needed a response crew but resolved within the shift.
+  - code: serious
+    label: Serious
+    description: Injury, significant damage, or a multi-crew response.
+  - code: critical
+    label: Critical
+    description: Life-threatening or town-scale; the whole post turns out.

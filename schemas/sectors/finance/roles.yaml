@@ -1,0 +1,76 @@
+# Taxonomy data for the finance sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: finance
+
+industries:
+  - id: IND-finance-credit-union
+    conforms_to: kelston.core.industry@1.0.0
+    sector: finance
+    name: Credit Union Services
+    description: Member accounts, lending, and the keeping of the common reserve.
+  - id: IND-finance-mutual-pools
+    conforms_to: kelston.core.industry@1.0.0
+    sector: finance
+    name: Mutual Pools
+    description: Chartering and stewarding the shared funds members draw on in need.
+  - id: IND-finance-ledger-keeping
+    conforms_to: kelston.core.industry@1.0.0
+    sector: finance
+    name: Ledger Keeping
+    description: Recording, reconciling, and auditing the kelmark ledger.
+  - id: IND-finance-circuit-banking
+    conforms_to: kelston.core.industry@1.0.0
+    sector: finance
+    name: Circuit Banking
+    description: Carrying union services out to the realms on scheduled circuit visits.
+
+roles:
+  - id: ROL-finance-teller
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-credit-union
+    name: Teller
+    description: Takes deposits, pays withdrawals, and knows every member by name.
+    required_capabilities: []
+  - id: ROL-finance-loan-steward
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-credit-union
+    name: Loan Steward
+    description: Hears loan requests and watches that limits stay within the reserve.
+    required_capabilities: []
+  - id: ROL-finance-pool-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-mutual-pools
+    name: Pool Keeper
+    description: Tends a mutual pool's charter, contributions, and payout decisions.
+    required_capabilities: []
+  - id: ROL-finance-claims-visitor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-mutual-pools
+    name: Claims Visitor
+    description: Visits members in need to size up a fair payout on the spot.
+    required_capabilities: []
+  - id: ROL-finance-ledger-clerk
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-ledger-keeping
+    name: Ledger Clerk
+    description: Posts entries to the kelmark ledger with fine-nib precision.
+    required_capabilities: [fine_handling]
+  - id: ROL-finance-night-auditor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-ledger-keeping
+    name: Night Auditor
+    description: Balances the day's books through the quiet of the night band.
+    required_capabilities: [night_work]
+  - id: ROL-finance-circuit-banker
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-circuit-banking
+    name: Circuit Banker
+    description: Rides the routes to bring counter services to the far realms.
+    required_capabilities: []
+  - id: ROL-finance-wing-courier
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-finance-circuit-banking
+    name: Wing Courier
+    description: Flies sealed ledger pouches between the realm counters.
+    required_capabilities: [flight]

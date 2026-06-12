@@ -1,0 +1,23 @@
+vocabulary: kelston.vocab.learning_stage
+version: 1.0.0
+description: >
+  The stages of a Kelston education, from first words to lifelong study.
+  Ordered, so systems can check progression mechanically - a guild
+  apprenticeship sits above the lyceum it builds on.
+ordered: true
+terms:
+  - code: early_years
+    label: Early years
+    description: First learning - play, language, and getting along across species.
+  - code: primary
+    label: Primary
+    description: The shared foundation every citizen receives - letters, numbers, civics.
+  - code: lyceum
+    label: Lyceum
+    description: Broad upper study before a citizen chooses a working path.
+  - code: guild_apprenticeship
+    label: Guild apprenticeship
+    description: Trade study under a guild school, learned at the bench and in the field.
+  - code: lifelong
+    label: Lifelong
+    description: Open courses any citizen may join at any age, in any band.

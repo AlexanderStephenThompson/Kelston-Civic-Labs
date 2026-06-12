@@ -1,0 +1,45 @@
+schema: kelston.environment.habitat_survey_record
+version: 1.0.0
+status: stable
+title: Habitat Survey Record
+description: >
+  One walked (or swum, or flown) survey of one reserve - the moment a
+  habitat's condition becomes a number the town can act on. Surveys sit
+  on the civic record spine like every other dated record.
+extends: kelston.core.civic_record
+identity:
+  prefix: HSURV
+fields:
+  reserve:
+    type: ref
+    entity: kelston.environment.habitat_reserve
+    required: true
+    description: The reserve that was surveyed.
+  surveyed_on:
+    type: date
+    required: true
+    description: The day the survey was walked.
+  habitat_condition:
+    type: vocab
+    vocabulary: kelston.vocab.habitat_condition
+    required: true
+    description: The condition band the surveyor assigned on the day.
+  wild_resident_count:
+    type: integer
+    description: Tally of wild residents observed during the survey.
+  requires_follow_up:
+    type: boolean
+    default: false
+    description: Whether the findings call for an intervention visit.
+  follow_up_due_on:
+    type: date
+    description: When the intervention visit is due, set whenever one is needed.
+constraints:
+  - id: failing_habitats_get_follow_up
+    description: A reserve found failing always gets an intervention visit.
+    when: { field: habitat_condition, op: eq, value: failing }
+    check: { field: requires_follow_up, op: eq, value: true }
+  - id: follow_ups_carry_a_due_date
+    description: Whenever follow-up is required, the survey says by when.
+    when: { field: requires_follow_up, op: eq, value: true }
+    check: { field: follow_up_due_on, op: present }

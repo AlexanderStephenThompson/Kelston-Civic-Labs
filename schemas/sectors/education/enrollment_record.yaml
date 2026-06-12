@@ -1,0 +1,38 @@
+schema: kelston.education.enrollment_record
+version: 1.0.0
+status: stable
+title: Enrollment Record
+description: >
+  One citizen joining one course - the moment a learner takes a seat.
+  Extends the civic record, so a citizen's whole education reads as one
+  dated thread on the town's shared event spine.
+extends: kelston.core.civic_record
+identity:
+  prefix: ENRL
+fields:
+  student:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen taking the course.
+  course:
+    type: ref
+    entity: kelston.education.course
+    required: true
+    description: The course being joined.
+  enrolled_on:
+    type: date
+    required: true
+    description: The first day of enrollment.
+  completed_on:
+    type: date
+    description: The day the course was completed; absent while study continues.
+  has_withdrawn:
+    type: boolean
+    default: false
+    description: Whether the student withdrew before completing, without judgment attached.
+constraints:
+  - id: completion_follows_enrollment
+    description: Nobody finishes a course before they start it.
+    when: { field: completed_on, op: present }
+    check: { field: completed_on, op: gte, other_field: enrolled_on }

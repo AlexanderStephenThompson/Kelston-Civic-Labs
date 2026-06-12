@@ -1,0 +1,42 @@
+schema: kelston.making.commission_record
+version: 1.0.0
+status: stable
+title: Commission Record
+description: >
+  One agreement for one made thing - a citizen asks, a workshop agrees, a
+  price and a promise date are set. Extends the civic record, so the
+  town's making sits on the same event spine as its growing and trading.
+extends: kelston.core.civic_record
+identity:
+  prefix: CMSN
+fields:
+  workshop:
+    type: ref
+    entity: kelston.making.craft_workshop
+    required: true
+    description: The workshop taking the commission.
+  patron:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen the work is being made for.
+  commissioned_work:
+    type: text
+    required: true
+    description: What is to be made, in plain words.
+  tool_pattern:
+    type: ref
+    entity: kelston.making.tool_pattern
+    description: The registered pattern being built to, when the work is a tool.
+  agreed_price:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: The price agreed at signing, in kelmarks.
+  promised_on:
+    type: date
+    required: true
+    description: The day the finished work is promised by.
+  delivered_on:
+    type: date
+    description: The day the work was handed over, once it has been.

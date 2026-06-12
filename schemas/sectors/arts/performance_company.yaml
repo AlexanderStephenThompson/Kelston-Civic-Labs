@@ -1,0 +1,39 @@
+schema: kelston.arts.performance_company
+version: 1.0.0
+status: stable
+title: Performance Company
+description: >
+  An organization that makes and shows art - a theater troupe, a swim
+  ballet, a storytelling circle, a festival craft guild. Companies are
+  organizations first, so the registry already knows their realm, hours,
+  and people.
+extends: kelston.core.organization
+identity:
+  prefix: PERF
+fields:
+  art_forms:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.art_form
+      description: An art form the company works in.
+    description: The art forms the company works in.
+  home_venue:
+    type: ref
+    entity: kelston.arts.performance_venue
+    description: The venue the company calls home, when it has one.
+  member_count:
+    type: integer
+    required: true
+    description: Performers and makers currently on the company's roll.
+  performance_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band in which the company usually performs.
+    description: >
+      The shift bands the company usually performs in - dusk for the
+      storytellers, night for the owl chorus, day for the school matinees.

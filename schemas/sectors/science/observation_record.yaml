@@ -1,0 +1,39 @@
+schema: kelston.science.observation_record
+version: 1.0.0
+status: stable
+title: Observation Record
+description: >
+  One observation taken at one field station - a reading, a sighting, a
+  measurement. Extends the civic record, so the town's science sits on
+  the same dated spine as its harvests and hearings, open for any
+  citizen to query.
+extends: kelston.core.civic_record
+identity:
+  prefix: OBSV
+fields:
+  field_station:
+    type: ref
+    entity: kelston.science.field_station
+    required: true
+    description: The station where the observation was taken.
+  observed_at:
+    type: datetime
+    required: true
+    description: When the phenomenon itself was observed, distinct from when the record was filed.
+  phenomenon:
+    type: text
+    required: true
+    description: What was observed, in plain words - "first frost on the upper terraces".
+  air_temperature:
+    type: quantity
+    unit: celsius
+    description: Air temperature at the station when the observation was taken, when measured.
+  is_anomalous:
+    type: boolean
+    default: false
+    description: Whether the observation falls outside the station's expected range.
+constraints:
+  - id: anomalies_carry_a_note
+    description: An anomalous observation explains itself for the next reader.
+    when: { field: is_anomalous, op: eq, value: true }
+    check: { field: note, op: present }

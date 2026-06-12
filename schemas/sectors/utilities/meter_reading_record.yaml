@@ -1,0 +1,42 @@
+schema: kelston.utilities.meter_reading_record
+version: 1.0.0
+status: stable
+title: Meter Reading Record
+description: >
+  One reading of one home's meter for one service - the record that turns
+  power, water, and warmth into honest numbers on the household ledger.
+extends: kelston.core.civic_record
+identity:
+  prefix: METR
+fields:
+  dwelling:
+    type: ref
+    entity: kelston.core.dwelling
+    required: true
+    description: The home whose meter was read.
+  service:
+    type: vocab
+    vocabulary: kelston.vocab.utility_service
+    required: true
+    description: The essential service this reading meters.
+  read_on:
+    type: date
+    required: true
+    description: The day the meter was read.
+  consumed_energy:
+    type: quantity
+    unit: kilowatt_hour
+    description: Energy used since the last reading, for power and heat services.
+  consumed_water:
+    type: quantity
+    unit: liter
+    description: Water used since the last reading, for the water supply.
+constraints:
+  - id: water_readings_carry_a_water_figure
+    description: A water supply reading records the volume consumed.
+    when: { field: service, op: eq, value: water_supply }
+    check: { field: consumed_water, op: present }
+  - id: power_readings_carry_an_energy_figure
+    description: A power or heat reading records the energy consumed.
+    when: { field: service, op: in, value: [solar_power, hydro_power, heat_distribution] }
+    check: { field: consumed_energy, op: present }
