@@ -6,16 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,21 +24,18 @@ jobs:
         run: pip install -e .
       - name: Build the civic portal
         run: python -m kelston build-site
-      - uses: actions/configure-pages@v5
-        with:
-          # Create the Pages site on first deploy so no manual settings
-          # toggle is needed; the workflow token has pages: write.
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      # Publish to the gh-pages branch. GitHub serves Pages from this
+      # branch under the default "deploy from a branch" mode, which avoids
+      # needing the Pages site to be created ahead of time.
+      - name: Publish to gh-pages
+        run: |
+          cd site
+          touch .nojekyll
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Deploy civic portal from ${GITHUB_SHA::7}"
+          git push --force \
+            "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" \
+            gh-pages
