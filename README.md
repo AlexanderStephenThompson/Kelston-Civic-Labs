@@ -20,7 +20,14 @@ kelston validate --all     # meta, registry, instances, determinism - all green
 kelston generate --seed 42 # rebuild the town: fixtures + data/kelston.db
 kelston upgrade            # walk legacy records through migrations, re-validate
 kelston query "SELECT ..." # ask the town anything
+kelston build-site         # render the civic portal; browse with
+                           #   python -m http.server -d site
 ```
+
+**The civic portal** - a 136-page static website generated from the town's
+real records: realm pages with live statistics, the full standards registry
+(every schema, vocabulary, and version history), and SVG civic dashboards.
+No frameworks, no trackers; deploys to GitHub Pages from main.
 
 ## What's here
 

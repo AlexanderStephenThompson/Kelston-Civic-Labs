@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sqlite3
 import sys
+from pathlib import Path
 
 import click
 import yaml
@@ -107,6 +108,21 @@ def generate(seed: int, population: int) -> None:
     for schema_name in sorted(ctx.instances):
         click.echo(f"  {schema_name}: {len(ctx.instances[schema_name])}")
     click.echo(f"Database: {paths.DB_PATH}")
+
+
+@main.command("build-site")
+@click.option(
+    "--output",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Output directory (default: site/).",
+)
+def build_site(output) -> None:
+    """Render the static civic portal from the catalog, registry, and fixtures."""
+    from kelston.site.build import build_site as run_build
+
+    count = run_build(output)
+    click.echo(f"Built {count} pages into {output or paths.SITE_DIR}")
 
 
 @main.group()

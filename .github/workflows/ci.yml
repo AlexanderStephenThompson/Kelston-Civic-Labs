@@ -21,3 +21,5 @@ jobs:
         run: pytest -q
       - name: Validate the town (meta, registry, instances, determinism)
         run: python -m kelston validate --all
+      - name: Build the civic portal
+        run: python -m kelston build-site
