@@ -27,6 +27,10 @@ jobs:
       - name: Build the civic portal
         run: python -m kelston build-site
       - uses: actions/configure-pages@v5
+        with:
+          # Create the Pages site on first deploy so no manual settings
+          # toggle is needed; the workflow token has pages: write.
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
