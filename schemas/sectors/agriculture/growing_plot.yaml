@@ -1,0 +1,48 @@
+schema: kelston.agriculture.growing_plot
+version: 2.0.0
+status: stable
+title: Growing Plot
+description: >
+  A bounded area of cultivated ground within a farm or commons garden - the
+  unit at which plantings, soil care, and harvests are recorded.
+extends: kelston.core.place
+identity:
+  prefix: PLOT
+fields:
+  farm:
+    type: ref
+    entity: kelston.agriculture.farm
+    required: true
+    description: The farm or commons garden this plot belongs to.
+  area:
+    type: quantity
+    unit: square_meter
+    required: true
+    description: Cultivable surface area of the plot.
+  soil_class:
+    type: vocab
+    vocabulary: kelston.vocab.soil_class
+    required: true
+    description: Dominant soil classification used for crop matching.
+  drainage_class:
+    type: vocab
+    vocabulary: kelston.vocab.drainage_class
+    default: moderate
+    description: >
+      How quickly the plot sheds water. Split from soil_class in 2.0.0 so
+      texture and water behavior are recorded independently.
+  steward:
+    type: ref
+    entity: kelston.core.citizen
+    description: Citizen responsible for day-to-day care of the plot.
+constraints:
+  - id: submerged_plots_have_water_substrate
+    description: A submerged plot's growing medium is water, by definition.
+    when: { field: vertical_tier, op: eq, value: submerged }
+    check: { field: soil_class, op: eq, value: substrate_water }
+  - id: submerged_plots_need_semi_aquatic_steward
+    description: >
+      Submerged plots - paddies, kelp lines, raft beds - are stewarded by
+      citizens whose species is fully at home in the water.
+    when: { field: vertical_tier, op: eq, value: submerged }
+    rule: python:agriculture.semi_aquatic_steward_check

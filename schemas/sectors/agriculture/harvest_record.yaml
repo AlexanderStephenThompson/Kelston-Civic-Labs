@@ -1,0 +1,35 @@
+schema: kelston.agriculture.harvest_record
+version: 1.0.0
+status: stable
+title: Harvest Record
+description: >
+  One gathering from one planting - the moment food enters the town's
+  ledger. Extends the civic record, so harvests sit on the same event
+  spine as every other dated record in Kelston.
+extends: kelston.core.civic_record
+identity:
+  prefix: HRV
+fields:
+  planting:
+    type: ref
+    entity: kelston.agriculture.planting
+    required: true
+    description: The planting this harvest came from.
+  harvested_on:
+    type: date
+    required: true
+    description: The day of the gathering.
+  yield_mass:
+    type: quantity
+    unit: kilogram
+    required: true
+    description: Mass brought in, weighed at the plot edge.
+  grade:
+    type: vocab
+    vocabulary: kelston.vocab.produce_grade
+    required: true
+    description: Quality grade assigned at the plot edge.
+  harvested_by:
+    type: ref
+    entity: kelston.core.citizen
+    description: The citizen who led the gathering.

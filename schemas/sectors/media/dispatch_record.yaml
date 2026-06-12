@@ -1,0 +1,40 @@
+schema: kelston.media.dispatch_record
+version: 1.0.0
+status: stable
+title: Dispatch Record
+description: >
+  One release of one piece of news through one channel - a chime pattern
+  rung, a sheet posted, a beacon sequence shown. Extends the civic record,
+  so what the town was told sits on the same event spine as what the town
+  did.
+extends: kelston.core.civic_record
+identity:
+  prefix: DSPC
+fields:
+  signal_house:
+    type: ref
+    entity: kelston.media.signal_house
+    required: true
+    description: The house that released the dispatch.
+  headline:
+    type: text
+    required: true
+    description: The dispatch in one plain line.
+  channel:
+    type: vocab
+    vocabulary: kelston.vocab.signal_channel
+    required: true
+    description: The channel this release went out on.
+  released_during:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band the release went out in.
+  notice_post:
+    type: ref
+    entity: kelston.media.notice_post
+    description: The post the release went out from, for fixed-point channels.
+  is_civic_notice:
+    type: boolean
+    default: false
+    description: Whether the dispatch carries official registry or assembly business.

@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.dwelling_kind
+version: 1.0.0
+description: >
+  The built forms of Kelston housing. Each kind implies a vertical tier and
+  suits certain traits, but any citizen may live anywhere the clearance and
+  provisions fit.
+ordered: false
+terms:
+  - code: burrow_home
+    label: Burrow home
+    description: Warm earthen warren at the burrow tier; beloved by the fossorial.
+  - code: trunk_lodge
+    label: Trunk lodge
+    description: Home built into and around a living trunk; Evergreen classic.
+  - code: canopy_flat
+    label: Canopy flat
+    description: Platform dwelling at the canopy tier with perch and branch access.
+  - code: terrace_house
+    label: Terrace house
+    description: Stone-and-earth house on a Highlands or Drylands terrace.
+  - code: shore_stilt
+    label: Shore stilt
+    description: Stilted home over the shallows with a submerged lower room.
+  - code: tower_flat
+    label: Tower flat
+    description: Apartment in a Commons mid-rise, sized by clearance class.
+  - code: courtyard_house
+    label: Courtyard house
+    description: Ground-tier home around a shared basking-and-garden court.

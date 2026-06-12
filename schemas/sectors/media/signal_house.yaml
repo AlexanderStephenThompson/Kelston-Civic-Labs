@@ -1,0 +1,38 @@
+schema: kelston.media.signal_house
+version: 1.0.0
+status: stable
+title: Signal House
+description: >
+  An organization that publishes to the town - the town signal itself, a
+  realm print works, or a courier post office. Signal houses declare the
+  channels they publish through, because in Kelston a notice that only
+  reaches one sensorium has not been published at all.
+extends: kelston.core.organization
+identity:
+  prefix: SGNL
+fields:
+  channels:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.signal_channel
+      description: A channel this house publishes through.
+    description: The channels this house publishes through.
+  release_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band in which the house releases dispatches.
+    description: >
+      The shift bands in which the house releases dispatches, so night-band
+      citizens get their news fresh, not stale from the morning.
+  circulation_count:
+    type: integer
+    description: Citizens reached by a typical dispatch, by the latest reckoning.
+  has_public_archive:
+    type: boolean
+    default: true
+    description: Whether the house deposits every dispatch in the public record.

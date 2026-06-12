@@ -1,0 +1,40 @@
+schema: kelston.mobility.transit_line_operator
+version: 1.0.0
+status: stable
+title: Transit Line Operator
+description: >
+  An organization that runs scheduled transit - a tram cooperative, the
+  harbor ferry guild, a glideway marshal crew. Operators declare their
+  mode, reach, and night coverage as data, so "can I get home from here
+  in my band" is a query.
+extends: kelston.core.organization
+identity:
+  prefix: TLOP
+fields:
+  primary_mode:
+    type: vocab
+    vocabulary: kelston.vocab.transit_mode
+    required: true
+    description: The transit mode this operator runs as its mainstay.
+  service_realms:
+    type: list
+    required: true
+    items:
+      type: ref
+      entity: kelston.core.realm
+      description: A realm the operator serves.
+    description: The realms this operator's lines reach.
+  fleet_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: >
+      The largest size class the operator's vehicles seat comfortably -
+      the figure every stop and rider checks against.
+  fleet_count:
+    type: integer
+    description: How many vehicles the operator keeps in service.
+  has_night_service:
+    type: boolean
+    default: false
+    description: Whether the operator runs through the night band for nocturnal commuters.

@@ -1,0 +1,43 @@
+schema: kelston.health.clinic
+version: 1.0.0
+status: stable
+title: Clinic
+description: >
+  An organization that gives medical care - a neighborhood surgery, the
+  realm infirmary, a traveling field clinic's home base. Clinics are
+  organizations first; what this adds is who the rooms can actually serve,
+  because a clinic that cannot fit or warm its patient is not a clinic
+  for that patient.
+extends: kelston.core.organization
+identity:
+  prefix: CLN
+fields:
+  home_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The civic parcel the clinic operates from.
+  clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the treatment rooms can admit and turn around in.
+  treats_animal_classes:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.animal_class
+      description: A citizen family the clinic is equipped and trained for.
+    description: The citizen families the clinic is equipped and trained to treat.
+  has_basking_recovery:
+    type: boolean
+    default: false
+    description: >
+      Whether recovery rooms include heated basking provisions. Required
+      before the clinic may treat ectotherm patients - a cold recovery
+      room slows a reptile's healing.
+  has_swim_treatment_pool:
+    type: boolean
+    default: false
+    description: Whether the clinic has a treatment pool for semi-aquatic patients.

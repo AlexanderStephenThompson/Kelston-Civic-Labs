@@ -1,0 +1,54 @@
+schema: kelston.housing.dwelling_inspection_record
+version: 1.0.0
+status: stable
+title: Dwelling Inspection Record
+description: >
+  One inspection of one home against the housing standard - the moment the
+  promises a dwelling makes on paper (clearance, water and flight access,
+  climate provision) are checked against the home as built.
+extends: kelston.core.civic_record
+identity:
+  prefix: HINSP
+fields:
+  dwelling:
+    type: ref
+    entity: kelston.core.dwelling
+    required: true
+    description: The home that was inspected.
+  inspected_on:
+    type: date
+    required: true
+    description: The day of the walkthrough.
+  verified_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: >
+      The largest size class the inspector confirmed the home actually
+      fits, doorways and fixtures measured on the day.
+  is_climate_provision_verified:
+    type: boolean
+    required: true
+    description: Whether the home's declared climate provision was found working.
+  has_passed:
+    type: boolean
+    required: true
+    description: Whether the home met the housing standard on this inspection.
+  follow_up_due_on:
+    type: date
+    description: When a re-inspection is due, set whenever the home falls short.
+constraints:
+  - id: passing_homes_fit_their_declared_clearance
+    description: >
+      A home only passes if the clearance the inspector verified meets or
+      exceeds the clearance class the dwelling declares.
+    when: { field: has_passed, op: eq, value: true }
+    check:
+      field: verified_clearance_class
+      op: gte
+      other_field: dwelling.clearance_class
+      vocabulary: kelston.vocab.size_class
+  - id: failed_inspections_schedule_follow_up
+    description: A home that falls short always gets a re-inspection date.
+    when: { field: has_passed, op: eq, value: false }
+    check: { field: follow_up_due_on, op: present }

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<p class="kicker">The Town of Kelston</p>
+<h1>A town that records things well only has to solve each problem once.</h1>
+<p class="lede">
+  Kelston is a thought experiment made real: a town of {{ "{:,}".format(totals.citizens) }}
+  animal citizens across seven biome realms, run on data standards designed to be
+  understood at first read. Everything on this site is generated from the town's
+  actual records - the same ones its validator proves.
+</p>
+
+<div class="stat-row">
+  {{ m.stat_card("{:,}".format(totals.citizens), "citizens") }}
+  {{ m.stat_card("7", "realms") }}
+  {{ m.stat_card(totals.species, "species") }}
+  {{ m.stat_card("{:,}".format(totals.organizations), "organizations") }}
+  {{ m.stat_card(totals.schemas, "data standards") }}
+  {{ m.stat_card("{:,}".format(totals.records), "civic records") }}
+</div>
+
+<h2>The seven realms</h2>
+<div class="card-grid">
+  {% for realm in realms %}
+  <a class="card" href="realms/{{ realm.realm_code }}/index.html">
+    <h3>{{ realm.name }}</h3>
+    <p>{{ realm.biome|capitalize }}</p>
+    <div class="meta">{{ "{:,}".format(realm_populations[realm.realm_code]) }} residents</div>
+  </a>
+  {% endfor %}
+</div>
+
+{{ m.chart_figure(population_chart,
+   "Population by realm, from the citizen register. Residence is recorded once,
+    in the kelston.core.citizen standard, so this count needs no reconciliation.") }}
+
+<hr class="section-rule">
+<div class="two-col">
+  <div>
+    <h2>The standards</h2>
+    <p>
+      Every field, industry, and role in town is defined up front, in
+      {{ totals.schemas }} schemas and {{ totals.vocabularies }} shared vocabularies
+      maintained by the standards office. Names read as sentences, every field
+      carries a description, and updates reach every record in town through one
+      command.
+    </p>
+    <p><a href="standards/index.html">Browse the standards registry →</a></p>
+  </div>
+  <div>
+    <h2>The data</h2>
+    <p>
+      {{ "{:,}".format(totals.records) }} records - households, appointments,
+      harvests, market lots - all stamped with the exact standard version they
+      conform to, all queryable, all provably valid.
+    </p>
+    <p><a href="dashboards/index.html">See the civic dashboards →</a></p>
+  </div>
+</div>
+{% endblock %}

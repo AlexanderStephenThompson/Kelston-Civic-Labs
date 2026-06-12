@@ -1,0 +1,50 @@
+schema: kelston.governance.petition_record
+version: 1.0.0
+status: stable
+title: Petition Record
+description: >
+  One citizen request to the town - a new crossing, an amended standard, a
+  counter kept open later. Extends the civic record, so petitions sit on
+  the same event spine as everything else, and every petition gets a
+  recorded answer.
+extends: kelston.core.civic_record
+identity:
+  prefix: PETN
+fields:
+  petitioner:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen who brought the petition.
+  subject:
+    type: text
+    required: true
+    description: One sentence stating what is being asked for.
+  related_ordinance:
+    type: ref
+    entity: kelston.governance.ordinance
+    description: The ordinance the petition asks to change or invoke, when there is one.
+  submitted_on:
+    type: date
+    required: true
+    description: The day the petition was logged at the counter.
+  heard_in_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    description: >
+      The shift band the hearing is scheduled in. Hearings follow the
+      petitioner's preferred band - the town comes to the citizen's hours.
+  outcome:
+    type: vocab
+    vocabulary: kelston.vocab.petition_outcome
+    required: true
+    default: received
+    description: How the petition fared; updated as it moves through the process.
+  decided_on:
+    type: date
+    description: The day a decision was reached; absent until then.
+constraints:
+  - id: decided_petitions_have_decision_date
+    description: A granted or declined petition records the day it was answered.
+    when: { field: outcome, op: in, value: [granted, declined] }
+    check: { field: decided_on, op: present }

@@ -1,0 +1,35 @@
+schema: kelston.agriculture.distribution_run
+version: 1.0.0
+status: stable
+title: Distribution Run
+description: >
+  One delivery of one market lot to a destination realm - the record that
+  closes the loop from plot to plate. Extends the civic record spine.
+extends: kelston.core.civic_record
+identity:
+  prefix: DST
+fields:
+  lot:
+    type: ref
+    entity: kelston.agriculture.market_lot
+    required: true
+    description: The market lot being delivered.
+  carrier:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The mobility organization carrying the run.
+  destination_realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm the run delivers to.
+  delivered_on:
+    type: date
+    required: true
+    description: The day the run arrived.
+  delivered_mass:
+    type: quantity
+    unit: kilogram
+    required: true
+    description: Mass delivered, weighed at the destination.

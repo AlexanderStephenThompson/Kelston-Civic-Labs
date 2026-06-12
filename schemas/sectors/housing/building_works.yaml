@@ -1,0 +1,39 @@
+schema: kelston.housing.building_works
+version: 1.0.0
+status: stable
+title: Building Works
+description: >
+  An organization that builds and maintains homes - a burrow-digging
+  cooperative, a canopy framing crew, a shore-stilt yard. Building works
+  declare what they can build as data, so matching a works to a project
+  is a query, not a referral.
+extends: kelston.core.organization
+identity:
+  prefix: BWKS
+fields:
+  specialty_dwelling_kinds:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.dwelling_kind
+      description: A built form the works is proven at.
+    description: The dwelling kinds this works builds as its mainstays.
+  maximum_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: >
+      The largest clearance class the works can build to - grand-clearance
+      framing is a specialty, and the registry should know who has it.
+  can_build_submerged:
+    type: boolean
+    default: false
+    description: Whether the works can frame submerged rooms and shore-stilt undersides.
+  can_build_burrow:
+    type: boolean
+    default: false
+    description: Whether the works can dig and shore below-ground levels.
+  crew_count:
+    type: integer
+    description: How many builders the works fields on a typical day.

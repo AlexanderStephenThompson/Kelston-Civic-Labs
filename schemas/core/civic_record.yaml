@@ -1,0 +1,21 @@
+schema: kelston.core.civic_record
+version: 1.0.0
+status: stable
+title: Civic Record
+description: >
+  The abstract base of every dated record in town. Harvest logs, clinic
+  visits, permits, and inspection notes all extend this, which gives all
+  of Kelston a single queryable event spine.
+abstract: true
+fields:
+  recorded_at:
+    type: datetime
+    required: true
+    description: When the record was made.
+  recorded_by:
+    type: ref
+    entity: kelston.core.citizen
+    description: The citizen who made the record, when one signed it.
+  note:
+    type: text
+    description: A free-text remark, used sparingly - structured fields first.

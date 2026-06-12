@@ -1,0 +1,1151 @@
+registry: kelston
+schemas:
+  kelston.agriculture.crop_variety:
+    checksum: sha256:b4b1566a44683e047c250d1221b269e2238434b853e07935c1f32c38b7c3701c
+    current: 1.0.0
+    depends_on:
+    - kelston.vocab.crop_kind@^1
+    - kelston.vocab.growing_method@^1
+    - kelston.vocab.soil_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.distribution_run:
+    checksum: sha256:4870b067b15b6d0a9e3627531261392881b9488f519865350e2341e7411540f8
+    current: 1.0.0
+    depends_on:
+    - kelston.agriculture.market_lot@^1
+    - kelston.core.civic_record@^1
+    - kelston.core.organization@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.farm:
+    checksum: sha256:36ada8d1be82790d994eec9f85c6e2d3da25e83f1c033c296cf77aa1c39759c4
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.growing_method@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.food_product:
+    checksum: sha256:f8f12e131f9fbb7fa1fa425dc73a0a7b206420977eb412cf682b18a805d404a4
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.crop_kind@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.growing_plot:
+    checksum: sha256:e1ccd9d61b0b3d59b764ab080865ccb01fe01badf79162bb5545e632eeb6436f
+    current: 2.0.0
+    depends_on:
+    - kelston.agriculture.farm@^1
+    - kelston.core.citizen@^1
+    - kelston.core.place@^1
+    - kelston.vocab.drainage_class@^1
+    - kelston.vocab.soil_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-04-02'
+      version: 1.0.0
+    - change: minor
+      date: '2026-05-01'
+      version: 1.2.0
+    - change: major
+      date: '2026-06-10'
+      migration: 2.0.0.yaml
+      version: 2.0.0
+    status: stable
+  kelston.agriculture.harvest_record:
+    checksum: sha256:581d0685e15a4e4cd47da8caa7036f12fb21a43082d1c447740979aea72e7959
+    current: 1.0.0
+    depends_on:
+    - kelston.agriculture.planting@^1
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.vocab.produce_grade@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.market_lot:
+    checksum: sha256:03664bb88155b5b4f88740853885767e699b981034e4a9d9bda125184b879c85
+    current: 1.0.0
+    depends_on:
+    - kelston.agriculture.food_product@^1
+    - kelston.agriculture.harvest_record@^1
+    - kelston.core.organization@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.agriculture.planting:
+    checksum: sha256:c47aa95afda58c9a0906feb64cac6f7dc687ee09bc047e021bbda920a51abae5
+    current: 1.0.0
+    depends_on:
+    - kelston.agriculture.crop_variety@^1
+    - kelston.agriculture.growing_plot@^2
+    - kelston.vocab.growing_method@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.arts.performance_company:
+    checksum: sha256:1256ebc1fce562dcd6950b80c8e55bd5e9c6902c13925fe696b6d9764d840963
+    current: 1.0.0
+    depends_on:
+    - kelston.arts.performance_venue@^1
+    - kelston.core.organization@^1
+    - kelston.vocab.art_form@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.arts.performance_record:
+    checksum: sha256:e340464592c8cf46e0a72e76e82a7bee9d386680d50d78e47e3c835a1a986273
+    current: 1.0.0
+    depends_on:
+    - kelston.arts.performance_company@^1
+    - kelston.arts.performance_venue@^1
+    - kelston.core.civic_record@^1
+    - kelston.vocab.art_form@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.arts.performance_venue:
+    checksum: sha256:f0022bd62fc4732279fecb404aa61c1bf27bb455bd0d19b9c03bb0f62cc5d9d2
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.place@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.care.care_circle:
+    checksum: sha256:a6c5ca6837ca499b0f181adb4f2e8a53c2488279d8f2416add84985b1e4efc0c
+    current: 1.0.0
+    depends_on:
+    - kelston.care.care_lodge@^1
+    - kelston.core.citizen@^1
+    - kelston.vocab.care_support@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.care.care_lodge:
+    checksum: sha256:9c0eda7ff4ec80b0e6474e319d0d18633945b02e526b406545c640813a3ae5f8
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.climate_provision@^1
+    - kelston.vocab.lifespan_band@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.care.support_visit_record:
+    checksum: sha256:f2b1a1e146849b244080e8830a0eb386269d64fb49b16f7b1a30601b18efd9fa
+    current: 1.0.0
+    depends_on:
+    - kelston.care.care_circle@^1
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.vocab.care_support@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.commerce.market_hall:
+    checksum: sha256:fb226e70a4293ab60c5ad2cd3766f167ccdc86699fcae081809f315f61599fe6
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.commerce.market_stall:
+    checksum: sha256:7341b80a82a659a9692a6c63b4ffee3b4ecf7f0cc6065d83c37481062c3199d2
+    current: 1.0.0
+    depends_on:
+    - kelston.commerce.market_hall@^1
+    - kelston.core.organization@^1
+    - kelston.core.place@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.commerce.trade_record:
+    checksum: sha256:de9bf036ac90042f4d758bf9489c635e1f75c011a7cfce342985add2737111ab
+    current: 1.0.0
+    depends_on:
+    - kelston.commerce.market_stall@^1
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.core.organization@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.appointment:
+    checksum: sha256:b7ce0c0805bbd37533ce698af1151f7ad5ec2f29867ebf665bcbd9df983b1b49
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.organization@^1
+    - kelston.core.role@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.citizen:
+    checksum: sha256:0f25de36b8fc89274626af3d65fec4adf0b1014170a138ee076b211d88488341
+    current: 1.0.0
+    depends_on:
+    - kelston.core.household@^1
+    - kelston.core.realm@^1
+    - kelston.core.species_profile@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.civic_record:
+    checksum: sha256:15b5d5af68ee8f64d073c40ba3b5e34e07cece375ede8a92c7102f07f99b732b
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.dwelling:
+    checksum: sha256:ee2093bfa03a28266227b135d3b3e11581a8e0a7f5eeeda4849d1ef2e61d8904
+    current: 1.0.0
+    depends_on:
+    - kelston.core.parcel@^1
+    - kelston.core.place@^1
+    - kelston.vocab.climate_provision@^1
+    - kelston.vocab.dwelling_kind@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.household:
+    checksum: sha256:ce684a4b76a4bc83ab27a05e51c127242fa9416f127a68d30c9f0319c7e56c81
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.dwelling@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.industry:
+    checksum: sha256:27a1e377fb14221e7fd6656baa671c9359f5bf5d129c4ddc935671e64d06c79c
+    current: 1.0.0
+    depends_on:
+    - kelston.vocab.sector@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.organization:
+    checksum: sha256:81cea69d6f44272088b8097032e850fc7a1d948b868333c43b53e64b5e544f56
+    current: 1.0.0
+    depends_on:
+    - kelston.core.industry@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.operating_cycle@^1
+    - kelston.vocab.sector@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.parcel:
+    checksum: sha256:6c35a73e79cb1fe45f24abd6f4e7db1a96d04f1c282984221d8ee4cae18315de
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.vocab.land_use@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.place:
+    checksum: sha256:8317db102b6eddeadefc93b724b12d2bd717ee549390b15329811fb3e8f13268
+    current: 1.0.0
+    depends_on:
+    - kelston.core.realm@^1
+    - kelston.vocab.vertical_tier@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.realm:
+    checksum: sha256:e797848c1edeaf28888b130b15fbd99d8c31a1bbeaa896ddfae7cc60ea84cc76
+    current: 1.0.0
+    depends_on:
+    - kelston.vocab.growing_method@^1
+    - kelston.vocab.realm_code@^1
+    - kelston.vocab.vertical_tier@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.role:
+    checksum: sha256:2d44115d401be5f89ebc5797bde63e86cee3e1e73e9f5c06aaa5ced253bfc74e
+    current: 1.0.0
+    depends_on:
+    - kelston.core.industry@^1
+    - kelston.vocab.capability@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.core.species_profile:
+    checksum: sha256:88899ba330d30d444f123b285086f4130fe91e053425d3a43067729ebea5c2f8
+    current: 1.0.0
+    depends_on:
+    - kelston.vocab.activity_cycle@^1
+    - kelston.vocab.animal_class@^1
+    - kelston.vocab.lifespan_band@^1
+    - kelston.vocab.locomotion@^1
+    - kelston.vocab.realm_code@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.thermoregulation@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.education.course:
+    checksum: sha256:2ce1330c3c6b2ac0de2c865c9c9137e7f8cd58654a51b1767e1185ac050261c8
+    current: 1.0.0
+    depends_on:
+    - kelston.education.school@^1
+    - kelston.vocab.learning_stage@^1
+    - kelston.vocab.lifespan_band@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.education.enrollment_record:
+    checksum: sha256:f4119ccaa68bd9ba1727ef5777fc36d598d271c5fc5201a9243869415bfbf4f9
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.education.course@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.education.school:
+    checksum: sha256:d10a51e0305b77bc0afbd1a10053d18e4b629cafca111f27f5a947d6388b2c08
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.learning_stage@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.environment.habitat_reserve:
+    checksum: sha256:03faca757054fca23009dc20dc143319a82fa452efb2a14018ef8577b4eece65
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.environment.stewardship_circle@^1
+    - kelston.vocab.habitat_kind@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.environment.habitat_survey_record:
+    checksum: sha256:a8d71e91167329433931c848dcfd8195defde13fd66f91e22aa340870b06912b
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.environment.habitat_reserve@^1
+    - kelston.vocab.habitat_condition@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.environment.stewardship_circle:
+    checksum: sha256:8ca81955f4665ef8208b13af613dc3bb3258c0752525e7162f00884d011236a6
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.habitat_kind@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.finance.credit_union:
+    checksum: sha256:56e4e388922a7acba5a2bb8df9160e3280d853ae76e607eac1b89ff285db519d
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.finance.ledger_entry:
+    checksum: sha256:c4bce65fbe92ff5f42eae22dabe372108ca2f563effe7a286f1d74bc0690e343
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.finance.credit_union@^1
+    - kelston.finance.mutual_pool@^1
+    - kelston.vocab.kelmark_entry_kind@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.finance.mutual_pool:
+    checksum: sha256:07045981d780fd46bdc34351b132a807b270b88dcd0b5d9dbf6c8a3fb704beb4
+    current: 1.0.0
+    depends_on:
+    - kelston.finance.credit_union@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.governance.civic_office:
+    checksum: sha256:95a12c6e5af8d0019d2bbdc8019a686ac0ec73a44d7cc6e4cbe0b13535e20501
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.governance.ordinance:
+    checksum: sha256:d1f76867fd825a457e7f3c5d5c3e84d441b927160ce418f8a924a23745c40763
+    current: 1.0.0
+    depends_on:
+    - kelston.core.realm@^1
+    - kelston.governance.civic_office@^1
+    - kelston.vocab.ordinance_status@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.governance.petition_record:
+    checksum: sha256:9bb729b8e5b1df3cb15589a702a860e625c079fe926d9aff559509d20ce2cdd5
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.governance.ordinance@^1
+    - kelston.vocab.petition_outcome@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.health.care_plan:
+    checksum: sha256:d8cf96f45661a5babd752d9880cd5d9a210e239c0565bfe0f6169cdee8184af9
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.health.clinic@^1
+    - kelston.vocab.care_focus@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.health.clinic:
+    checksum: sha256:b6411cb78a7a1f360096a79d6b54fad02be463c8f0db0b0bc9a75f515f9281ce
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.animal_class@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.health.clinic_visit:
+    checksum: sha256:85aa515805c143e886f27f5511b020ecd131e8fbb68c05df814705fa9b68ca61
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.health.care_plan@^1
+    - kelston.health.clinic@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.housing.building_works:
+    checksum: sha256:e2c40c5c03add4c67227dfb81a3c460e1d479189a4d8d906d523f419af4c89eb
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.dwelling_kind@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.housing.construction_site:
+    checksum: sha256:c76a7bee338eb230bb28e66c698da3b57092d5205fd1fd673f8fb786643dcb79
+    current: 1.0.0
+    depends_on:
+    - kelston.core.parcel@^1
+    - kelston.core.place@^1
+    - kelston.housing.building_works@^1
+    - kelston.vocab.dwelling_kind@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.housing.dwelling_inspection_record:
+    checksum: sha256:0df3c0b064e241072108b0bb3194e628c9aa17421bb93ac96e9ce3126b2c3296
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.core.dwelling@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.making.commission_record:
+    checksum: sha256:2174b8e4b1f38f53d3a6c8d1a5ff96a39960a0f222b2d0bb46425ea60d519504
+    current: 1.0.0
+    depends_on:
+    - kelston.core.citizen@^1
+    - kelston.core.civic_record@^1
+    - kelston.making.craft_workshop@^1
+    - kelston.making.tool_pattern@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.making.craft_workshop:
+    checksum: sha256:e62d86ac6baa3415db1af81d61486922704c06c53347864f586ae027b966a035
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.craft_discipline@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.making.tool_pattern:
+    checksum: sha256:bb3998cbd547ec3313746132272f457d0a1dd88b0e7d1b60cbce6ef64fc6b6b2
+    current: 1.0.0
+    depends_on:
+    - kelston.making.craft_workshop@^1
+    - kelston.vocab.capability@^1
+    - kelston.vocab.craft_discipline@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.media.dispatch_record:
+    checksum: sha256:80ed86d20e7b1815b6c1af4e63fdfb27530d809f8469037eea69886138869764
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.media.notice_post@^1
+    - kelston.media.signal_house@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.signal_channel@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.media.notice_post:
+    checksum: sha256:4367c67249068caebe28e45ea1b00454c3c5344185f3c23ebca2079e71ee7973
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.media.signal_house@^1
+    - kelston.vocab.signal_channel@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.media.signal_house:
+    checksum: sha256:261be4667c6a024f6c6b0f57a6bb7b72ec8e1bac874f93c67a575ee3db99fe6d
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.signal_channel@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.mobility.service_run_record:
+    checksum: sha256:eabfe6278bff642a2ec130a8d3561510fcde201bb1e41320a9ffea321ba7d983
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.mobility.transit_line_operator@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.size_class@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.mobility.transit_line_operator:
+    checksum: sha256:51d6882e53dc59e929b942ac7c26478965054e1015cc9711ff13cd878bf5dc93
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.transit_mode@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.mobility.transit_stop:
+    checksum: sha256:e74f3b2d3c9f20cb70648f8c5376509602d4c1599874ecb7f974b974747cbbe0
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.mobility.transit_line_operator@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.transit_mode@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.recreation.parks_trust:
+    checksum: sha256:70e71d98b4a892d825813b15bd03a0caeb6e8462eb851edad89093495ac3a97e
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.shift_band@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.recreation.patrol_record:
+    checksum: sha256:1907b51cbb3d7432c23ea4360f4ce0d9ed2631d38d0203d2ff52d83594af84c0
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.core.place@^1
+    - kelston.recreation.parks_trust@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.recreation.swim_way:
+    checksum: sha256:98dc11c3890bf2c50eeb7475983784be1d01aace55c1064044d74c5fbc18f6c7
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.recreation.parks_trust@^1
+    - kelston.vocab.size_class@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.safety.incident_record:
+    checksum: sha256:370a8b3fb1b1a769edd0ddf1124b20422ef238eb19449393cafa937dee43da61
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.core.realm@^1
+    - kelston.safety.warden_post@^1
+    - kelston.vocab.incident_kind@^1
+    - kelston.vocab.incident_severity@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.safety.rescue_station:
+    checksum: sha256:dc4f2f890fdd825ef8ba8d0ca09c06be0956d0dc194506dd4f20b38e0f1fb3f6
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.safety.warden_post@^1
+    - kelston.vocab.rescue_specialty@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.safety.warden_post:
+    checksum: sha256:9513ebeb5a460f2ef6cc972e9042706787cf904414c7ff256a85c6129f87c464
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.vocab.rescue_specialty@^1
+    - kelston.vocab.shift_band@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.science.field_station:
+    checksum: sha256:90b1d7148b5da4707c6d7b833747e07d4b613ef63f9adf24b0ea379e8b99c438
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.science.research_institute@^1
+    - kelston.vocab.capability@^1
+    - kelston.vocab.study_field@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.science.observation_record:
+    checksum: sha256:7b97c124502b0a337d9a4e8df7cb0a9f5275a6466048f1a40bc135f437b0c803
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.science.field_station@^1
+    - kelston.vocab.unit@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.science.research_institute:
+    checksum: sha256:a5913581eb712dacca57b60b3d9c26711fbb7267846bc4eb41ccd9137d31f85e
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.parcel@^1
+    - kelston.vocab.study_field@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.utilities.meter_reading_record:
+    checksum: sha256:bd054708a623c8fdcdb528a5b03db02d3010913c1ccd507a307241395693706f
+    current: 1.0.0
+    depends_on:
+    - kelston.core.civic_record@^1
+    - kelston.core.dwelling@^1
+    - kelston.vocab.unit@^1
+    - kelston.vocab.utility_service@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.utilities.utility_works:
+    checksum: sha256:3a7846d3894409f62ff74b465d5a871a97510c78a8a21250c3566c7791d21cf3
+    current: 1.0.0
+    depends_on:
+    - kelston.core.organization@^1
+    - kelston.core.realm@^1
+    - kelston.vocab.unit@^1
+    - kelston.vocab.utility_service@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+  kelston.utilities.works_site:
+    checksum: sha256:6591e95e775ba5c0ae6725e32fc663e6e04310d6381dec0934fe5e97d181d748
+    current: 1.0.0
+    depends_on:
+    - kelston.core.place@^1
+    - kelston.utilities.utility_works@^1
+    - kelston.vocab.unit@^1
+    - kelston.vocab.utility_service@^1
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+    status: stable
+vocabularies:
+  kelston.vocab.activity_cycle:
+    checksum: sha256:16fd6881bd4b29f037f9be461891ff049f8218e626935ec039f0667872b0838e
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.animal_class:
+    checksum: sha256:776db93729653157627d09661729a2b7344efc0aecf899e3c190bd6034a74739
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.art_form:
+    checksum: sha256:452d8e4cad97085d44f0574882ddc21e6b38ed65ebb140c4a72f0b8efe243483
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.capability:
+    checksum: sha256:efe0a82ac8b1dc87f22b23088bb527035667cb7ffd16f026847ff6215480446d
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.care_focus:
+    checksum: sha256:5d3abcf8fd0ddcfeff8f5944e31275e70d4388670647704731ab9f2626481ce8
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.care_support:
+    checksum: sha256:6e44bccbb2c26856ad09cd7602301f774e105493e536ef32bea85f75fbafd20d
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.climate_provision:
+    checksum: sha256:d9771af2188d32cc1403b66edb3dcf6129f303b9833fa864f707b60c3fa04dbc
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.craft_discipline:
+    checksum: sha256:b2a8043abbca5e7eb496fc4c197203082828af8111446598dfddee9a2e109515
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.crop_kind:
+    checksum: sha256:a955a09d6df26fa706ce0cbe3681a26ab7b9d47b4dedc24662629b1b381feff8
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.drainage_class:
+    checksum: sha256:de1f41971103be6cbe3cfaa84b1d6b67ae871841f2a5e119f277f8ccf7c5996a
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.dwelling_kind:
+    checksum: sha256:7575a52176f10a8f0e210ad178c6a81e746ae312177774efaed82202baa4ce9d
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.growing_method:
+    checksum: sha256:c85e013f5b92e930b7f7c6bac5e69a7682b42fb9dfa41b2ff436be8ea96b78c4
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.habitat_condition:
+    checksum: sha256:61d0b8fcdd0622783a9f03fee149a7d94821bf369f3ef0ef43c89ae37bf8ca2a
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.habitat_kind:
+    checksum: sha256:eb6e68d1e6f162a328e3ff824fd1c18b81be37d7a1acf712abb1e4a99ddef58b
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.incident_kind:
+    checksum: sha256:77893e406e8b054e11b53afd2cab6f2d431c456e6247844f14a6feef717e1c89
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.incident_severity:
+    checksum: sha256:23998c0d6d53e6af4556f0593327276def10432bac6fc281b4dab901907f7ac4
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.kelmark_entry_kind:
+    checksum: sha256:8c20e0e0409e964c971c6e9bdf91705bf6f3ae134db17de93ab3251792707db8
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.land_use:
+    checksum: sha256:9e277ba4de8b53e8b7a7b30ad46295782bc57a745b1f7734e06863743a19f0b5
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.learning_stage:
+    checksum: sha256:39d87c5c8fcc3ba69c7d34170d8a97907c4bec2e5c4fcdebe09cec8978e5df57
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.lifespan_band:
+    checksum: sha256:8f59c31176b15bba067e9bdefcefac0510d172467fdf02075b8171352804d1e8
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.locomotion:
+    checksum: sha256:93cf21aba907839893c1fac34b2869ba9c47b3981f9e3b99cfbe5145f241d384
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.operating_cycle:
+    checksum: sha256:c1ca5ff4059f3ffb1da060c666ec68e5d451bc5919689a7a2e5c7e72cf262f4e
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.ordinance_status:
+    checksum: sha256:c64bf9d86dcb7617f36bd42656c5ba6f12066c02addba7cdf8cfe92c95ccab49
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.petition_outcome:
+    checksum: sha256:75da935241615677ba36bc1dd1e80254dcf2f760083a2285e5842b433838399e
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.produce_grade:
+    checksum: sha256:4a5a846d4aad3d8b1de2f809d9a45b3d580ab428101eae7552bca83475f32c87
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.realm_code:
+    checksum: sha256:e0b47d318b9ab9da402e2746bc7d6cba74aea8ce5fecb2366fc5be64aa001508
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.rescue_specialty:
+    checksum: sha256:d63d787a8fe44187512544c9e12b432fa1c16646b846820599ad472d92b6e2a3
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.sector:
+    checksum: sha256:0727f4a14543cb65398cd93177527f3e6c34d3390259510a228e16ca7c659086
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.shift_band:
+    checksum: sha256:8c5742bdb2f9208f6a38cccb0d31e38cde020fecb7558a7e02a58e6a59556b9a
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.signal_channel:
+    checksum: sha256:8d95df0e24aa67c9406cd91e45afc77d5a202fc6192438b6865c20d8b18cdef6
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.size_class:
+    checksum: sha256:4b0eb0d0be0548925149cffdd024b3568d387e150424717fc9d5675476968209
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.soil_class:
+    checksum: sha256:f52ee9b9b6994ede405f612971f03ad3adb85448e8d05b50201db1e2c4b60e21
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.study_field:
+    checksum: sha256:913d69db27bd93a28661443c4d582ecffece9717f0984b8d091f7736b1382296
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.thermoregulation:
+    checksum: sha256:f5b6ed172070d54d4dba59603532af220734bc3fed23f4b56db99adbd152da4a
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.transit_mode:
+    checksum: sha256:d17ac6546673f840a604fedf20eb9ad423f742435a1f487626140adc02561ea2
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.unit:
+    checksum: sha256:37195e9384fe66f5df111e8dda0e4d224474638774fc2a904a2d5a2f3e6a2db1
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.utility_service:
+    checksum: sha256:a418eeae63fd2bbcffbc288579708ce8e77007afb2a46b235ce42cc588336f0a
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0
+  kelston.vocab.vertical_tier:
+    checksum: sha256:7a01f0674dec680d958a6ceacc7ef9ee7a20d22890074394b05d40d0427568cf
+    current: 1.0.0
+    history:
+    - change: initial
+      date: '2026-06-12'
+      version: 1.0.0

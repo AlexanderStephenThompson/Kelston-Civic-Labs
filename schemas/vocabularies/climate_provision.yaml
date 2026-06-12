@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.climate_provision
+version: 1.0.0
+description: >
+  What a dwelling or workplace provides beyond ambient conditions. The
+  climate standard guarantees ectotherms basking heat and heavy-coat
+  citizens cold comfort - provisions are data, so the guarantee is checkable.
+ordered: false
+terms:
+  - code: ambient
+    label: Ambient
+    description: No special provision; the realm's own climate.
+  - code: heated_basking
+    label: Heated basking
+    description: Radiant basking surfaces and warm zones for ectotherm comfort.
+  - code: cooled
+    label: Cooled
+    description: Actively cooled interior for heavy coats in warm realms.
+  - code: humidity_controlled
+    label: Humidity controlled
+    description: Managed moisture for scale and feather health.

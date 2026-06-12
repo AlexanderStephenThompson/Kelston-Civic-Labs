@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Dashboards{% endblock %}
+{% block content %}
+<p class="kicker">Civic Data</p>
+<h1>The town, in its own numbers</h1>
+<p class="lede">
+  Every chart below is computed from the {{ "{:,}".format(totals.records) }}
+  records of the seed-{{ generation.seed }} town - no estimates, no sampling,
+  no cleaning. The caption under each chart names the standard that makes the
+  number trustworthy.
+</p>
+
+<h2>People</h2>
+{{ m.chart_figure(charts.population_by_realm,
+   "Residence is one field on one standard (kelston.core.citizen), so population
+    by realm is a count, not a reconciliation project.") }}
+{{ m.chart_figure(charts.class_by_realm,
+   "Citizen families by realm. Every realm is mixed by design; habitat affinity
+    weights settlement, never restricts it.") }}
+{{ m.chart_figure(charts.size_mix,
+   "Citizens by size class - the ordered vocabulary that sizes doorways, transit
+    seats, and toolmaking across every sector.") }}
+
+<h2>Work</h2>
+<div class="chart-pair">
+  {{ m.chart_figure(charts.residents_by_band,
+     "Preferred active hours, from the citizen register.") }}
+  {{ m.chart_figure(charts.worked_bands,
+     "Shift bands actually worked. The two distributions agree because scheduling
+      reads the same standard the citizens declare.") }}
+</div>
+{{ m.chart_figure(charts.appointments_by_sector,
+   "Appointments by sector. Every employment record joins citizen, role, and
+    organization through kelston.core.appointment.") }}
+
+<h2>Food</h2>
+<div class="chart-pair">
+  {{ m.chart_figure(charts.harvest_by_realm,
+     "Season's harvest by realm, in kilograms weighed at the plot edge
+      (kelston.agriculture.harvest_record).") }}
+  {{ m.chart_figure(charts.harvest_by_grade,
+     "Harvest by produce grade. Seconds are a grade with a destination - preserves
+      and compost - never waste.") }}
+</div>
+{{ m.chart_figure(charts.lot_mass_by_realm,
+   "Market lot mass by the realm it was offered in. The Drylands' share trades
+    mostly in the night band.") }}
+
+<h2>Homes</h2>
+{{ m.chart_figure(charts.climate_mix,
+   "Climate provisions across all dwellings. The housing standard guarantees
+    ectotherm households basking heat - and the guarantee is checkable, because
+    provisions are data.") }}
+{% endblock %}

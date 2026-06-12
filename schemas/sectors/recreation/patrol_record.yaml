@@ -1,0 +1,44 @@
+schema: kelston.recreation.patrol_record
+version: 1.0.0
+status: stable
+title: Grounds Patrol Record
+description: >
+  One watch round over one recreation ground - a swim-way swept, a
+  climbing grove checked, a night green walked. Extends the civic record,
+  so the town's care for its grounds sits on the same event spine as
+  everything else it does.
+extends: kelston.core.civic_record
+identity:
+  prefix: PTRL
+fields:
+  trust:
+    type: ref
+    entity: kelston.recreation.parks_trust
+    required: true
+    description: The parks trust whose watch made the round.
+  ground:
+    type: ref
+    entity: kelston.core.place
+    required: true
+    description: The ground that was patrolled.
+  patrolled_during:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band the round was walked, swum, or flown in.
+  patrol_duration:
+    type: duration
+    required: true
+    description: How long the round took, entry to exit.
+  visitor_count:
+    type: integer
+    description: Citizens found using the ground during the round.
+  has_hazard_found:
+    type: boolean
+    default: false
+    description: Whether the round turned up a hazard needing repair or closure.
+constraints:
+  - id: hazards_get_a_note
+    description: A round that found a hazard says what the hazard was.
+    when: { field: has_hazard_found, op: eq, value: true }
+    check: { field: note, op: present }

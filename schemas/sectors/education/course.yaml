@@ -1,0 +1,57 @@
+schema: kelston.education.course
+version: 1.0.0
+status: stable
+title: Course
+description: >
+  One named offering at one school - a unit of teaching that citizens
+  enroll in, with a stage, a band, and a tempo. The tempo matters: Kelston
+  paces curricula by lifespan band, so a brief-band mouse and a venerable
+  tortoise each get a whole education in a lifetime that fits it.
+identity:
+  prefix: CRSE
+fields:
+  school:
+    type: ref
+    entity: kelston.education.school
+    required: true
+    description: The school that offers and timetables this course.
+  name:
+    type: text
+    required: true
+    description: The course's listed name, e.g. "Letters and Numbers II".
+  stage:
+    type: vocab
+    vocabulary: kelston.vocab.learning_stage
+    required: true
+    description: The learning stage this course belongs to.
+  offered_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band the course meets in, so cohorts share their waking hours.
+  paced_for_lifespan:
+    type: vocab
+    vocabulary: kelston.vocab.lifespan_band
+    description: >
+      The lifespan band this section is paced for. A brief-band section
+      covers the same ground at a quicker tempo; absent means the standard
+      pace fits all comers.
+  session_duration:
+    type: duration
+    description: How long one class session runs.
+  seat_capacity:
+    type: integer
+    description: How many learners the section seats.
+constraints:
+  - id: course_stage_is_taught_at_school
+    description: A course's stage is one its school actually teaches.
+    check:
+      field: school.stages_offered
+      op: contains
+      other_field: stage
+  - id: course_band_is_taught_at_school
+    description: A course meets in a band when its school actually runs classes.
+    check:
+      field: school.instruction_bands
+      op: contains
+      other_field: offered_band

@@ -1,0 +1,22 @@
+vocabulary: kelston.vocab.petition_outcome
+version: 1.0.0
+description: >
+  How a citizen petition fared. Every petition gets an honest, recorded
+  answer - the outcome is structured so no request can quietly vanish.
+ordered: false
+terms:
+  - code: received
+    label: Received
+    description: Logged at the counter and awaiting scheduling.
+  - code: scheduled
+    label: Scheduled
+    description: Assigned a hearing in the petitioner's preferred band.
+  - code: granted
+    label: Granted
+    description: The assembly or office acted on the request.
+  - code: declined
+    label: Declined
+    description: Heard and declined, with the reasoning noted in the record.
+  - code: withdrawn
+    label: Withdrawn
+    description: Pulled back by the petitioner before a decision.

@@ -1,0 +1,15 @@
+vocabulary: kelston.vocab.thermoregulation
+version: 1.0.0
+description: >
+  How a species keeps its working temperature. The single biggest driver of
+  climate provisions in housing, workplaces, and transit.
+ordered: false
+terms:
+  - code: endotherm
+    label: Endotherm
+    description: Generates its own body heat - all mammals and birds in Kelston.
+  - code: ectotherm
+    label: Ectotherm
+    description: >
+      Relies on the environment for warmth - Kelston's reptiles. Entitled to
+      basking provisions in housing and workplaces under the climate standard.

@@ -1,0 +1,47 @@
+schema: kelston.environment.habitat_reserve
+version: 1.0.0
+status: stable
+title: Habitat Reserve
+description: >
+  A bounded stretch of wild landscape under formal stewardship - the unit
+  at which surveys, conditions, and care plans are recorded. A reserve is
+  a place first, so the land registry and the survey ledger agree about
+  where the wild edges are.
+extends: kelston.core.place
+identity:
+  prefix: HABR
+fields:
+  steward_circle:
+    type: ref
+    entity: kelston.environment.stewardship_circle
+    required: true
+    description: The stewardship circle responsible for this reserve.
+  habitat_kind:
+    type: vocab
+    vocabulary: kelston.vocab.habitat_kind
+    required: true
+    description: The kind of living landscape the reserve protects.
+  area:
+    type: quantity
+    unit: hectare
+    required: true
+    description: Registered extent of the reserve.
+  designated_on:
+    type: date
+    required: true
+    description: The day the reserve entered formal stewardship.
+  allows_public_access:
+    type: boolean
+    default: true
+    description: Whether citizens may visit freely, or only with a steward.
+constraints:
+  - id: wetlands_sit_at_the_waterline
+    description: A wetland reserve lies at the ground or submerged tier, by its nature.
+    when: { field: habitat_kind, op: eq, value: wetland }
+    check: { field: vertical_tier, op: in, value: [ground, submerged] }
+  - id: reserve_habitat_is_a_circle_focus
+    description: A reserve's habitat kind is one its stewardship circle is organized around.
+    check:
+      field: habitat_kind
+      op: in
+      other_field: steward_circle.focus_habitats

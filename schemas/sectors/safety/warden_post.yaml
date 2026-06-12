@@ -1,0 +1,37 @@
+schema: kelston.safety.warden_post
+version: 1.0.0
+status: stable
+title: Warden Post
+description: >
+  An organization of wardens responsible for safety in a stretch of town -
+  patrol, rescue, and the first calm voice in a dispute. A post's coverage
+  and specialties are data, so "who answers here, in this band, in this
+  water" is a query, not a hope.
+extends: kelston.core.organization
+identity:
+  prefix: WPOST
+fields:
+  covered_shift_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band the post keeps wardens on duty in.
+    description: The shift bands this post keeps wardens on duty in.
+  rescue_specialties:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.rescue_specialty
+      description: A rescue discipline the post can field.
+    description: The rescue disciplines this post can field.
+  warden_count:
+    type: integer
+    required: true
+    description: How many wardens serve at the post.
+  has_mediation_service:
+    type: boolean
+    default: false
+    description: Whether the post hosts trained mediators for dispute resolution.

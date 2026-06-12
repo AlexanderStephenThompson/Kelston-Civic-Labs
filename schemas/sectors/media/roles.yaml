@@ -1,0 +1,82 @@
+# Taxonomy data for the media sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: media
+
+industries:
+  - id: IND-media-town-signal
+    conforms_to: kelston.core.industry@1.0.0
+    sector: media
+    name: Town Signal
+    description: The chime towers, beacon lamps, and drum lines that carry news to every tier.
+  - id: IND-media-print-works
+    conforms_to: kelston.core.industry@1.0.0
+    sector: media
+    name: Print Works
+    description: Setting, printing, and posting the town sheets in size-class editions.
+  - id: IND-media-courier-post
+    conforms_to: kelston.core.industry@1.0.0
+    sector: media
+    name: Courier Post
+    description: Carried messages and parcels moved between realms by ground and wing.
+  - id: IND-media-public-record
+    conforms_to: kelston.core.industry@1.0.0
+    sector: media
+    name: Public Record
+    description: Archiving every dispatch so the town can always check what it was told.
+
+roles:
+  - id: ROL-media-chime-ringer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-town-signal
+    name: Chime Ringer
+    description: Rings the tower patterns that carry the hour and the news.
+    required_capabilities: []
+  - id: ROL-media-beacon-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-town-signal
+    name: Beacon Keeper
+    description: Tends the rooftop lamps and shows the sequences read from the aerial lanes.
+    required_capabilities: [climbing]
+  - id: ROL-media-drum-relayer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-town-signal
+    name: Drum Relayer
+    description: Sounds the burrow-tier drum lines that the underground feels before it hears.
+    required_capabilities: [burrowing]
+  - id: ROL-media-night-herald
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-town-signal
+    name: Night Herald
+    description: Releases the night-band dispatches while the day shift sleeps.
+    required_capabilities: [night_work]
+  - id: ROL-media-typesetter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-print-works
+    name: Typesetter
+    description: Sets the sheets letter by letter, down to the tiny-class editions.
+    required_capabilities: [fine_handling]
+  - id: ROL-media-sheet-poster
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-print-works
+    name: Sheet Poster
+    description: Posts the fresh sheets at every board on the morning round.
+    required_capabilities: []
+  - id: ROL-media-wing-courier
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-courier-post
+    name: Wing Courier
+    description: Flies the urgent satchels along the aerial lanes between realms.
+    required_capabilities: [flight]
+  - id: ROL-media-ground-courier
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-courier-post
+    name: Ground Courier
+    description: Walks and rides the regular delivery rounds within a realm.
+    required_capabilities: []
+  - id: ROL-media-record-archivist
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-media-public-record
+    name: Record Archivist
+    description: Files every dispatch into the public record and finds it again on request.
+    required_capabilities: []

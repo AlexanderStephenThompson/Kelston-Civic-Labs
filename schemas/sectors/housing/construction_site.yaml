@@ -1,0 +1,53 @@
+schema: kelston.housing.construction_site
+version: 1.0.0
+status: stable
+title: Construction Site
+description: >
+  A parcel where a home is being built or substantially rebuilt - the unit
+  at which permits, progress, and inspections are tracked from groundbreak
+  to handover.
+extends: kelston.core.place
+identity:
+  prefix: BUILD
+fields:
+  parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The parcel the new home will stand on (or under, or above).
+  builder:
+    type: ref
+    entity: kelston.housing.building_works
+    required: true
+    description: The building works responsible for the site.
+  planned_dwelling_kind:
+    type: vocab
+    vocabulary: kelston.vocab.dwelling_kind
+    required: true
+    description: The built form the finished home will take.
+  planned_clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The clearance class the finished home is being built to.
+  started_on:
+    type: date
+    required: true
+    description: The day ground was broken.
+  expected_completion_on:
+    type: date
+    description: Forecast handover date, revised as the build goes.
+constraints:
+  - id: burrow_homes_built_at_burrow_tier
+    description: A burrow home is, by definition, built at the burrow tier.
+    when: { field: planned_dwelling_kind, op: eq, value: burrow_home }
+    check: { field: vertical_tier, op: eq, value: burrow }
+  - id: builder_can_reach_planned_clearance
+    description: >
+      A site's planned clearance class never exceeds what its building
+      works is proven to frame.
+    check:
+      field: planned_clearance_class
+      op: lte
+      other_field: builder.maximum_clearance_class
+      vocabulary: kelston.vocab.size_class

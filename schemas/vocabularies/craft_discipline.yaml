@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.craft_discipline
+version: 1.0.0
+description: >
+  The making disciplines practiced in Kelston's workshops. Disciplines are
+  a closed list so commissions, tool patterns, and guild training all speak
+  the same trade names.
+ordered: false
+terms:
+  - code: woodcraft
+    label: Woodcraft
+    description: Joinery, carving, and frame work from the Evergreen timber yards.
+  - code: textile_craft
+    label: Textile craft
+    description: Spinning, weaving, and stitching, from grand-class coats to tiny gloves.
+  - code: ceramics
+    label: Ceramics
+    description: Thrown and built clay work, fired in the shared kilns.
+  - code: toolwrighting
+    label: Toolwrighting
+    description: Designing and fitting tools to every size class and grip.
+  - code: stonework
+    label: Stonework
+    description: Cut, dressed, and laid stone for hearths, sills, and burrow linings.
+  - code: paper_craft
+    label: Paper craft
+    description: Pulping, sheet-making, and binding for the print and record trades.

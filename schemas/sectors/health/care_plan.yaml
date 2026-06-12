@@ -1,0 +1,44 @@
+schema: kelston.health.care_plan
+version: 1.0.0
+status: stable
+title: Care Plan
+description: >
+  One patient's ongoing course of care at one clinic - the thread that
+  ties visits together. A plan exists whenever care runs longer than a
+  single visit: a recovery, a pregnancy, a molt season, a hibernation
+  watched over from autumn to spring.
+identity:
+  prefix: CARE
+fields:
+  patient:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen this plan cares for.
+  clinic:
+    type: ref
+    entity: kelston.health.clinic
+    required: true
+    description: The clinic carrying the plan.
+  lead_clinician:
+    type: ref
+    entity: kelston.core.citizen
+    description: The clinician who knows this patient best and steers the plan.
+  focus:
+    type: vocab
+    vocabulary: kelston.vocab.care_focus
+    required: true
+    description: What the plan is chiefly about, from preventive checkups to hibernation support.
+  opened_on:
+    type: date
+    required: true
+    description: The day the plan was opened.
+  closed_on:
+    type: date
+    description: The day the plan was closed well; absent while care continues.
+  review_interval_duration:
+    type: duration
+    description: >
+      How often the plan is reviewed, paced to the patient - a brief-band
+      citizen's chronic plan is reviewed in weeks, a venerable tortoise's
+      in seasons.

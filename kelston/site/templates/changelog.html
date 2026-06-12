@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Registry changelog{% endblock %}
+{% block content %}
+<p class="kicker">The Standards Office</p>
+<h1>How a standard changes in Kelston</h1>
+<p class="lede">
+  Every standard is semver'd, checksummed, and historied in the registry
+  manifest. Changes are classified mechanically: PATCH touches only prose,
+  MINOR adds things every record can adopt by re-validation, and MAJOR ships
+  with a migration - or the registry refuses it.
+</p>
+
+<h2>The worked example: growing plot 2.0.0</h2>
+<p>
+  On 2026-06-10 the standards office split the growing plot's combined 1.x soil
+  codes into texture (<code>soil_class</code>) plus water behavior
+  (<code>drainage_class</code>), and renamed <code>keeper</code> to
+  <code>steward</code>, the town-wide word. A MAJOR change - so it shipped with a
+  declarative migration, and one command brought every plot in town to the new
+  standard, re-validated:
+</p>
+<pre><code>$ kelston upgrade
+Scanned {{ legacy_count }} legacy instances: {{ legacy_count }} upgraded, 0 already current, 0 failures.</code></pre>
+{% if changelog_html %}{{ changelog_html|safe }}{% endif %}
+<p>
+  Full standard: <a href="{{ root }}standards/schemas/kelston.agriculture.growing_plot/index.html"><code>kelston.agriculture.growing_plot</code></a>
+</p>
+
+<h2>Every standard's history</h2>
+<table>
+  <thead><tr><th>Standard</th><th>Current</th><th>History</th></tr></thead>
+  <tbody>
+  {% for row in history_rows %}
+  <tr>
+    <td><a href="{{ root }}{{ row.href }}"><code>{{ row.name }}</code></a></td>
+    <td class="badge-version">{{ row.current }}</td>
+    <td>{{ row.events }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,23 @@
+schema: kelston.core.place
+version: 1.0.0
+status: stable
+title: Place
+description: >
+  The abstract base for anything with a location in Kelston: parcels,
+  dwellings, growing plots, market halls. A place knows its realm and its
+  vertical tier; everything else is for the kinds that extend it.
+abstract: true
+fields:
+  realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm this place lies in.
+  name:
+    type: text
+    description: The place's everyday name, when it has earned one.
+  vertical_tier:
+    type: vocab
+    vocabulary: kelston.vocab.vertical_tier
+    default: ground
+    description: Where the place sits in the town's layered architecture.

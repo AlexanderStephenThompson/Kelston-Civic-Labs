@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ realm.name }}{% endblock %}
+{% block content %}
+<p class="kicker">{{ realm.biome }}</p>
+<h1>{{ realm.name }}</h1>
+<p class="lede">{{ realm.character }}</p>
+
+<p>
+  {% for tier in realm.dominant_tiers %}<span class="tag">{{ tier|replace("_", " ") }} tier</span>{% endfor %}
+  {% for method in realm.signature_growing_methods %}<span class="tag">{{ method|replace("_", " ") }}</span>{% endfor %}
+</p>
+
+<div class="stat-row">
+  {{ m.stat_card("{:,}".format(stats.population), "residents") }}
+  {{ m.stat_card("{:,}".format(stats.households), "households") }}
+  {{ m.stat_card(stats.organizations, "organizations") }}
+  {{ m.stat_card(stats.farms, "farms & gardens") }}
+  {% if stats.harvest_mass %}{{ m.stat_card("{:,} kg".format(stats.harvest_mass), "harvested this season") }}{% endif %}
+</div>
+
+<h2>Who lives here</h2>
+<div class="chart-pair">
+  {{ m.chart_figure(class_chart, "Residents by citizen family. Every realm is mixed by design.") }}
+  {{ m.chart_figure(species_chart, "The five most numerous species in " + realm.name + ".") }}
+</div>
+
+<h2>How the realm is built</h2>
+<div class="chart-pair">
+  {{ m.chart_figure(tier_chart,
+     "Homes by vertical tier - Kelston builds down for the fossorial, up for the
+      arboreal and flighted.") }}
+  {{ m.chart_figure(climate_chart,
+     "Climate provisions in homes, guaranteed by the housing standard: basking heat
+      for ectotherms, cold-comfort where coats run heavy.") }}
+</div>
+
+<h2>How the realm works</h2>
+<div class="chart-pair">
+  {{ m.chart_figure(shift_chart,
+     "Residents' preferred active hours. Shift bands are a first-class standard, so
+      a dusk-active realm runs on a dusk-active schedule.") }}
+  {{ m.chart_figure(org_chart, "Organizations based here, by sector.") }}
+</div>
+{% endblock %}

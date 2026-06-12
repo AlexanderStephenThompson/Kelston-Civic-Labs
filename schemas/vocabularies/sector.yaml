@@ -1,0 +1,59 @@
+vocabulary: kelston.vocab.sector
+version: 1.0.0
+description: >
+  The seventeen sectors of Kelston's economy and civic life - the top level
+  of the sector -> industry -> role taxonomy. Every organization declares
+  exactly one sector; industries and roles live in each sector's roles.yaml.
+ordered: false
+terms:
+  - code: governance
+    label: Governance & Civic Registry
+    description: The registry of record, the assembly, and the standards office that stewards these very schemas.
+  - code: agriculture
+    label: Agriculture & Food Systems
+    description: Growing, harvesting, crafting, and distributing the town's food. The pilot sector.
+  - code: health
+    label: Health & Wellness
+    description: Clinics, species-aware medicine, and preventive care.
+  - code: education
+    label: Education & Learning
+    description: Early learning through the lyceum and the trade guild schools.
+  - code: housing
+    label: Housing & Construction
+    description: Burrow works, canopy framing, shore stilts, and every clearance class in between.
+  - code: mobility
+    label: Mobility & Transit
+    description: Tramways, ferries, aerial lanes, and micro-transit for the tiny.
+  - code: utilities
+    label: Energy, Water & Waste
+    description: Solar terraces, mill hydro, water works, and the composting cycle.
+  - code: commerce
+    label: Commerce & Trade
+    description: Shops, market halls, and the night markets of the Drylands.
+  - code: finance
+    label: Finance & Mutual Credit
+    description: The credit union, mutual insurance pools, and the kelmark ledger.
+  - code: media
+    label: Communication & Media
+    description: The town signal, print and post, and the public record.
+  - code: arts
+    label: Arts & Culture
+    description: Performance halls, archives, and festival craft.
+  - code: recreation
+    label: Recreation & Parks
+    description: Commons keeping, swim-ways, climbing groves, and glide parks.
+  - code: safety
+    label: Public Safety & Justice
+    description: Wardens, dispute mediation, and rescue services.
+  - code: environment
+    label: Environment & Conservation
+    description: Wetland stewardship, canopy survey, and the wild edges of the realms.
+  - code: making
+    label: Making & Craft
+    description: Woodcraft, textiles, ceramics, and toolwrights.
+  - code: science
+    label: Science & Research
+    description: The observatory, the soils lab, and standards research.
+  - code: care
+    label: Social Services & Care
+    description: Elder care across lifespan bands, childcare, and mutual aid.

@@ -1,0 +1,48 @@
+schema: kelston.governance.ordinance
+version: 1.0.0
+status: stable
+title: Ordinance
+description: >
+  A binding town standard adopted by the assembly - the housing guarantee,
+  the climate provision rules, the market weights. An ordinance exists from
+  the day it is proposed, and its whole life is queryable data.
+identity:
+  prefix: ORDN
+fields:
+  name:
+    type: text
+    required: true
+    description: The ordinance's short citable name, e.g. "The Clearance Standard".
+  summary:
+    type: text
+    required: true
+    description: One or two plain sentences on what the ordinance requires.
+  stewarding_office:
+    type: ref
+    entity: kelston.governance.civic_office
+    required: true
+    description: The civic office responsible for keeping this ordinance current.
+  lifecycle_stage:
+    type: vocab
+    vocabulary: kelston.vocab.ordinance_status
+    required: true
+    default: proposed
+    description: Where the ordinance stands in its life, from proposed to retired.
+  adopted_on:
+    type: date
+    description: The day the assembly voted the ordinance in; absent while proposed.
+  applies_to_realms:
+    type: list
+    items:
+      type: ref
+      entity: kelston.core.realm
+      description: A realm where the ordinance applies.
+    description: Realms where the ordinance applies; an empty list means town-wide.
+  review_due_on:
+    type: date
+    description: When the stewarding office must next review whether the ordinance still fits life.
+constraints:
+  - id: binding_ordinances_have_adoption_date
+    description: An ordinance that binds anyone records the day it was voted in.
+    when: { field: lifecycle_stage, op: in, value: [adopted, amended] }
+    check: { field: adopted_on, op: present }

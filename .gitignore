@@ -1,0 +1,12 @@
+# Build artifacts
+/site/
+data/kelston.db
+data/reports/
+data/upgraded/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/

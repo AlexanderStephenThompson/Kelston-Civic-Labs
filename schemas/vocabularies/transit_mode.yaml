@@ -1,0 +1,26 @@
+vocabulary: kelston.vocab.transit_mode
+version: 1.0.0
+description: >
+  The ways Kelston moves. Each mode serves a different body plan and tier
+  of town - trams for the ground, glideways for the flighted, swim lines
+  along the Shorelines, and micro-trams scaled for the tiny.
+ordered: false
+terms:
+  - code: tram
+    label: Tram
+    description: Ground-tier rail service, the workhorse of the Commons.
+  - code: micro_tram
+    label: Micro-tram
+    description: Small-gauge tram scaled for tiny- and small-class riders.
+  - code: ferry
+    label: Ferry
+    description: Surface water service between Shorelines harbors and river landings.
+  - code: swim_line
+    label: Swim line
+    description: Marked and tended underwater route for semi-aquatic commuters.
+  - code: aerial_glideway
+    label: Aerial glideway
+    description: Charted flight lane between canopy and rooftop perch stations.
+  - code: burrow_shuttle
+    label: Burrow shuttle
+    description: Below-ground shuttle through the warren tunnels of the burrow tier.

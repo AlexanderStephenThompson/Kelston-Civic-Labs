@@ -1,0 +1,45 @@
+schema: kelston.science.field_station
+version: 1.0.0
+status: stable
+title: Field Station
+description: >
+  A fixed place where an institute measures the world - a stream gauge
+  hut, a canopy weather mast, a kelp-bed survey frame, the observatory
+  dome itself. Stations are places, so the registry already knows their
+  realm and tier; what this adds is who can physically work them.
+extends: kelston.core.place
+identity:
+  prefix: FSTN
+fields:
+  institute:
+    type: ref
+    entity: kelston.science.research_institute
+    required: true
+    description: The research institute that runs this station.
+  study_field:
+    type: vocab
+    vocabulary: kelston.vocab.study_field
+    required: true
+    description: The field of study the station serves.
+  established_on:
+    type: date
+    description: The day the station first took a reading.
+  access_capabilities:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.capability
+      description: A capability genuinely needed to reach and work the station.
+    description: >
+      Capabilities genuinely needed to reach and work the station - a
+      canopy mast needs a climber or a flier, a kelp frame needs a
+      swimmer. Empty means any citizen can walk up.
+  is_continuously_instrumented:
+    type: boolean
+    default: false
+    description: Whether instruments record around the clock between staffed visits.
+constraints:
+  - id: submerged_stations_need_swimming
+    description: A station under the waterline is reached and worked by swimmers.
+    when: { field: vertical_tier, op: eq, value: submerged }
+    check: { field: access_capabilities, op: contains, value: swimming }

@@ -1,0 +1,47 @@
+schema: kelston.agriculture.market_lot
+version: 1.0.0
+status: stable
+title: Market Lot
+description: >
+  A quantity of food offered for trade - fresh from a harvest or crafted as
+  a product. The lot is where agriculture meets commerce, priced in
+  kelmarks at a declared market realm.
+identity:
+  prefix: LOT
+fields:
+  seller:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The organization offering the lot.
+  harvest:
+    type: ref
+    entity: kelston.agriculture.harvest_record
+    description: The harvest this lot draws from, for fresh produce.
+  product:
+    type: ref
+    entity: kelston.agriculture.food_product
+    description: The crafted product this lot offers, for made goods.
+  lot_mass:
+    type: quantity
+    unit: kilogram
+    required: true
+    description: Mass of food in the lot.
+  unit_price:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: Asking price per kilogram, in kelmarks.
+  offered_on:
+    type: date
+    required: true
+    description: The day the lot was listed.
+  market_realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm whose market the lot is offered at.
+constraints:
+  - id: lot_offers_exactly_one_source
+    description: A lot draws from a harvest or offers a product - one, never both, never neither.
+    rule: python:agriculture.lot_has_one_source

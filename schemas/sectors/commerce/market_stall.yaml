@@ -1,0 +1,43 @@
+schema: kelston.commerce.market_stall
+version: 1.0.0
+status: stable
+title: Market Stall
+description: >
+  One pitch on a market hall's trading floor - the place where a seller
+  sets up, trades, and is found again next week. Stalls carry their own
+  clearance class so a grand-class trader is never assigned a tiny nook.
+extends: kelston.core.place
+identity:
+  prefix: STL
+fields:
+  hall:
+    type: ref
+    entity: kelston.commerce.market_hall
+    required: true
+    description: The market hall this stall belongs to.
+  floor_area:
+    type: quantity
+    unit: square_meter
+    required: true
+    description: Floor area of the pitch, counter and storage included.
+  clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class that can work this stall comfortably.
+  pitch_fee:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: Fee for holding the stall for one market day, in kelmarks.
+  holder:
+    type: ref
+    entity: kelston.core.organization
+    description: The organization currently holding the pitch, when assigned.
+constraints:
+  - id: stall_realm_matches_hall
+    description: A stall stands in the same realm as the hall that contains it.
+    check:
+      field: realm
+      op: eq
+      other_field: hall.realm

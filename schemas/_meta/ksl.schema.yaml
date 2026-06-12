@@ -1,0 +1,97 @@
+# The Kelston Schema Language (KSL), described in itself.
+#
+# This file is the canonical statement of what a Kelston standard IS.
+# Its executable twin is kelston/ksl/metaschema.py: every rule written
+# here is enforced there, and CI fails if any schema in the registry
+# breaks one. Documentation and enforcement never drift, because the
+# tests assert they agree.
+
+meta: kelston.meta.schema
+version: 1.0.0
+description: >
+  A Kelston schema is a YAML document that defines one kind of entity or
+  record in town. Schemas are maximally semantic: a reader who has never
+  seen Kelston should understand every field from its name and required
+  description alone.
+
+document:
+  required_keys:
+    schema: Dotted name, e.g. kelston.agriculture.growing_plot. Always starts with `kelston.`.
+    version: Semantic version (MAJOR.MINOR.PATCH). The registry manifest tracks history.
+    status: One of draft | stable | deprecated.
+    title: Short human title, e.g. "Growing Plot".
+    description: At least one full sentence saying what this entity IS and when a record exists.
+    fields: Mapping of field name to field definition. May be empty only for pure marker schemas.
+  optional_keys:
+    extends: >
+      Single inheritance from exactly one parent schema. A child inherits all
+      parent fields and constraints and may not redefine them.
+    abstract: >
+      true if this schema only exists to be extended (no instances allowed,
+      no identity prefix needed).
+    identity: >
+      Mapping with `prefix`, 2-8 capitals. Instance ids look like PLOT-000482.
+      Concrete schemas need a prefix of their own or an ancestor's.
+    constraints: List of constraint definitions (see below).
+
+field_definition:
+  required_keys:
+    type: One of the closed type set below.
+    description: Every field carries a description. No exceptions, enforced by CI.
+  optional_keys:
+    required: Boolean, default false.
+    default: Default value used by generators; must be legal for the type.
+    unit: (quantity only) A term of kelston.vocab.unit. Instances store bare numbers.
+    vocabulary: (vocab only) The vocabulary whose terms are legal values.
+    entity: (ref only) The schema the referenced instance must be a kind of.
+    items: (list only) A field definition for the list items.
+    fields: (record only) Nested field definitions for inline records.
+
+types:
+  - id            # PLOT-000482 style identifier
+  - text
+  - integer
+  - decimal
+  - boolean
+  - date          # ISO calendar date
+  - time_of_day   # HH:MM
+  - datetime      # ISO datetime
+  - duration      # ISO-style: P3D, PT2H, P1DT4H30M
+  - quantity      # bare number; the unit is declared once, in the schema
+  - vocab         # a term code from a named vocabulary
+  - ref           # the id of another entity, target schema declared
+  - list
+  - record
+
+naming:
+  field_names: Full English words in snake_case. harvested_on, never hdate.
+  booleans: Read as predicates - is_, has_, can_, requires_, allows_, includes_.
+  dates: End in _on (harvested_on, born_on).
+  datetimes: End in _at (recorded_at).
+  durations: End in _duration (curing_duration).
+  references: Named for what they MEAN, not their type - steward, not citizen_id.
+
+vocabularies:
+  description: >
+    Vocabularies are first-class versioned standards, structurally identical
+    whether they hold species traits, units, or sector codes. Every term has
+    a code and a description. `ordered: true` declares that term order is
+    meaningful, which lets constraints compare terms with gte/lte (a
+    dwelling's clearance_class >= an occupant's size_class).
+
+constraints:
+  description: >
+    Declarative comparisons cover most rules; anything richer is a named
+    python rule - one escape hatch, never two.
+  shape:
+    id: Snake_case name of the rule, unique within the schema.
+    description: What the rule protects, in one sentence.
+    when: Optional guard clause; the check only applies when it holds.
+    check: Declarative clause that must hold.
+    rule: "python:module.function in kelston/rules/, for the hard cases."
+  clause:
+    field: Dotted path; segments traverse references (steward.species.locomotion).
+    op: eq | ne | gte | lte | in | contains | present | absent
+    value: Literal to compare against, or
+    other_field: Another dotted path to compare against.
+    vocabulary: Optional - pins which ordered vocabulary ranks the comparison.

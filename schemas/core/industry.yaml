@@ -1,0 +1,25 @@
+schema: kelston.core.industry
+version: 1.0.0
+status: stable
+title: Industry
+description: >
+  The middle level of the sector -> industry -> role taxonomy: a coherent
+  line of work within a sector, e.g. "orcharding" within agriculture.
+  Industries are data, not prose, so the taxonomy itself is versioned and
+  queryable like everything else.
+identity:
+  prefix: IND
+fields:
+  sector:
+    type: vocab
+    vocabulary: kelston.vocab.sector
+    required: true
+    description: The sector this industry belongs to.
+  name:
+    type: text
+    required: true
+    description: The industry's name, e.g. "Orcharding".
+  description:
+    type: text
+    required: true
+    description: One sentence on what this line of work covers.

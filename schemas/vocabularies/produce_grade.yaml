@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.produce_grade
+version: 1.0.0
+description: >
+  Quality grades for harvested lots, ordered from plainest to finest. Every
+  grade has an honest destination - seconds become preserves and compost
+  feedstock, never waste.
+ordered: true
+terms:
+  - code: seconds
+    label: Seconds
+    description: Blemished but sound; routed to kitchens, preserves, and compost.
+  - code: standard
+    label: Standard
+    description: Everyday market quality.
+  - code: choice
+    label: Choice
+    description: Above standard in size, condition, and keeping quality.
+  - code: prime
+    label: Prime
+    description: The festival-table grade; the realm's best of the season.

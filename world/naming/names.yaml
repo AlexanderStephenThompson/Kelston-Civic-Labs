@@ -1,0 +1,37 @@
+# Name pools for citizen generation. Given names draw from the citizen's
+# animal class pool; family names mix a class pool with the shared pool so
+# mixed-species households can plausibly share a name.
+
+given_names:
+  mammal:
+    [Alder, Bram, Clove, Dahlia, Ember, Fern, Gorse, Hazel, Ivor, Juniper,
+     Kestrel, Linden, Maple, Nettle, Orin, Poppy, Quill, Rowan, Sorrel, Tansy,
+     Ulmus, Vetch, Willow, Yarrow, Aspen, Birk, Cedar, Dunne, Elowen, Flax,
+     Garnet, Heather, Isla, Jory, Kerrin, Lark, Moss, Nyssa, Oren, Petra]
+  reptile:
+    [Anza, Basalt, Cinder, Dune, Ezzra, Flint, Gila, Halite, Inka, Jasper,
+     Karst, Lazuli, Mesa, Naga, Obsidian, Pyrite, Quartz, Raku, Sandor, Tessel,
+     Umber, Vesper, Wadi, Xeric, Yucca, Zircon, Agave, Brimstone, Cairn, Drava]
+  bird:
+    [Aria, Breeze, Cirrus, Down, Echo, Fife, Gale, Halcyon, Iris, Jay,
+     Kite, Lyric, Mistral, Nimbus, Onda, Pippin, Quay, Reed, Sky, Trill,
+     Updraft, Vane, Wren, Zephyr, Auk, Bellow, Chinook, Drift, Eyrie, Fledge]
+
+family_names:
+  mammal:
+    [Thornpaw, Bramblefur, Oakhollow, Mossburrow, Swiftfoot, Deepden, Frostmane,
+     Willowtail, Stonehoof, Embergrove, Riverpelt, Longstride, Hollowlog,
+     Greenshade, Burrowell, Tussockfield, Cinderbrush, Snowdrift, Fernwhisk,
+     Highmeadow]
+  reptile:
+    [Sunscale, Baskstone, Drycreek, Shalerest, Warmsand, Glasswing, Slowwater,
+     Ridgeback, Duneshade, Pebbleshell, Longsun, Cracklepan, Mirageway,
+     Saltflat, Emberbask]
+  bird:
+    [Featherlight, Highperch, Windrow, Cloudrest, Brightbeak, Stormglide,
+     Reednest, Tidewing, Aerieholm, Quillsong, Skylane, Mistfeather, Downvale,
+     Galecrest, Plumewright]
+  shared:
+    [Kelbrook, Marrowgate, Lanthorn, Civet, Greenward, Tarnwall, Quaymarsh,
+     Sunhollow, Driftgate, Northloom, Eastreach, Wintermere, Goldenrow,
+     Harrowfen, Bellweather]

@@ -1,0 +1,61 @@
+schema: kelston.health.clinic_visit
+version: 1.0.0
+status: stable
+title: Clinic Visit
+description: >
+  One patient seen once at one clinic - the basic unit of town medicine.
+  Extends the civic record, so visits sit on the same event spine as every
+  other dated record, and the species-fit guarantees are checked right
+  here where patient meets room.
+extends: kelston.core.civic_record
+identity:
+  prefix: CLNV
+fields:
+  patient:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen who was seen.
+  clinic:
+    type: ref
+    entity: kelston.health.clinic
+    required: true
+    description: The clinic where the visit happened.
+  care_plan:
+    type: ref
+    entity: kelston.health.care_plan
+    description: The ongoing care plan this visit belongs to, when there is one.
+  visited_on:
+    type: date
+    required: true
+    description: The day of the visit.
+  visit_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    description: >
+      The shift band the visit was booked in. Scheduling follows the
+      patient's preferred band, so a nocturnal patient is never asked to
+      be examined half-asleep at noon.
+  body_mass:
+    type: quantity
+    unit: kilogram
+    description: The patient's mass at check-in, the one vital every species shares.
+  body_temperature:
+    type: quantity
+    unit: celsius
+    description: Body temperature at check-in, read against the species' own normal range.
+  follow_up_due_on:
+    type: date
+    description: When the patient should next be seen; absent if no follow-up is needed.
+constraints:
+  - id: clinic_clearance_fits_patient
+    description: The treatment rooms must admit the patient's size class.
+    check:
+      field: clinic.clearance_class
+      op: gte
+      other_field: patient.species.size_class
+      vocabulary: kelston.vocab.size_class
+  - id: ectotherm_patients_get_basking_recovery
+    description: An ectotherm patient is only seen where recovery rooms can keep them warm.
+    when: { field: patient.species.thermoregulation, op: eq, value: ectotherm }
+    check: { field: clinic.has_basking_recovery, op: eq, value: true }

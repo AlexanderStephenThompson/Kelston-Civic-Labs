@@ -1,0 +1,46 @@
+schema: kelston.finance.mutual_pool
+version: 1.0.0
+status: stable
+title: Mutual Pool
+description: >
+  A shared kelmark fund that members pay into regularly and draw from in
+  need - storm repair, lean-season bridging, care costs. A pool exists
+  from the day its charter is signed at a credit union.
+identity:
+  prefix: POOL
+fields:
+  steward_union:
+    type: ref
+    entity: kelston.finance.credit_union
+    required: true
+    description: The credit union that stewards the pool's books.
+  purpose:
+    type: text
+    required: true
+    description: What the pool exists to cover, in plain words.
+  chartered_on:
+    type: date
+    required: true
+    description: The day the pool's charter was signed.
+  pooled_balance:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: Kelmarks currently held by the pool.
+  contribution_amount:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: The regular share each member pays in, in kelmarks.
+  payout_ceiling:
+    type: quantity
+    unit: kelmark
+    required: true
+    description: The most a single payout may draw, in kelmarks.
+constraints:
+  - id: payout_ceiling_within_balance
+    description: A pool never promises a single payout larger than what it holds.
+    check:
+      field: payout_ceiling
+      op: lte
+      other_field: pooled_balance

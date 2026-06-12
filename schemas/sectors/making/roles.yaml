@@ -1,0 +1,82 @@
+# Taxonomy data for the making sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: making
+
+industries:
+  - id: IND-making-woodcraft
+    conforms_to: kelston.core.industry@1.0.0
+    sector: making
+    name: Woodcraft
+    description: Joinery, carving, and framing from the Evergreen timber yards.
+  - id: IND-making-textiles
+    conforms_to: kelston.core.industry@1.0.0
+    sector: making
+    name: Textiles
+    description: Spinning, weaving, and stitching for every coat, scale, and feather.
+  - id: IND-making-ceramics
+    conforms_to: kelston.core.industry@1.0.0
+    sector: making
+    name: Ceramics
+    description: Clay work from the throwing wheels through the shared kilns.
+  - id: IND-making-toolwrights
+    conforms_to: kelston.core.industry@1.0.0
+    sector: making
+    name: Toolwrights
+    description: Designing, building, and fitting tools across the size-class ranges.
+
+roles:
+  - id: ROL-making-joiner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-woodcraft
+    name: Joiner
+    description: Cuts and fits the frames, doors, and furniture of every clearance class.
+    required_capabilities: []
+  - id: ROL-making-beam-hauler
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-woodcraft
+    name: Beam Hauler
+    description: Moves and raises the grand-clearance timbers no winch is rigged for.
+    required_capabilities: [heavy_handling]
+  - id: ROL-making-canopy-carpenter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-woodcraft
+    name: Canopy Carpenter
+    description: Builds and repairs the platform work up in the living trees.
+    required_capabilities: [climbing]
+  - id: ROL-making-weaver
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-textiles
+    name: Weaver
+    description: Works the looms, from grand-class blankets to everyday cloth.
+    required_capabilities: []
+  - id: ROL-making-fine-stitcher
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-textiles
+    name: Fine Stitcher
+    description: Sews the tiny-class garments and the close work no big paw can hold.
+    required_capabilities: [fine_handling]
+  - id: ROL-making-potter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-ceramics
+    name: Potter
+    description: Throws and builds the town's vessels, bowls sized to every snout.
+    required_capabilities: []
+  - id: ROL-making-kiln-tender
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-ceramics
+    name: Kiln Tender
+    description: Watches the long firings through the night band, cone by cone.
+    required_capabilities: [night_work]
+  - id: ROL-making-toolwright
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-toolwrights
+    name: Toolwright
+    description: Draws and builds tool patterns fitted to each size class.
+    required_capabilities: []
+  - id: ROL-making-grip-fitter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-making-toolwrights
+    name: Grip Fitter
+    description: Fits handles and grips to the citizen who will actually hold them.
+    required_capabilities: [fine_handling]

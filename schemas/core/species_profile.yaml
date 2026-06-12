@@ -1,0 +1,73 @@
+schema: kelston.core.species_profile
+version: 1.0.0
+status: stable
+title: Species Profile
+description: >
+  The structural trait standard for one species of citizen. Every system in
+  town - housing, scheduling, transit, employment, care - reads traits from
+  here rather than guessing, which is how Kelston serves a shrew and a
+  giraffe with the same schemas.
+identity:
+  prefix: SPC
+fields:
+  common_name:
+    type: text
+    required: true
+    description: The everyday name of the species, e.g. "red fox".
+  animal_class:
+    type: vocab
+    vocabulary: kelston.vocab.animal_class
+    required: true
+    description: Which citizen family the species belongs to - mammal, reptile, or bird.
+  family_group:
+    type: text
+    required: true
+    description: >
+      Informal family grouping used for naming pools and kinship flavor,
+      e.g. "canine", "raptor", "tortoise".
+  size_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: Body-size band driving clearance, seating, and equipment standards.
+  activity_cycle:
+    type: vocab
+    vocabulary: kelston.vocab.activity_cycle
+    required: true
+    description: When the species is naturally awake and at its best.
+  locomotion:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.locomotion
+      description: One movement mode the species is fully at home in.
+    description: All movement modes the species is fully at home in.
+  thermoregulation:
+    type: vocab
+    vocabulary: kelston.vocab.thermoregulation
+    required: true
+    description: Endotherm or ectotherm; drives climate provisions everywhere.
+  lifespan_band:
+    type: vocab
+    vocabulary: kelston.vocab.lifespan_band
+    required: true
+    description: Expected lifespan band, used to pace lifelong services fairly.
+  habitat_affinity:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.realm_code
+      description: A realm this species historically leans toward.
+    description: >
+      Realms the species tends to settle in. Affinity weights distributions;
+      it never restricts where a citizen may live.
+constraints:
+  - id: reptiles_are_ectotherms
+    description: In Kelston's roster, reptile-class species are the ectotherms.
+    when: { field: animal_class, op: eq, value: reptile }
+    check: { field: thermoregulation, op: eq, value: ectotherm }
+  - id: warm_classes_are_endotherms
+    description: Mammal- and bird-class species regulate their own heat.
+    when: { field: animal_class, op: in, value: [mammal, bird] }
+    check: { field: thermoregulation, op: eq, value: endotherm }

@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.care_focus
+version: 1.0.0
+description: >
+  What a health care plan is chiefly about. The list is species-honest:
+  molts, sheds, beaks, and hibernation are ordinary medicine in Kelston,
+  not exotic footnotes.
+ordered: false
+terms:
+  - code: preventive
+    label: Preventive
+    description: Routine checkups and early catches; the quiet bulk of town medicine.
+  - code: recovery
+    label: Recovery
+    description: Healing after injury or illness, paced to the patient.
+  - code: chronic_condition
+    label: Chronic condition
+    description: Ongoing management of a long-running condition.
+  - code: maternity_and_clutch
+    label: Maternity and clutch
+    description: Care through pregnancy, egg-laying, and the first weeks after.
+  - code: molt_and_shed
+    label: Molt and shed
+    description: Support through feather molts and skin sheds, when bodies are busy.
+  - code: dental_and_beak
+    label: Dental and beak
+    description: Teeth, tusks, and beaks - the tools every citizen eats with.
+  - code: hibernation_support
+    label: Hibernation support
+    description: Preparing for, monitoring, and waking well from seasonal torpor.

@@ -1,0 +1,47 @@
+schema: kelston.making.craft_workshop
+version: 1.0.0
+status: stable
+title: Craft Workshop
+description: >
+  An organization that makes things by hand and tool - a joinery, a
+  weavery, a pottery, a toolwright's bench hall. Workshops declare the
+  size-class range they can serve, because a chisel that fits a badger's
+  paw is no use in a wren's.
+extends: kelston.core.organization
+identity:
+  prefix: WKSP
+fields:
+  disciplines:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.craft_discipline
+      description: A discipline the workshop practices as a mainstay.
+    description: The disciplines the workshop practices as mainstays.
+  bench_count:
+    type: integer
+    required: true
+    description: Working benches on the workshop floor.
+  smallest_served_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The smallest size class the workshop can fit work and tools for.
+  largest_served_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the workshop can fit work and tools for.
+  allows_apprentices:
+    type: boolean
+    default: true
+    description: Whether the workshop takes guild apprentices at its benches.
+constraints:
+  - id: served_range_reads_upward
+    description: The largest served class is at least the smallest, so the range is a range.
+    check:
+      field: largest_served_class
+      op: gte
+      other_field: smallest_served_class
+      vocabulary: kelston.vocab.size_class

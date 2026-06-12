@@ -1,0 +1,51 @@
+schema: kelston.utilities.works_site
+version: 1.0.0
+status: stable
+title: Works Site
+description: >
+  A located installation where a utility works does its work - a solar
+  terrace, a mill race wheelhouse, a pumphouse, a composting yard. Sites
+  are the unit at which output, capacity, and crew needs are recorded.
+extends: kelston.core.place
+identity:
+  prefix: WKSITE
+fields:
+  operator:
+    type: ref
+    entity: kelston.utilities.utility_works
+    required: true
+    description: The utility works that runs this site.
+  primary_service:
+    type: vocab
+    vocabulary: kelston.vocab.utility_service
+    required: true
+    description: The essential service this site exists to deliver.
+  commissioned_on:
+    type: date
+    required: true
+    description: The day the site first entered service.
+  generation_capacity:
+    type: quantity
+    unit: kilowatt_hour
+    description: Rated daily energy output, for power sites.
+  storage_capacity:
+    type: quantity
+    unit: cubic_meter
+    description: Holding volume for water or compost, where the site stores either.
+  requires_night_crew:
+    type: boolean
+    default: false
+    description: >
+      Whether the site needs staff through the night band - true of the
+      water works and anything with a continuous process to mind.
+constraints:
+  - id: solar_sites_sit_in_the_sun
+    description: A solar site lives where the light is - rooftop, ground, or a canopy gap.
+    when: { field: primary_service, op: eq, value: solar_power }
+    check: { field: vertical_tier, op: in, value: [rooftop, ground, canopy] }
+  - id: site_service_is_one_the_operator_provides
+    description: A site's primary service is among the services its works delivers.
+    check:
+      field: primary_service
+      op: in
+      other_field: operator.services_provided

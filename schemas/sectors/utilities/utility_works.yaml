@@ -1,0 +1,37 @@
+schema: kelston.utilities.utility_works
+version: 1.0.0
+status: stable
+title: Utility Works
+description: >
+  An organization that delivers an essential service - a solar terrace
+  cooperative, the mill hydro guild, the water works, a composting yard.
+  What a works provides and where is declared as data, so coverage gaps
+  show up in a query before they show up in a cold home.
+extends: kelston.core.organization
+identity:
+  prefix: UTW
+fields:
+  services_provided:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.utility_service
+      description: An essential service the works delivers.
+    description: The essential services this works delivers.
+  service_realms:
+    type: list
+    required: true
+    items:
+      type: ref
+      entity: kelston.core.realm
+      description: A realm the works serves.
+    description: The realms this works delivers service to.
+  daily_energy_output:
+    type: quantity
+    unit: kilowatt_hour
+    description: Typical energy generated per day, for the power works.
+  has_continuous_watch:
+    type: boolean
+    default: false
+    description: Whether the works keeps a crew on watch around the clock.

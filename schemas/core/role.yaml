@@ -1,0 +1,32 @@
+schema: kelston.core.role
+version: 1.0.0
+status: stable
+title: Role
+description: >
+  A position definition in the taxonomy - what the work is, which industry
+  it belongs to, and what capabilities it genuinely requires. Requirements
+  are explicit data so matching is fair: a role demands flight only when
+  the work truly happens in the air.
+identity:
+  prefix: ROL
+fields:
+  industry:
+    type: ref
+    entity: kelston.core.industry
+    required: true
+    description: The industry this role belongs to.
+  name:
+    type: text
+    required: true
+    description: The role's title, e.g. "Plot Steward".
+  description:
+    type: text
+    required: true
+    description: One sentence on what the holder of this role does.
+  required_capabilities:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.capability
+      description: A capability the work genuinely requires.
+    description: Capabilities the work genuinely requires; empty means open to all.

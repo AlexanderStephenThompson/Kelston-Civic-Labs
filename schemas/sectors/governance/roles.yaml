@@ -1,0 +1,76 @@
+# Taxonomy data for the governance sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: governance
+
+industries:
+  - id: IND-gov-registry
+    conforms_to: kelston.core.industry@1.0.0
+    sector: governance
+    name: Civic Registry
+    description: Keeping the records of record - citizens, parcels, organizations, and their histories.
+  - id: IND-gov-assembly
+    conforms_to: kelston.core.industry@1.0.0
+    sector: governance
+    name: Assembly & Deliberation
+    description: Running the assembly - agendas, hearings, votes, and the minutes that bind.
+  - id: IND-gov-standards
+    conforms_to: kelston.core.industry@1.0.0
+    sector: governance
+    name: Standards Stewardship
+    description: Drafting, reviewing, and retiring the ordinances and schemas the town runs on.
+  - id: IND-gov-services
+    conforms_to: kelston.core.industry@1.0.0
+    sector: governance
+    name: Counter Services
+    description: The staffed public counters where citizens file, fetch, and petition in every band.
+
+roles:
+  - id: ROL-gov-registrar
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-registry
+    name: Registrar
+    description: Issues and amends records of the civic registry with a steady hand.
+    required_capabilities: []
+  - id: ROL-gov-records-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-registry
+    name: Records Keeper
+    description: Tends the deep archive stacks in the burrow-tier vaults.
+    required_capabilities: [burrowing]
+  - id: ROL-gov-assembly-clerk
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-assembly
+    name: Assembly Clerk
+    description: Keeps the agenda, calls the roll, and writes the minutes that bind.
+    required_capabilities: []
+  - id: ROL-gov-hearing-moderator
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-assembly
+    name: Hearing Moderator
+    description: Chairs petition hearings so every voice, squeak to bellow, gets its turn.
+    required_capabilities: []
+  - id: ROL-gov-standards-drafter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-standards
+    name: Standards Drafter
+    description: Writes and revises ordinances and schemas in plain, checkable language.
+    required_capabilities: []
+  - id: ROL-gov-ordinance-reviewer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-standards
+    name: Ordinance Reviewer
+    description: Walks the town to test whether standing ordinances still fit life as lived.
+    required_capabilities: []
+  - id: ROL-gov-counter-officer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-services
+    name: Counter Officer
+    description: Staffs the public counter, logging petitions and handing back answers.
+    required_capabilities: []
+  - id: ROL-gov-night-counter-officer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-gov-services
+    name: Night Counter Officer
+    description: Keeps the counter open through the night band for nocturnal citizens.
+    required_capabilities: [night_work]

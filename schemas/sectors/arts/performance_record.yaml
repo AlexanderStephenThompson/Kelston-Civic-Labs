@@ -1,0 +1,43 @@
+schema: kelston.arts.performance_record
+version: 1.0.0
+status: stable
+title: Performance Record
+description: >
+  One staging of one work before an audience - the unit at which the
+  town's cultural life is counted. Extends the civic record, so a premiere
+  sits on the same event spine as a harvest or a ledger entry.
+extends: kelston.core.civic_record
+identity:
+  prefix: SHOW
+fields:
+  company:
+    type: ref
+    entity: kelston.arts.performance_company
+    required: true
+    description: The company that staged the work.
+  venue:
+    type: ref
+    entity: kelston.arts.performance_venue
+    required: true
+    description: The venue where it was staged.
+  work_title:
+    type: text
+    required: true
+    description: The name of the work performed.
+  art_form:
+    type: vocab
+    vocabulary: kelston.vocab.art_form
+    required: true
+    description: The form the staging belongs to.
+  performed_during:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band the curtain went up in.
+  attendance_count:
+    type: integer
+    description: Citizens in the house, counted at the doors and perches.
+  admission_price:
+    type: quantity
+    unit: kelmark
+    description: Price of a seat in kelmarks; absent for free commons stagings.

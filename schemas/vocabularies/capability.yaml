@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.capability
+version: 1.0.0
+description: >
+  Capabilities a role can require. Employment matching checks a citizen's
+  species traits against these, so a canopy line inspector is always someone
+  who can actually reach the canopy.
+ordered: false
+terms:
+  - code: flight
+    label: Flight
+    description: Requires true flight - flighted locomotion.
+  - code: climbing
+    label: Climbing
+    description: Requires confident vertical work - arboreal locomotion.
+  - code: swimming
+    label: Swimming
+    description: Requires working in and under water - semi-aquatic locomotion.
+  - code: burrowing
+    label: Burrowing
+    description: Requires digging and underground comfort - fossorial locomotion.
+  - code: night_work
+    label: Night work
+    description: Requires sustained night-band alertness - nocturnal, crepuscular, or flexible cycles.
+  - code: heavy_handling
+    label: Heavy handling
+    description: Requires large- or grand-class strength for freight and frame work.
+  - code: fine_handling
+    label: Fine handling
+    description: Requires tiny- or small-class precision for delicate work.

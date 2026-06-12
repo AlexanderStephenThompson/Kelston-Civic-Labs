@@ -1,0 +1,53 @@
+vocabulary: kelston.vocab.unit
+version: 1.0.0
+description: >
+  The single town-wide unit registry. Every quantity field in every schema
+  declares exactly one of these units; instances store bare numbers, so no
+  record ever carries an ambiguous "5".
+ordered: false
+terms:
+  - code: meter
+    label: Meter
+    description: Length in meters.
+  - code: centimeter
+    label: Centimeter
+    description: Length in centimeters, used for body heights and small fixtures.
+  - code: square_meter
+    label: Square meter
+    description: Area in square meters, used for plots, dwellings, and parcels.
+  - code: hectare
+    label: Hectare
+    description: Area in hectares (10,000 square meters), used for farms and realms.
+  - code: cubic_meter
+    label: Cubic meter
+    description: Volume in cubic meters, used for water, compost, and storage.
+  - code: liter
+    label: Liter
+    description: Volume in liters, used for liquids at household and market scale.
+  - code: kilogram
+    label: Kilogram
+    description: Mass in kilograms, the standard trade weight.
+  - code: gram
+    label: Gram
+    description: Mass in grams, used for seeds, spices, and tiny-class portions.
+  - code: celsius
+    label: Degrees Celsius
+    description: Temperature in degrees Celsius.
+  - code: hour
+    label: Hour
+    description: Elapsed time in hours.
+  - code: day
+    label: Day
+    description: Elapsed time in civic calendar days.
+  - code: percent
+    label: Percent
+    description: A proportion expressed as 0-100.
+  - code: kilowatt_hour
+    label: Kilowatt hour
+    description: Energy in kilowatt hours, used by the solar and hydro works.
+  - code: kelmark
+    label: Kelmark
+    description: Kelston's unit of account, used for prices and credit balances.
+  - code: count
+    label: Count
+    description: A plain tally of discrete things - crates, seedlings, seats.

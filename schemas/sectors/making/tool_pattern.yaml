@@ -1,0 +1,44 @@
+schema: kelston.making.tool_pattern
+version: 1.0.0
+status: stable
+title: Tool Pattern
+description: >
+  A registered design for a tool fitted to one size class - the same plane
+  or loom shuttle drawn five ways, paw to wing to trunk. A pattern exists
+  once a workshop registers the drawing, so any maker can build to it and
+  any citizen can ask for their size by name.
+identity:
+  prefix: TOOL
+fields:
+  origin_workshop:
+    type: ref
+    entity: kelston.making.craft_workshop
+    required: true
+    description: The workshop that registered the pattern.
+  pattern_name:
+    type: text
+    required: true
+    description: The pattern's working name, e.g. "bench plane, third draw".
+  discipline:
+    type: vocab
+    vocabulary: kelston.vocab.craft_discipline
+    required: true
+    description: The discipline the tool serves.
+  fitted_size_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The size class of maker the pattern is drawn for.
+  handling_capability:
+    type: vocab
+    vocabulary: kelston.vocab.capability
+    description: A capability the tool demands of its user beyond size fit, when one applies.
+  tool_mass:
+    type: quantity
+    unit: gram
+    required: true
+    description: Finished mass of a tool built to the pattern.
+  registered_on:
+    type: date
+    required: true
+    description: The day the drawing entered the pattern book.

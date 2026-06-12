@@ -1,0 +1,45 @@
+schema: kelston.care.support_visit_record
+version: 1.0.0
+status: stable
+title: Support Visit Record
+description: >
+  One care-circle visit to its focus citizen, with what was actually done.
+  Extends the civic record, so the quiet daily work of mutual aid is as
+  visible on the town's event spine as any harvest or assembly vote.
+extends: kelston.core.civic_record
+identity:
+  prefix: SUPV
+fields:
+  care_circle:
+    type: ref
+    entity: kelston.care.care_circle
+    required: true
+    description: The care circle this visit belongs to.
+  carried_out_by:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The circle member who made the visit.
+  visited_on:
+    type: date
+    required: true
+    description: The day of the visit.
+  provided_supports:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.care_support
+      description: A kind of support actually provided on this visit.
+    description: The kinds of support actually provided on this visit.
+  visit_duration:
+    type: duration
+    description: How long the visit lasted.
+constraints:
+  - id: basking_watch_is_for_ectotherms
+    description: A basking watch only makes sense when the focus citizen is an ectotherm.
+    when: { field: provided_supports, op: contains, value: basking_watch }
+    check:
+      field: care_circle.focus_citizen.species.thermoregulation
+      op: eq
+      value: ectotherm

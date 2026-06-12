@@ -1,0 +1,168 @@
+/* Kelston Civic Portal - clean municipal design system.
+   Near-monochrome, one accent, hairlines, no shadows. */
+
+:root {
+  --ink: #1b1f1e;
+  --ink-soft: #515855;
+  --paper: #ffffff;
+  --surface: #f4f6f5;
+  --hairline: #e2e6e4;
+  --accent: #166e5a;
+  --accent-tint: #e9f2ef;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.shell { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+main.shell { padding-top: 32px; padding-bottom: 64px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; background: var(--accent);
+  color: #fff; padding: 8px 16px; z-index: 10;
+}
+.skip:focus { left: 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Header & footer */
+.site-header { border-bottom: 1px solid var(--hairline); background: var(--paper); }
+.site-header .shell { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.wordmark { font-size: 20px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+.wordmark:hover { text-decoration: none; color: var(--accent); }
+.site-header nav { display: flex; gap: 28px; }
+.site-header nav a {
+  color: var(--ink-soft); font-size: 13px; text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 600;
+}
+.site-header nav a:hover { color: var(--accent); text-decoration: none; }
+
+.breadcrumbs { padding-top: 16px; font-size: 13px; color: var(--ink-soft); }
+.breadcrumbs a { color: var(--ink-soft); }
+.breadcrumbs a:hover { color: var(--accent); }
+.crumb-sep { color: var(--hairline); padding: 0 2px; }
+.breadcrumbs span[aria-current] { color: var(--ink); font-weight: 600; }
+
+.site-footer {
+  border-top: 1px solid var(--hairline); background: var(--surface);
+  color: var(--ink-soft); font-size: 13px; padding: 24px 0; margin-top: 32px;
+}
+
+/* Type */
+h1 { font-size: 34px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin: 8px 0 8px; }
+h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 40px 0 12px; }
+h3 { font-size: 20px; font-weight: 600; margin: 28px 0 8px; }
+.lede { font-size: 18px; color: var(--ink-soft); max-width: 720px; margin-top: 0; }
+.kicker {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent); font-weight: 600; margin: 0;
+}
+code, .mono { font-family: var(--mono); font-size: 0.875em; }
+code { background: var(--surface); padding: 1px 5px; border-radius: 3px; }
+
+/* Cards & grids */
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; margin: 20px 0;
+}
+.card {
+  display: block; background: var(--paper); border: 1px solid var(--hairline);
+  border-radius: 3px; padding: 18px 20px; color: var(--ink);
+}
+a.card:hover { border-color: var(--accent); text-decoration: none; }
+.card h3 { margin: 0 0 6px; font-size: 17px; }
+.card p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+.card .meta { margin-top: 10px; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+
+.stat-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px; margin: 24px 0;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: 3px; padding: 16px 18px;
+}
+.stat-value {
+  font-size: 34px; font-weight: 600; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums; line-height: 1.1;
+}
+.stat-label {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--ink-soft); margin-top: 4px;
+}
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+th {
+  text-align: left; font-size: 12px; text-transform: uppercase;
+  letter-spacing: 0.07em; color: var(--ink-soft); font-weight: 600;
+  padding: 8px 12px 8px 0; border-bottom: 1px solid var(--hairline);
+}
+td {
+  padding: 10px 12px 10px 0; border-bottom: 1px solid var(--hairline);
+  vertical-align: top; font-variant-numeric: tabular-nums;
+}
+td.num, th.num { text-align: right; }
+.field-table td:last-child { color: var(--ink-soft); font-size: 14px; }
+.type-cell { white-space: nowrap; font-family: var(--mono); font-size: 13px; }
+.type-link { color: var(--accent); }
+.sub-row td { color: var(--ink-soft); }
+.req-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+}
+
+details { margin: 12px 0; border: 1px solid var(--hairline); border-radius: 3px; padding: 0 16px; }
+summary { cursor: pointer; padding: 10px 0; font-weight: 600; font-size: 14px; color: var(--ink-soft); }
+
+/* Charts */
+.chart-figure { margin: 24px 0; }
+.chart { max-width: 660px; width: 100%; height: auto; display: block; }
+.chart .c-label { font: 13px system-ui, sans-serif; fill: var(--ink); }
+.chart .c-value { font: 12px var(--mono); fill: var(--ink-soft); }
+figcaption { font-size: 13px; color: var(--ink-soft); margin-top: 6px; max-width: 660px; }
+.chart-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+/* Tags & badges */
+.tag {
+  display: inline-block; background: var(--accent-tint); color: var(--accent);
+  border-radius: 3px; padding: 2px 8px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.03em; margin: 0 6px 6px 0;
+}
+.badge-version { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
+.status-stable { color: var(--accent); }
+.status-draft, .status-deprecated { color: #8a6d1d; }
+
+/* Search */
+.search-box { margin: 16px 0; }
+.search-box input {
+  width: 100%; max-width: 420px; font: inherit; padding: 10px 14px;
+  border: 1px solid var(--hairline); border-radius: 3px;
+}
+.search-box input:focus { border-color: var(--accent); outline: none; }
+.search-count { font-size: 13px; color: var(--ink-soft); margin-left: 12px; }
+
+/* Section blocks */
+.section-rule { border: 0; border-top: 1px solid var(--hairline); margin: 40px 0; }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 28px; }
+  .site-header nav { gap: 16px; }
+}

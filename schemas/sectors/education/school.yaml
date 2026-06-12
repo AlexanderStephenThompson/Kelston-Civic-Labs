@@ -1,0 +1,42 @@
+schema: kelston.education.school
+version: 1.0.0
+status: stable
+title: School
+description: >
+  An organization that teaches - an early-years den, the lyceum, a trade
+  guild school, the open lifelong hall. Schools are organizations first;
+  what this adds is which stages they teach, in which bands, and whether
+  every learner can physically fit through the door and into a seat.
+extends: kelston.core.organization
+identity:
+  prefix: SCHL
+fields:
+  campus_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The civic parcel the school teaches from.
+  stages_offered:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.learning_stage
+      description: A learning stage the school teaches.
+    description: The learning stages the school teaches, from early years to lifelong.
+  instruction_bands:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.shift_band
+      description: A shift band when classes run.
+    description: >
+      The shift bands when classes run. Schools teach across bands so a
+      nocturnal pup learns at night with the rest of their cohort awake,
+      instead of dozing through a day-band lesson.
+  clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: The largest size class the classrooms admit and seat comfortably.

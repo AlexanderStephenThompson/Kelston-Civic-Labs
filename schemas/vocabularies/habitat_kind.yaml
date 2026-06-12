@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.habitat_kind
+version: 1.0.0
+description: >
+  The kinds of living landscape the environment sector stewards at the
+  wild edges of the realms. Each kind has its own survey rhythm and its
+  own specialists.
+ordered: false
+terms:
+  - code: wetland
+    label: Wetland
+    description: Marsh, fen, and reed bed - the town's water filters and frog nurseries.
+  - code: canopy_forest
+    label: Canopy forest
+    description: Standing forest with a closed crown, surveyed from the branches up.
+  - code: grassland
+    label: Grassland
+    description: Open meadow and prairie kept by grazing and seasonal mowing.
+  - code: river_corridor
+    label: River corridor
+    description: A river and its banks, surveyed as one connected ribbon.
+  - code: tidal_shore
+    label: Tidal shore
+    description: Beach, rockpool, and saltmarsh worked by the tides twice a day.
+  - code: dune_field
+    label: Dune field
+    description: Shifting Drylands sand held by deep-rooted pioneer plants.
+  - code: alpine_meadow
+    label: Alpine meadow
+    description: High Highlands grassland above the treeline, fragile and slow to heal.

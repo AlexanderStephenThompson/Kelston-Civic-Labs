@@ -1,0 +1,87 @@
+# Taxonomy data for the housing sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: housing
+
+industries:
+  - id: IND-housing-construction
+    conforms_to: kelston.core.industry@1.0.0
+    sector: housing
+    name: Home Construction
+    description: New builds across every kind and clearance class, from groundbreak to handover.
+  - id: IND-housing-burrow-works
+    conforms_to: kelston.core.industry@1.0.0
+    sector: housing
+    name: Burrow Works
+    description: Digging, shoring, and ventilating the below-ground homes of the burrow tier.
+  - id: IND-housing-canopy-framing
+    conforms_to: kelston.core.industry@1.0.0
+    sector: housing
+    name: Canopy Framing
+    description: Platform dwellings, trunk lodges, and perch access built up in the trees.
+  - id: IND-housing-shore-works
+    conforms_to: kelston.core.industry@1.0.0
+    sector: housing
+    name: Shore Works
+    description: Stilted homes over the shallows and the submerged rooms beneath them.
+  - id: IND-housing-standards
+    conforms_to: kelston.core.industry@1.0.0
+    sector: housing
+    name: Housing Standards & Inspection
+    description: Inspecting homes against the housing standard and keeping its guarantees honest.
+
+roles:
+  - id: ROL-housing-site-lead
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-construction
+    name: Site Lead
+    description: Runs a construction site from groundbreak to handover.
+    required_capabilities: []
+  - id: ROL-housing-grand-framer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-construction
+    name: Grand-Clearance Framer
+    description: Raises the beams and doorways of grand-clearance homes.
+    required_capabilities: [heavy_handling]
+  - id: ROL-housing-burrow-digger
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-burrow-works
+    name: Burrow Digger
+    description: Excavates and shores warren homes and below-ground levels.
+    required_capabilities: [burrowing]
+  - id: ROL-housing-tunnel-ventilator
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-burrow-works
+    name: Tunnel Ventilator
+    description: Fits and tunes the airshafts that keep burrow homes breathing.
+    required_capabilities: [burrowing, fine_handling]
+  - id: ROL-housing-canopy-framer
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-canopy-framing
+    name: Canopy Framer
+    description: Builds platform flats and trunk lodges high in the branches.
+    required_capabilities: [climbing]
+  - id: ROL-housing-perch-rigger
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-canopy-framing
+    name: Perch Rigger
+    description: Places and load-tests landing perches and fly-in entrances.
+    required_capabilities: [flight]
+  - id: ROL-housing-stilt-setter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-shore-works
+    name: Stilt Setter
+    description: Drives and braces the pilings of shore-stilt homes from the water.
+    required_capabilities: [swimming]
+  - id: ROL-housing-submerged-room-fitter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-shore-works
+    name: Submerged Room Fitter
+    description: Seals and finishes the underwater rooms of shore-stilt homes.
+    required_capabilities: [swimming, fine_handling]
+  - id: ROL-housing-dwelling-inspector
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-housing-standards
+    name: Dwelling Inspector
+    description: Walks homes against the housing standard and signs the inspection record.
+    required_capabilities: []

@@ -1,0 +1,35 @@
+schema: kelston.environment.stewardship_circle
+version: 1.0.0
+status: stable
+title: Stewardship Circle
+description: >
+  An organization of citizens who tend a stretch of the wild edges - a
+  wetland circle, a canopy survey crew, a dune-holding cooperative. What
+  a circle watches and how much ground it covers is data, so no habitat
+  goes unwatched by accident.
+extends: kelston.core.organization
+identity:
+  prefix: STWC
+fields:
+  focus_habitats:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.habitat_kind
+      description: A habitat kind the circle is organized around.
+    description: The habitat kinds this circle stewards as its focus.
+  monitored_area:
+    type: quantity
+    unit: hectare
+    required: true
+    description: Total ground, water, and canopy under the circle's watch.
+  steward_count:
+    type: integer
+    description: How many citizens steward with the circle in a typical season.
+  has_night_survey_crew:
+    type: boolean
+    default: false
+    description: >
+      Whether the circle fields a night-band crew - half the wild
+      residents are only awake to be counted after dark.
