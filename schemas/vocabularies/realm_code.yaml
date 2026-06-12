@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.realm_code
+version: 1.0.0
+description: >
+  Kelston's seven realms, each a biome with its own character, agriculture,
+  and architecture. Every realm is mixed-species; affinity only weights who
+  tends to settle where.
+ordered: false
+terms:
+  - code: commons
+    label: The Commons
+    description: The central mixed urban hub - civic life, markets, and the registry.
+  - code: evergreen
+    label: The Evergreen
+    description: Temperate forest realm - timbercraft, orchards, burrow-and-trunk housing.
+  - code: canopy
+    label: The Canopy
+    description: Jungle realm - vertical living where arboreal and flighted citizens thrive.
+  - code: frostlands
+    label: The Frostlands
+    description: Tundra realm - greenhouse agriculture and heavy-coat neighborhoods.
+  - code: shorelines
+    label: The Shorelines
+    description: Coastal realm - harbors, aquaculture, and semi-aquatic life.
+  - code: highlands
+    label: The Highlands
+    description: Mountain realm - terraced slopes, aeries, and thin-air specialists.
+  - code: drylands
+    label: The Drylands
+    description: Desert realm - irrigated dryland farming, basking grounds, dusk-active culture.

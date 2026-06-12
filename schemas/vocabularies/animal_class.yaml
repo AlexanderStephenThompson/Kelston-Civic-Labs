@@ -1,0 +1,16 @@
+vocabulary: kelston.vocab.animal_class
+version: 1.0.0
+description: >
+  The three citizen families of Kelston. Set at the founding charter; other
+  classes visit, but only these three hold residency.
+ordered: false
+terms:
+  - code: mammal
+    label: Mammal
+    description: Furred, warm-blooded citizens - the most numerous family.
+  - code: reptile
+    label: Reptile
+    description: Scaled, cold-blooded citizens with basking entitlements.
+  - code: bird
+    label: Bird
+    description: Feathered, mostly flighted citizens of the aeries and shorelines.

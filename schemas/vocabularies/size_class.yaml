@@ -1,0 +1,24 @@
+vocabulary: kelston.vocab.size_class
+version: 1.0.0
+description: >
+  Body-size bands that drive housing clearance, transit seating, furniture
+  standards, and equipment sizing across every sector. Ordered, so systems
+  can check "fits" mechanically: a dwelling's clearance_class must be at
+  least every occupant's size_class.
+ordered: true
+terms:
+  - code: tiny
+    label: Tiny
+    description: Under about 25 cm standing height - mice, geckos, wrens. Uses micro-scale fixtures.
+  - code: small
+    label: Small
+    description: Roughly 25 cm to 1 m - rabbits, foxes, ravens, monitor lizards.
+  - code: medium
+    label: Medium
+    description: Roughly 1 m to 2 m - wolves, deer, capybaras, emus.
+  - code: large
+    label: Large
+    description: Roughly 2 m to 3.5 m - bears, big cats, crocodiles, ostriches.
+  - code: grand
+    label: Grand
+    description: Above 3.5 m - elephants, giraffes, moose. Needs grand-clearance architecture.

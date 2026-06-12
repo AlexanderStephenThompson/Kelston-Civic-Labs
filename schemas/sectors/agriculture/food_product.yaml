@@ -1,0 +1,33 @@
+schema: kelston.agriculture.food_product
+version: 1.0.0
+status: stable
+title: Food Product
+description: >
+  A crafted food in the town register - a preserve, a flour, a pressed oil,
+  a bakery line. Products name their main crop kind so nutrition and supply
+  questions aggregate from shelf to field.
+identity:
+  prefix: FOOD
+fields:
+  name:
+    type: text
+    required: true
+    description: The product's register name, e.g. "Evergreen cloudberry preserve".
+  made_by:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The food-crafting organization that makes it.
+  main_crop_kind:
+    type: vocab
+    vocabulary: kelston.vocab.crop_kind
+    required: true
+    description: The crop kind the product is principally made from.
+  shelf_life_duration:
+    type: duration
+    required: true
+    description: How long the product keeps under stated storage.
+  requires_cold_storage:
+    type: boolean
+    default: false
+    description: Whether the product must be kept chilled.

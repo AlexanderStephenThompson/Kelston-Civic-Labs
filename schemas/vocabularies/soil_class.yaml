@@ -1,0 +1,29 @@
+vocabulary: kelston.vocab.soil_class
+version: 1.0.0
+description: >
+  Dominant soil classification of a growing plot, used for crop matching
+  and soil-care planning. Kelston's classes are deliberately few and plain;
+  the soils lab keeps the fine detail in survey records.
+ordered: false
+terms:
+  - code: loam
+    label: Loam
+    description: Balanced, fertile soil - the Evergreen and Commons standard.
+  - code: clay
+    label: Clay
+    description: Heavy, water-holding soil common along the Shorelines flats.
+  - code: sand
+    label: Sand
+    description: Fast-draining soil of the Drylands; thrives under drip irrigation.
+  - code: silt
+    label: Silt
+    description: Fine river-laid soil of the floodplain plots.
+  - code: peat
+    label: Peat
+    description: Rich wetland soil at the Shorelines and Frostlands margins.
+  - code: volcanic
+    label: Volcanic
+    description: Dark mineral soil of the Highlands terraces.
+  - code: substrate_water
+    label: Water substrate
+    description: No soil at all - submerged paddies, kelp beds, and aquaponic rafts.

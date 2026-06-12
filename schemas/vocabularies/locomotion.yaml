@@ -1,0 +1,22 @@
+vocabulary: kelston.vocab.locomotion
+version: 1.0.0
+description: >
+  How a species gets around. Species carry one or more modes; mobility,
+  architecture, and role requirements all key off this standard.
+ordered: false
+terms:
+  - code: terrestrial
+    label: Terrestrial
+    description: Moves on the ground. Nearly universal baseline mode.
+  - code: arboreal
+    label: Arboreal
+    description: At home climbing and living in trees and vertical structure.
+  - code: flighted
+    label: Flighted
+    description: True flight - most birds and the bats. Unlocks aerial lanes and aerie housing.
+  - code: semi_aquatic
+    label: Semi-aquatic
+    description: Swims as readily as walks - otters, seals, turtles, crocodiles, seabirds.
+  - code: fossorial
+    label: Fossorial
+    description: Digs and lives comfortably underground - moles, badgers, burrowing owls.

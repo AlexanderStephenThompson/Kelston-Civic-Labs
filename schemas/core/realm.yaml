@@ -1,0 +1,41 @@
+schema: kelston.core.realm
+version: 1.0.0
+status: stable
+title: Realm
+description: >
+  One of Kelston's seven biome districts. A realm is the unit of geography,
+  climate, and civic identity; every place in town belongs to exactly one.
+identity:
+  prefix: RLM
+fields:
+  realm_code:
+    type: vocab
+    vocabulary: kelston.vocab.realm_code
+    required: true
+    description: The realm's code in the realm standard.
+  name:
+    type: text
+    required: true
+    description: The realm's everyday name, e.g. "The Evergreen".
+  biome:
+    type: text
+    required: true
+    description: The biome in plain words - temperate forest, tundra, desert.
+  character:
+    type: text
+    required: true
+    description: One sentence of the realm's civic character and specialties.
+  dominant_tiers:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.vertical_tier
+      description: A vertical tier this realm builds heavily in.
+    description: The vertical tiers this realm's architecture leans on.
+  signature_growing_methods:
+    type: list
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.growing_method
+      description: A growing method this realm is known for.
+    description: The growing methods this realm's agriculture is known for.

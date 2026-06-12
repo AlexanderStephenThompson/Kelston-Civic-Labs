@@ -1,0 +1,34 @@
+schema: kelston.agriculture.farm
+version: 1.0.0
+status: stable
+title: Farm
+description: >
+  An organization that grows food - a field farm, an orchard collective, a
+  greenhouse works, or a commons garden. Farms are organizations first, so
+  every employment and registry query already understands them.
+extends: kelston.core.organization
+identity:
+  prefix: FARM
+fields:
+  home_parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The agricultural parcel the farm works from.
+  total_growing_area:
+    type: quantity
+    unit: square_meter
+    required: true
+    description: Combined cultivable area across all of the farm's plots.
+  primary_methods:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.growing_method
+      description: A growing method the farm practices as a mainstay.
+    description: The growing methods the farm practices as mainstays.
+  is_commons:
+    type: boolean
+    default: false
+    description: Whether this is a commons garden open to any citizen steward.

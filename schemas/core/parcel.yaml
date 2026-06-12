@@ -1,0 +1,22 @@
+schema: kelston.core.parcel
+version: 1.0.0
+status: stable
+title: Parcel
+description: >
+  A bounded piece of Kelston ground, water, or canopy with a declared
+  primary use. The land registry's unit of record; dwellings and farms
+  always stand on a parcel.
+extends: kelston.core.place
+identity:
+  prefix: PRC
+fields:
+  land_use:
+    type: vocab
+    vocabulary: kelston.vocab.land_use
+    required: true
+    description: The parcel's declared primary use.
+  area:
+    type: quantity
+    unit: square_meter
+    required: true
+    description: Registered surface area of the parcel.

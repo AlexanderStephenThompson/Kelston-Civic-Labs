@@ -1,0 +1,41 @@
+schema: kelston.agriculture.crop_variety
+version: 1.0.0
+status: stable
+title: Crop Variety
+description: >
+  A named cultivar in the town seed register - what it is, how long it
+  takes, and where it grows well. Plantings reference varieties, so yield
+  questions aggregate cleanly from cultivar to crop kind.
+identity:
+  prefix: CRV
+fields:
+  name:
+    type: text
+    required: true
+    description: The register name of the variety, e.g. "Frostlands quick-barley".
+  crop_kind:
+    type: vocab
+    vocabulary: kelston.vocab.crop_kind
+    required: true
+    description: The broad crop kind this variety belongs to.
+  typical_days_to_harvest:
+    type: quantity
+    unit: day
+    required: true
+    description: Days from sowing to first harvest under suited conditions.
+  preferred_soils:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.soil_class
+      description: A soil class this variety does well in.
+    description: Soil classes this variety does well in.
+  suited_methods:
+    type: list
+    required: true
+    items:
+      type: vocab
+      vocabulary: kelston.vocab.growing_method
+      description: A growing method this variety is proven under.
+    description: Growing methods this variety is proven under.

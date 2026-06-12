@@ -1,0 +1,17 @@
+vocabulary: kelston.vocab.drainage_class
+version: 1.0.0
+description: >
+  How quickly a plot sheds water. Split out of soil_class in the growing
+  plot 2.0.0 standard so soil texture and water behavior can be recorded
+  honestly and independently.
+ordered: true
+terms:
+  - code: free_draining
+    label: Free draining
+    description: Water passes quickly - sands and terrace gravels.
+  - code: moderate
+    label: Moderate
+    description: Holds moisture without ponding - the loam baseline.
+  - code: water_holding
+    label: Water holding
+    description: Holds water at or near the surface - clays, peats, and paddies.

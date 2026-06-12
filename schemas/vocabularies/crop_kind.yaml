@@ -1,0 +1,44 @@
+vocabulary: kelston.vocab.crop_kind
+version: 1.0.0
+description: >
+  The broad kinds of crops grown across the realms. Varieties (specific
+  cultivars) reference exactly one kind, which keeps market and nutrition
+  data aggregable without a single mapping table.
+ordered: false
+terms:
+  - code: leaf_green
+    label: Leaf green
+    description: Lettuces, chards, and grazing greens.
+  - code: root
+    label: Root
+    description: Carrots, beets, tubers, and the under-market staples.
+  - code: grain
+    label: Grain
+    description: Wheats, oats, and the Frostlands quick-barley.
+  - code: legume
+    label: Legume
+    description: Beans, peas, and the nitrogen-fixing rotation crops.
+  - code: fruit
+    label: Fruit
+    description: Orchard tree fruit - apples, stone fruit, citrus of the Drylands.
+  - code: berry
+    label: Berry
+    description: Bush and cane berries of the Evergreen understory.
+  - code: nut
+    label: Nut
+    description: Orchard and canopy nuts; a structural staple of arboreal pantries.
+  - code: gourd
+    label: Gourd
+    description: Squashes, melons, and trellis gourds.
+  - code: herb
+    label: Herb
+    description: Culinary and tonic herbs from every realm's kitchen gardens.
+  - code: fungus
+    label: Fungus
+    description: Cultivated mushrooms of the burrow farms and log yards.
+  - code: kelp
+    label: Kelp
+    description: Shorelines sea greens grown on submerged lines.
+  - code: nectar_flower
+    label: Nectar flower
+    description: Flower crops kept for nectar, pollinator forage, and garnish.

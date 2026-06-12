@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.activity_cycle
+version: 1.0.0
+description: >
+  When a species is naturally awake and at its best. Scheduling systems map
+  these to shift bands so the town runs around the clock without asking
+  anyone to fight their own biology.
+ordered: false
+terms:
+  - code: diurnal
+    label: Diurnal
+    description: Naturally active in daylight hours.
+  - code: nocturnal
+    label: Nocturnal
+    description: Naturally active at night.
+  - code: crepuscular
+    label: Crepuscular
+    description: Naturally active at dawn and dusk.
+  - code: flexible
+    label: Flexible
+    description: Comfortable across bands; adapts schedule freely.

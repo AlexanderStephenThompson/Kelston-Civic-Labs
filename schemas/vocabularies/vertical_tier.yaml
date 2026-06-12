@@ -1,0 +1,23 @@
+vocabulary: kelston.vocab.vertical_tier
+version: 1.0.0
+description: >
+  Where a place sits in Kelston's layered architecture. The town builds
+  down for the fossorial, up for the arboreal and flighted, and into the
+  water along the Shorelines.
+ordered: false
+terms:
+  - code: burrow
+    label: Burrow tier
+    description: Below ground - warren homes, root cellars, the under-market.
+  - code: ground
+    label: Ground tier
+    description: Street level - the default tier.
+  - code: canopy
+    label: Canopy tier
+    description: Up in trees or tower platforms - arboreal and flighted territory.
+  - code: rooftop
+    label: Rooftop tier
+    description: Open roof level - gardens, solar terraces, landing perches.
+  - code: submerged
+    label: Submerged tier
+    description: Fully or partly underwater - paddies, kelp beds, shore-stilt undersides.

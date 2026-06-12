@@ -1,0 +1,40 @@
+schema: kelston.agriculture.planting
+version: 1.0.0
+status: stable
+title: Planting
+description: >
+  One variety put into one plot in one season - the unit that connects a
+  plot, a cultivar, and the harvests that follow.
+identity:
+  prefix: PLNT
+fields:
+  plot:
+    type: ref
+    entity: kelston.agriculture.growing_plot
+    required: true
+    description: The plot this planting is in.
+  variety:
+    type: ref
+    entity: kelston.agriculture.crop_variety
+    required: true
+    description: The seed-register variety planted.
+  method:
+    type: vocab
+    vocabulary: kelston.vocab.growing_method
+    required: true
+    description: The growing method used for this planting.
+  sown_on:
+    type: date
+    required: true
+    description: The day the planting went in.
+  expected_first_harvest_on:
+    type: date
+    required: true
+    description: Forecast first-harvest date from the variety's typical days.
+constraints:
+  - id: method_suits_variety
+    description: A planting uses one of the methods its variety is proven under.
+    check:
+      field: method
+      op: in
+      other_field: variety.suited_methods

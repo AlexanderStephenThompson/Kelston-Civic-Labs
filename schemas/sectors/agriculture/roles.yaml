@@ -1,0 +1,98 @@
+# Taxonomy data for the agriculture sector: industries and roles, as
+# instances of kelston.core.industry and kelston.core.role.
+
+sector: agriculture
+
+industries:
+  - id: IND-agr-growing
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Growing
+    description: Field, terrace, greenhouse, and dryland cultivation of crops.
+  - id: IND-agr-orcharding
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Orcharding
+    description: Tree fruit, nuts, and cane crops managed across years.
+  - id: IND-agr-aquaponics
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Aquaponics & Paddies
+    description: Submerged and raft growing - paddies, kelp lines, and tank beds.
+  - id: IND-agr-pollination
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Pollination Services
+    description: Managed pollinator forage and bloom-season coordination.
+  - id: IND-agr-food-craft
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Food Crafting
+    description: Preserves, milling, pressing, baking, and the cold pantries.
+  - id: IND-agr-markets
+    conforms_to: kelston.core.industry@1.0.0
+    sector: agriculture
+    name: Markets & Distribution
+    description: Market lots, realm markets, and the runs that move food between realms.
+
+roles:
+  - id: ROL-agr-plot-steward
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-growing
+    name: Plot Steward
+    description: Tends one or more growing plots through the season.
+    required_capabilities: []
+  - id: ROL-agr-greenhouse-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-growing
+    name: Greenhouse Keeper
+    description: Runs the Frostlands glass rows - climate, sowing, and rotation.
+    required_capabilities: []
+  - id: ROL-agr-soil-surveyor
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-growing
+    name: Soil Surveyor
+    description: Samples and classifies plot soils for the survey record.
+    required_capabilities: [burrowing]
+  - id: ROL-agr-orchard-keeper
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-orcharding
+    name: Orchard Keeper
+    description: Manages standing trees from graft to harvest.
+    required_capabilities: [climbing]
+  - id: ROL-agr-paddy-tender
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-aquaponics
+    name: Paddy Tender
+    description: Works the submerged plots - paddies, kelp lines, raft beds.
+    required_capabilities: [swimming]
+  - id: ROL-agr-bloom-coordinator
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-pollination
+    name: Bloom Coordinator
+    description: Times forage plantings and moves between bloom sites in season.
+    required_capabilities: [flight]
+  - id: ROL-agr-food-crafter
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-food-craft
+    name: Food Crafter
+    description: Turns harvests into preserves, flours, oils, and bakes.
+    required_capabilities: []
+  - id: ROL-agr-market-trader
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-markets
+    name: Market Trader
+    description: Lists, prices, and trades market lots at a realm market.
+    required_capabilities: []
+  - id: ROL-agr-distribution-runner
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-markets
+    name: Distribution Runner
+    description: Carries lots between realms on the scheduled runs.
+    required_capabilities: []
+  - id: ROL-agr-night-market-trader
+    conforms_to: kelston.core.role@1.0.0
+    industry: IND-agr-markets
+    name: Night Market Trader
+    description: Works the Drylands night markets through the night band.
+    required_capabilities: [night_work]

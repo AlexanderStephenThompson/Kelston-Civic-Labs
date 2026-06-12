@@ -1,0 +1,31 @@
+schema: kelston.core.household
+version: 1.0.0
+status: stable
+title: Household
+description: >
+  The citizens who share one dwelling. Mixed-species households are the
+  Kelston norm, which is exactly why housing guarantees are checked per
+  member, never per household average.
+identity:
+  prefix: HSH
+fields:
+  dwelling:
+    type: ref
+    entity: kelston.core.dwelling
+    required: true
+    description: The home this household lives in.
+  household_name:
+    type: text
+    description: The name the household goes by, e.g. "the Thornquill lodge".
+  members:
+    type: list
+    required: true
+    items:
+      type: ref
+      entity: kelston.core.citizen
+      description: A citizen who lives here.
+    description: Every citizen who lives in this dwelling.
+constraints:
+  - id: household_fits_its_home
+    description: A household never outgrows its dwelling's built capacity.
+    rule: python:core.household_within_capacity

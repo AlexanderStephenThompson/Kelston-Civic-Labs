@@ -1,0 +1,48 @@
+schema: kelston.core.appointment
+version: 1.0.0
+status: stable
+title: Appointment
+description: >
+  A citizen holding a role at an organization for a span of time, on a
+  declared shift band. The join record every employment question runs
+  through - who works where, doing what, and when.
+identity:
+  prefix: APT
+fields:
+  citizen:
+    type: ref
+    entity: kelston.core.citizen
+    required: true
+    description: The citizen holding the position.
+  role:
+    type: ref
+    entity: kelston.core.role
+    required: true
+    description: The role being performed.
+  organization:
+    type: ref
+    entity: kelston.core.organization
+    required: true
+    description: The organization where the role is held.
+  began_on:
+    type: date
+    required: true
+    description: First day in the position.
+  ended_on:
+    type: date
+    description: Last day in the position; absent while the appointment is active.
+  shift_band:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: The shift band this appointment is worked in.
+constraints:
+  - id: role_matches_organization_sector
+    description: The role's industry belongs to the employing organization's sector.
+    check:
+      field: role.industry.sector
+      op: eq
+      other_field: organization.sector
+  - id: citizen_meets_role_requirements
+    description: The citizen's species traits satisfy the role's required capabilities.
+    rule: python:core.citizen_meets_role_capabilities

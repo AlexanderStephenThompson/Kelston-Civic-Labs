@@ -1,0 +1,45 @@
+schema: kelston.core.organization
+version: 1.0.0
+status: stable
+title: Organization
+description: >
+  Any collective actor in town - a farm, a clinic, a guild school, the
+  registry itself. Organizations declare their sector, industry, realm, and
+  operating cycle so the whole economy is one queryable surface.
+identity:
+  prefix: ORG
+fields:
+  name:
+    type: text
+    required: true
+    description: The organization's registered name.
+  sector:
+    type: vocab
+    vocabulary: kelston.vocab.sector
+    required: true
+    description: The sector this organization works in.
+  industry:
+    type: ref
+    entity: kelston.core.industry
+    required: true
+    description: The industry, from its sector's taxonomy.
+  realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm where the organization is based.
+  operating_cycle:
+    type: vocab
+    vocabulary: kelston.vocab.operating_cycle
+    required: true
+    description: When the organization is open and staffed.
+  founded_on:
+    type: date
+    description: The date the organization was registered.
+constraints:
+  - id: industry_belongs_to_sector
+    description: An organization's industry comes from its own sector's taxonomy.
+    check:
+      field: industry.sector
+      op: eq
+      other_field: sector

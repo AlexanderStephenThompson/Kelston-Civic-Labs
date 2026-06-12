@@ -1,0 +1,71 @@
+schema: kelston.core.citizen
+version: 1.0.0
+status: stable
+title: Citizen
+description: >
+  A resident of Kelston. The citizen record is the spine of the civic
+  registry: every sector's records reach a citizen by this id, and the
+  housing and scheduling guarantees are checked right here, where the
+  citizen meets their home and their hours.
+identity:
+  prefix: CTZ
+fields:
+  given_name:
+    type: text
+    required: true
+    description: The citizen's personal name.
+  family_name:
+    type: text
+    required: true
+    description: The citizen's family or lodge name.
+  species:
+    type: ref
+    entity: kelston.core.species_profile
+    required: true
+    description: The species profile whose structural traits apply to this citizen.
+  born_on:
+    type: date
+    required: true
+    description: Date of birth in the civic calendar.
+  household:
+    type: ref
+    entity: kelston.core.household
+    required: true
+    description: The household this citizen belongs to.
+  realm:
+    type: ref
+    entity: kelston.core.realm
+    required: true
+    description: The realm of residence.
+  active_hours_preference:
+    type: vocab
+    vocabulary: kelston.vocab.shift_band
+    required: true
+    description: >
+      The shift band this citizen prefers to be active in. Defaults follow
+      the species activity cycle, but the preference is the citizen's own -
+      owls with day jobs exist.
+constraints:
+  - id: home_fits_citizen
+    description: A citizen's dwelling clearance must meet their size class.
+    check:
+      field: household.dwelling.clearance_class
+      op: gte
+      other_field: species.size_class
+      vocabulary: kelston.vocab.size_class
+  - id: residence_realm_matches_home
+    description: The realm of residence is the realm the dwelling stands in.
+    check:
+      field: realm
+      op: eq
+      other_field: household.dwelling.realm
+  - id: semi_aquatic_homes_have_water_access
+    description: Semi-aquatic citizens live in homes with swim-in access.
+    when: { field: species.locomotion, op: contains, value: semi_aquatic }
+    check: { field: household.dwelling.has_water_access, op: eq, value: true }
+  - id: ectotherm_homes_keep_warm
+    description: >
+      Ectotherm citizens get basking provisions at home, unless they live in
+      the Drylands where the realm itself provides.
+    when: { field: species.thermoregulation, op: eq, value: ectotherm }
+    rule: python:core.ectotherm_home_is_warm_enough

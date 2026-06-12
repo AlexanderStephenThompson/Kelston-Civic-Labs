@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.lifespan_band
+version: 1.0.0
+description: >
+  Expected lifespan bands. Care services, pensions, and education pacing are
+  lifespan-aware so a brief-band shrew and a venerable-band tortoise both get
+  a whole life's worth of civic services at their own tempo.
+ordered: true
+terms:
+  - code: brief
+    label: Brief
+    description: Up to about 15 years - many rodents and small birds.
+  - code: standard
+    label: Standard
+    description: Roughly 15 to 40 years - most mid-sized mammals.
+  - code: long
+    label: Long
+    description: Roughly 40 to 80 years - elephants, large raptors, crocodilians.
+  - code: venerable
+    label: Venerable
+    description: Beyond 80 years - tortoises and other famously patient citizens.

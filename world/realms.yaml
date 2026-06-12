@@ -1,0 +1,79 @@
+# The seven realms of Kelston - instance data conforming to kelston.core.realm.
+# Lore lives in world/lore/; this file is the realms as the registry knows them.
+
+- id: RLM-commons
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: commons
+  name: The Commons
+  biome: temperate meadow and river junction
+  character: >-
+    The central hub where the realms meet - the registry of record, the
+    assembly hall, the grand market, and the densest mixed-species streets.
+  dominant_tiers: [ground, rooftop, burrow]
+  signature_growing_methods: [open_field, rooftop_garden]
+
+- id: RLM-evergreen
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: evergreen
+  name: The Evergreen
+  biome: temperate conifer and broadleaf forest
+  character: >-
+    Timbercraft and orchard country; trunk lodges above and warm burrow
+    streets below, with berry rows in every clearing.
+  dominant_tiers: [ground, burrow, canopy]
+  signature_growing_methods: [orchard, open_field]
+
+- id: RLM-canopy
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: canopy
+  name: The Canopy
+  biome: dense jungle and rainforest
+  character: >-
+    A vertical realm of platforms, rope-ways, and flowering dark understory,
+    where most front doors are forty meters up.
+  dominant_tiers: [canopy, ground]
+  signature_growing_methods: [agroforestry]
+
+- id: RLM-frostlands
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: frostlands
+  name: The Frostlands
+  biome: tundra and snowfield
+  character: >-
+    The glass quarter - long lights of greenhouse rows against the snow,
+    and the warmest indoor culture in town.
+  dominant_tiers: [ground, burrow]
+  signature_growing_methods: [greenhouse]
+
+- id: RLM-shorelines
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: shorelines
+  name: The Shorelines
+  biome: coast, estuary, and tidal flats
+  character: >-
+    Harbors, stilt streets, and the paddies and kelp lines that feed half
+    the town; the only realm with submerged front rooms.
+  dominant_tiers: [ground, submerged]
+  signature_growing_methods: [paddy, aquaponic]
+
+- id: RLM-highlands
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: highlands
+  name: The Highlands
+  biome: mountain slopes and alpine meadow
+  character: >-
+    Terraced stone villages under the aeries; thin air, long views, and the
+    observatory at the summit road's end.
+  dominant_tiers: [ground, rooftop]
+  signature_growing_methods: [terrace]
+
+- id: RLM-drylands
+  conforms_to: kelston.core.realm@1.0.0
+  realm_code: drylands
+  name: The Drylands
+  biome: desert and scrubland
+  character: >-
+    Drip-fed groves, shaded courtyards, public basking grounds, and the
+    night markets that wake when the other realms sleep.
+  dominant_tiers: [ground, burrow]
+  signature_growing_methods: [irrigated_dryland]

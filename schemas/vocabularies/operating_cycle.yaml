@@ -1,0 +1,17 @@
+vocabulary: kelston.vocab.operating_cycle
+version: 1.0.0
+description: >
+  When an organization is open and staffed. Cycles are declared data so
+  employment matching can pair night-cycle workplaces with night-band
+  workers instead of forcing anyone nocturnal onto a day schedule.
+ordered: false
+terms:
+  - code: daytime
+    label: Daytime
+    description: Staffed through the dawn and day bands.
+  - code: evening
+    label: Evening
+    description: Staffed through the dusk and night bands.
+  - code: continuous
+    label: Continuous
+    description: Staffed around the clock in rotating bands.

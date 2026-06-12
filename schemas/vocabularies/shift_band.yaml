@@ -1,0 +1,20 @@
+vocabulary: kelston.vocab.shift_band
+version: 1.0.0
+description: >
+  The four working bands of Kelston's day. First-class across scheduling:
+  appointments, transit timetables, and organization operating cycles all
+  speak in shift bands, which is how activity cycles become structural.
+ordered: false
+terms:
+  - code: dawn
+    label: Dawn band
+    description: Roughly 04:00-10:00. The crepuscular morning shift.
+  - code: day
+    label: Day band
+    description: Roughly 10:00-16:00. The diurnal core shift.
+  - code: dusk
+    label: Dusk band
+    description: Roughly 16:00-22:00. The crepuscular evening shift.
+  - code: night
+    label: Night band
+    description: Roughly 22:00-04:00. The nocturnal shift; Drylands markets peak here.

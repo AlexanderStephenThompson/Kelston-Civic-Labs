@@ -1,0 +1,51 @@
+schema: kelston.core.dwelling
+version: 1.0.0
+status: stable
+title: Dwelling
+description: >
+  A home. Dwellings carry the structural guarantees of the housing
+  standard - clearance, water and flight access, burrow level, climate
+  provision - as plain data, so "does this home fit this household" is a
+  query, not a viewing.
+extends: kelston.core.place
+identity:
+  prefix: DWL
+fields:
+  parcel:
+    type: ref
+    entity: kelston.core.parcel
+    required: true
+    description: The parcel this dwelling stands on (or under, or above).
+  dwelling_kind:
+    type: vocab
+    vocabulary: kelston.vocab.dwelling_kind
+    required: true
+    description: The built form of the home.
+  clearance_class:
+    type: vocab
+    vocabulary: kelston.vocab.size_class
+    required: true
+    description: >
+      The largest size class the home comfortably fits - doorways, ceilings,
+      and fixtures included. Compared against every occupant's size class.
+  capacity:
+    type: integer
+    required: true
+    description: How many residents the home is built for.
+  has_water_access:
+    type: boolean
+    default: false
+    description: Whether the home includes swim-in access or a submerged room.
+  has_flight_access:
+    type: boolean
+    default: false
+    description: Whether the home has a landing perch or fly-in entrance.
+  has_burrow_level:
+    type: boolean
+    default: false
+    description: Whether the home includes a below-ground level.
+  climate_provision:
+    type: vocab
+    vocabulary: kelston.vocab.climate_provision
+    default: ambient
+    description: What the home provides beyond the realm's ambient climate.

@@ -1,0 +1,34 @@
+vocabulary: kelston.vocab.growing_method
+version: 1.0.0
+description: >
+  How a planting is grown. Each realm leans on the methods its biome
+  favors, and the method drives water, labor, and yield expectations.
+ordered: false
+terms:
+  - code: open_field
+    label: Open field
+    description: Unsheltered ground cultivation - the Commons and Evergreen default.
+  - code: orchard
+    label: Orchard
+    description: Standing tree and cane rows managed across years.
+  - code: agroforestry
+    label: Agroforestry
+    description: Layered growing under and within living canopy - the Canopy way.
+  - code: greenhouse
+    label: Greenhouse
+    description: Enclosed climate-managed growing - the Frostlands' glass quarter.
+  - code: terrace
+    label: Terrace
+    description: Stepped slope cultivation of the Highlands.
+  - code: irrigated_dryland
+    label: Irrigated dryland
+    description: Drip-fed desert cultivation of the Drylands.
+  - code: paddy
+    label: Paddy
+    description: Flooded-plot cultivation at the Shorelines margins.
+  - code: aquaponic
+    label: Aquaponic
+    description: Raft and tank growing in circulating water.
+  - code: rooftop_garden
+    label: Rooftop garden
+    description: Container and bed growing at the rooftop tier.
