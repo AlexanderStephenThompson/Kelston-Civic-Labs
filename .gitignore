@@ -1,5 +1,5 @@
 # Build artifacts
-site/
+/site/
 data/kelston.db
 data/reports/
 data/upgraded/

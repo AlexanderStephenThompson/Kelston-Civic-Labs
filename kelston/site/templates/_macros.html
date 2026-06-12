@@ -1,0 +1,58 @@
+{% macro stat_card(value, label) -%}
+<div class="stat-card">
+  <div class="stat-value">{{ value }}</div>
+  <div class="stat-label">{{ label }}</div>
+</div>
+{%- endmacro %}
+
+{% macro schema_href(name) -%}standards/schemas/{{ name }}/index.html{%- endmacro %}
+{% macro vocab_href(name) -%}standards/vocabularies/{{ name }}/index.html{%- endmacro %}
+
+{% macro field_type(spec, root) -%}
+{%- if spec.type == "quantity" -%}
+  quantity <a class="type-link" href="{{ root }}{{ vocab_href("kelston.vocab.unit") }}">({{ spec.unit }})</a>
+{%- elif spec.type == "vocab" -%}
+  vocab · <a class="type-link" href="{{ root }}{{ vocab_href(spec.vocabulary) }}">{{ spec.vocabulary.rsplit(".", 1)[-1] }}</a>
+{%- elif spec.type == "ref" -%}
+  ref · <a class="type-link" href="{{ root }}{{ schema_href(spec.entity) }}">{{ spec.entity.rsplit(".", 1)[-1] }}</a>
+{%- elif spec.type == "list" -%}
+  list of {{ field_type(spec["items"], root) }}
+{%- elif spec.type == "record" -%}
+  record
+{%- else -%}
+  {{ spec.type }}
+{%- endif -%}
+{%- endmacro %}
+
+{% macro field_table(fields, root) -%}
+<table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+  {% for name, spec in fields.items() %}
+    <tr>
+      <td><code>{{ name }}</code></td>
+      <td class="type-cell">{{ field_type(spec, root) }}</td>
+      <td>{% if spec.required %}<span class="req-dot" title="required"></span><span class="visually-hidden">required</span>{% endif %}</td>
+      <td>{{ spec.description }}</td>
+    </tr>
+    {% if spec.type == "record" %}
+      {% for sub_name, sub_spec in spec.fields.items() %}
+      <tr class="sub-row">
+        <td><code>· {{ sub_name }}</code></td>
+        <td class="type-cell">{{ field_type(sub_spec, root) }}</td>
+        <td>{% if sub_spec.required %}<span class="req-dot" title="required"></span>{% endif %}</td>
+        <td>{{ sub_spec.description }}</td>
+      </tr>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+{%- endmacro %}
+
+{% macro chart_figure(svg, caption) -%}
+<figure class="chart-figure">
+  {{ svg|safe }}
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}

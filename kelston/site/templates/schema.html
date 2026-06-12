@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ schema.title }}{% endblock %}
+{% block content %}
+<p class="kicker">{{ kicker }}</p>
+<h1>{{ schema.title }}</h1>
+<p>
+  <code>{{ schema.name }}</code>
+  <span class="badge-version">v{{ schema.version }}</span> ·
+  <span class="status-{{ schema.status }}">{{ schema.status }}</span>
+  {% if schema.abstract %} · abstract (no instances; exists to be extended){% endif %}
+  {% if prefix %} · ids look like <code>{{ prefix }}-000482</code>{% endif %}
+  {% if record_count %} · {{ "{:,}".format(record_count) }} records in town{% endif %}
+</p>
+<p class="lede">{{ schema.description }}</p>
+
+{% if extends_chain %}
+<p>Extends
+  {% for ancestor in extends_chain %}
+    <a href="{{ root }}standards/schemas/{{ ancestor.name }}/index.html"><code>{{ ancestor.name }}</code></a>{% if not loop.last %} → {% endif %}
+  {% endfor %}
+  — inherited fields appear below.
+</p>
+{% endif %}
+
+<h2>Fields</h2>
+{% if schema.fields %}
+  {{ m.field_table(schema.fields, root) }}
+{% else %}
+  <p>No fields of its own - everything comes from its ancestors.</p>
+{% endif %}
+
+{% for ancestor in extends_chain %}
+  {% if ancestor.fields %}
+  <details>
+    <summary>{{ ancestor.fields|length }} fields inherited from {{ ancestor.name }}</summary>
+    {{ m.field_table(ancestor.fields, root) }}
+  </details>
+  {% endif %}
+{% endfor %}
+
+{% if constraints %}
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  {% for constraint in constraints %}
+  <tr>
+    <td><code>{{ constraint.id }}</code></td>
+    <td>{{ constraint.description }}
+      {% if constraint.clause %}<br><code>{{ constraint.clause }}</code>{% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if descendants %}
+<h2>Extended by</h2>
+<p>{% for name in descendants %}<a href="{{ root }}standards/schemas/{{ name }}/index.html"><code>{{ name }}</code></a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+{% endif %}
+
+{% if manifest_entry %}
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  {% for event in manifest_entry.history|reverse %}
+  <tr>
+    <td class="badge-version">{{ event.version }}</td>
+    <td>{{ event.date }}</td>
+    <td>{{ event.change }}</td>
+    <td>{% if event.migration %}<code>{{ event.migration }}</code>{% endif %}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% if deps %}
+<p>Depends on:
+  {% for dep in deps %}<a href="{{ root }}{{ dep.href }}"><code>{{ dep.name }}</code></a><span class="badge-version">@{{ dep.pin }}</span>{% if not loop.last %} · {% endif %}{% endfor %}
+</p>
+{% endif %}
+{% endif %}
+
+{% if used_by %}
+<p>Used by:
+  {% for name in used_by %}<a href="{{ root }}standards/schemas/{{ name }}/index.html"><code>{{ name }}</code></a>{% if not loop.last %} · {% endif %}{% endfor %}
+</p>
+{% endif %}
+
+{% if changelog_html %}
+<h2>Changelog</h2>
+{{ changelog_html|safe }}
+{% endif %}
+{% endblock %}

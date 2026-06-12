@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Realms{% endblock %}
+{% block content %}
+<p class="kicker">Geography</p>
+<h1>The seven realms</h1>
+<p class="lede">
+  Kelston grew where seven biomes meet. Every realm is mixed-species - species
+  affinity weights who tends to settle where, never who may - and each gives the
+  town a distinct architecture, agriculture, and rhythm.
+</p>
+<div class="card-grid">
+  {% for realm in realms %}
+  <a class="card" href="{{ realm.realm_code }}/index.html">
+    <h3>{{ realm.name }}</h3>
+    <p>{{ realm.character }}</p>
+    <div class="meta">{{ realm.biome }} · {{ "{:,}".format(realm_populations[realm.realm_code]) }} residents</div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

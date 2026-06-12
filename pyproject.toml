@@ -24,6 +24,9 @@ kelston = "kelston.cli:main"
 [tool.setuptools.packages.find]
 include = ["kelston*"]
 
+[tool.setuptools.package-data]
+"kelston.site" = ["templates/*.html", "static/*"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py310"

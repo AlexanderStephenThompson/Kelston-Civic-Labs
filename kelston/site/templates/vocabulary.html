@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ vocab.name }}{% endblock %}
+{% block content %}
+<p class="kicker">Vocabulary</p>
+<h1><code>{{ vocab.name }}</code></h1>
+<p>
+  <span class="badge-version">v{{ vocab.version }}</span>
+  {% if vocab.ordered %} · ordered (term order is meaningful - constraints may compare with ≥/≤){% endif %}
+  · {{ vocab.terms|length }} terms
+</p>
+<p class="lede">{{ vocab.description }}</p>
+
+<h2>Terms</h2>
+<table>
+  <thead><tr>{% if vocab.ordered %}<th>#</th>{% endif %}<th>Code</th><th>Label</th><th>Description</th></tr></thead>
+  <tbody>
+  {% for term in vocab.terms %}
+  <tr>
+    {% if vocab.ordered %}<td>{{ loop.index }}</td>{% endif %}
+    <td><code>{{ term.code }}</code></td>
+    <td>{{ term.label }}</td>
+    <td>{{ term.description }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% if used_by %}
+<h2>Used by</h2>
+<p>{% for name in used_by %}<a href="{{ root }}standards/schemas/{{ name }}/index.html"><code>{{ name }}</code></a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+{% endif %}
+
+{% if manifest_entry %}
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th></tr></thead>
+  <tbody>
+  {% for event in manifest_entry.history|reverse %}
+  <tr>
+    <td class="badge-version">{{ event.version }}</td>
+    <td>{{ event.date }}</td>
+    <td>{{ event.change }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

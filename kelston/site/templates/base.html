@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · Kelston Civic Labs</title>
+<link rel="stylesheet" href="{{ root }}static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="{{ root }}index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="{{ root }}realms/index.html">Realms</a>
+      <a href="{{ root }}standards/index.html">Standards</a>
+      <a href="{{ root }}dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+{% if breadcrumbs %}
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+  {% for label, href in breadcrumbs %}
+    {%- if href %}<a href="{{ root }}{{ href }}">{{ label }}</a>{% else %}<span aria-current="page">{{ label }}</span>{% endif %}
+    {%- if not loop.last %} <span class="crumb-sep">›</span> {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}
+<main id="main" class="shell">
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-{{ generation.seed }} ·
+    {{ "{:,}".format(totals.records) }} records across {{ totals.schemas }} standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ heading }}{% endblock %}
+{% block content %}
+<p class="kicker">{{ kicker }}</p>
+<h1>{{ heading }}</h1>
+<p class="lede">{{ description }}</p>
+
+{% if stats %}
+<div class="stat-row">
+  {{ m.stat_card(schemas|length, "standards") }}
+  {{ m.stat_card(stats.industries|length, "industries") }}
+  {{ m.stat_card(stats.role_count, "defined roles") }}
+  {{ m.stat_card(stats.organizations, "organizations in town") }}
+  {{ m.stat_card("{:,}".format(stats.appointments), "appointments held") }}
+</div>
+{% endif %}
+
+<h2>Standards</h2>
+<div class="card-grid">
+  {% for schema in schemas %}
+  <a class="card" href="{{ root }}standards/schemas/{{ schema.name }}/index.html">
+    <h3>{{ schema.title }}</h3>
+    <p>{{ schema.description.split(".")[0] }}.</p>
+    <div class="meta"><code>{{ schema.name }}</code> · v{{ schema.version }}{% if schema.abstract %} · abstract{% endif %}</div>
+  </a>
+  {% endfor %}
+</div>
+
+{% if stats and stats.industries %}
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+{% for industry in stats.industries %}
+<h3>{{ industry.name }}</h3>
+<p>{{ industry.description }}</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  {% for role in stats.roles_by_industry[industry.id] %}
+  <tr>
+    <td>{{ role.name }}</td>
+    <td>{{ role.description }}</td>
+    <td>{% for capability in role.required_capabilities %}<span class="tag">{{ capability|replace("_", " ") }}</span>{% endfor %}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Standards Registry{% endblock %}
+{% block content %}
+<p class="kicker">The Standards Office</p>
+<h1>The standards registry</h1>
+<p class="lede">
+  Every data standard in town: {{ totals.schemas }} schemas and
+  {{ totals.vocabularies }} vocabularies, versioned, checksummed, and maintained
+  like the waterworks. When a standard changes, every record in town receives the
+  update through one command - see the <a href="changelog/index.html">registry changelog</a>.
+</p>
+
+<h2>The core layer</h2>
+<p>The entities every sector shares - citizens, households, places, organizations, the event spine.</p>
+<div class="card-grid">
+  <a class="card" href="core/index.html">
+    <h3>Core standards</h3>
+    <p>{{ core_count }} schemas every sector builds on.</p>
+    <div class="meta">kelston.core.*</div>
+  </a>
+  <a class="card" href="changelog/index.html">
+    <h3>Registry changelog</h3>
+    <p>Version history and the growing-plot 2.0.0 worked example.</p>
+    <div class="meta">how updates propagate</div>
+  </a>
+</div>
+
+<h2>The seventeen sectors</h2>
+<div class="card-grid">
+  {% for sector in sectors %}
+  <a class="card" href="{{ sector.code }}/index.html">
+    <h3>{{ sector.label }}</h3>
+    <p>{{ sector.description }}</p>
+    <div class="meta">{{ sector_schema_counts[sector.code] }} schemas</div>
+  </a>
+  {% endfor %}
+</div>
+
+<h2 id="all">Every standard</h2>
+<div class="search-box" hidden data-search>
+  <label class="visually-hidden" for="standard-search">Filter standards</label>
+  <input id="standard-search" type="search" placeholder="Filter by name, sector, or word…">
+  <span class="search-count" aria-live="polite" data-count></span>
+</div>
+
+<h3>Schemas</h3>
+<table data-filterable>
+  <thead><tr><th>Standard</th><th>Title</th><th>Version</th><th>Status</th><th class="num">Records</th></tr></thead>
+  <tbody>
+  {% for row in schema_rows %}
+  <tr data-name="{{ row.search }}">
+    <td><a href="schemas/{{ row.name }}/index.html"><code>{{ row.name }}</code></a></td>
+    <td>{{ row.title }}</td>
+    <td class="badge-version">{{ row.version }}</td>
+    <td><span class="status-{{ row.status }}">{{ row.status }}</span></td>
+    <td class="num">{{ "{:,}".format(row.records) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>Vocabularies</h3>
+<table data-filterable>
+  <thead><tr><th>Vocabulary</th><th>Terms</th><th>Version</th><th>Ordered</th></tr></thead>
+  <tbody>
+  {% for row in vocab_rows %}
+  <tr data-name="{{ row.search }}">
+    <td><a href="vocabularies/{{ row.name }}/index.html"><code>{{ row.name }}</code></a></td>
+    <td>{{ row.terms }}</td>
+    <td class="badge-version">{{ row.version }}</td>
+    <td>{{ "yes" if row.ordered else "" }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+{% block scripts %}<script src="{{ root }}static/filter.js"></script>{% endblock %}
