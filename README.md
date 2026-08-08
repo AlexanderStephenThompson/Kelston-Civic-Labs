@@ -62,6 +62,12 @@ No frameworks, no trackers; deploys to GitHub Pages from main.
   distribution run) and the pattern is documented as a template.
   -> [docs/sector-template.md](docs/sector-template.md)
 - **A town you can query** - -> [docs/query-cookbook.md](docs/query-cookbook.md)
+- **An economy with a shape** - the Get / Make / Move taxonomy the town's
+  industries are organized around, and a de-branded supply-chain reference
+  behind it. Reference material rather than executable standards: it is
+  what the sector schemas are modelled on.
+  -> [docs/economy-mapping.md](docs/economy-mapping.md),
+  [docs/logistics.md](docs/logistics.md)
 
 ## Why
 
