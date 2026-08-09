@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Housing &amp; Construction · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Housing &amp; Construction</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Housing &amp; Construction</h1>
+<p class="lede">Burrow works, canopy framing, shore stilts, and every clearance class in between.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">5</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">9</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">24</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">153</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.housing.building_works/index.html">
+    <h3>Building Works</h3>
+    <p>An organization that builds and maintains homes - a burrow-digging cooperative, a canopy framing crew, a shore-stilt yard.</p>
+    <div class="meta"><code>kelston.housing.building_works</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.housing.construction_site/index.html">
+    <h3>Construction Site</h3>
+    <p>A parcel where a home is being built or substantially rebuilt - the unit at which permits, progress, and inspections are tracked from groundbreak to handover.</p>
+    <div class="meta"><code>kelston.housing.construction_site</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.housing.dwelling_inspection_record/index.html">
+    <h3>Dwelling Inspection Record</h3>
+    <p>One inspection of one home against the housing standard - the moment the promises a dwelling makes on paper (clearance, water and flight access, climate provision) are checked against the home as built.</p>
+    <div class="meta"><code>kelston.housing.dwelling_inspection_record</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Burrow Works</h3>
+<p>Digging, shoring, and ventilating the below-ground homes of the burrow tier.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Burrow Digger</td>
+    <td>Excavates and shores warren homes and below-ground levels.</td>
+    <td><span class="tag">burrowing</span></td>
+  </tr>
+  <tr>
+    <td>Tunnel Ventilator</td>
+    <td>Fits and tunes the airshafts that keep burrow homes breathing.</td>
+    <td><span class="tag">burrowing</span><span class="tag">fine handling</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Canopy Framing</h3>
+<p>Platform dwellings, trunk lodges, and perch access built up in the trees.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Canopy Framer</td>
+    <td>Builds platform flats and trunk lodges high in the branches.</td>
+    <td><span class="tag">climbing</span></td>
+  </tr>
+  <tr>
+    <td>Perch Rigger</td>
+    <td>Places and load-tests landing perches and fly-in entrances.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Home Construction</h3>
+<p>New builds across every kind and clearance class, from groundbreak to handover.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Grand-Clearance Framer</td>
+    <td>Raises the beams and doorways of grand-clearance homes.</td>
+    <td><span class="tag">heavy handling</span></td>
+  </tr>
+  <tr>
+    <td>Site Lead</td>
+    <td>Runs a construction site from groundbreak to handover.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Shore Works</h3>
+<p>Stilted homes over the shallows and the submerged rooms beneath them.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Stilt Setter</td>
+    <td>Drives and braces the pilings of shore-stilt homes from the water.</td>
+    <td><span class="tag">swimming</span></td>
+  </tr>
+  <tr>
+    <td>Submerged Room Fitter</td>
+    <td>Seals and finishes the underwater rooms of shore-stilt homes.</td>
+    <td><span class="tag">swimming</span><span class="tag">fine handling</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Housing Standards &amp; Inspection</h3>
+<p>Inspecting homes against the housing standard and keeping its guarantees honest.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Dwelling Inspector</td>
+    <td>Walks homes against the housing standard and signs the inspection record.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

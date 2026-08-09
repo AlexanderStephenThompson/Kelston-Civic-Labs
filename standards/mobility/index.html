@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobility &amp; Transit · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Mobility &amp; Transit</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Mobility &amp; Transit</h1>
+<p class="lede">Tramways, ferries, aerial lanes, and micro-transit for the tiny.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">5</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">10</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">16</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">71</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.mobility.service_run_record/index.html">
+    <h3>Service Run Record</h3>
+    <p>One completed run of one transit service - the unit the timetable is audited against.</p>
+    <div class="meta"><code>kelston.mobility.service_run_record</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.mobility.transit_line_operator/index.html">
+    <h3>Transit Line Operator</h3>
+    <p>An organization that runs scheduled transit - a tram cooperative, the harbor ferry guild, a glideway marshal crew.</p>
+    <div class="meta"><code>kelston.mobility.transit_line_operator</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.mobility.transit_stop/index.html">
+    <h3>Transit Stop</h3>
+    <p>A named place where citizens board and leave a transit service - a tram halt, a ferry landing, a glideway perch station, a burrow shuttle mouth.</p>
+    <div class="meta"><code>kelston.mobility.transit_stop</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Aerial Lanes</h3>
+<p>Charted glideways and the perch stations that anchor them.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Glideway Marshal</td>
+    <td>Keeps the aerial lanes ordered and guides arrivals onto the perches.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  <tr>
+    <td>Perch Station Keeper</td>
+    <td>Runs a canopy or rooftop perch station through its open bands.</td>
+    <td><span class="tag">climbing</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Burrow Transit</h3>
+<p>Shuttle tunnels and warren connections of the burrow tier.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Burrow Shuttle Driver</td>
+    <td>Runs the below-ground shuttles through the warren tunnels.</td>
+    <td><span class="tag">burrowing</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Transit Planning &amp; Timetables</h3>
+<p>Network design, timetabling across shift bands, and accessibility auditing.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Accessibility Auditor</td>
+    <td>Measures stops and vehicles against the clearance and provision standards.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Timetable Planner</td>
+    <td>Builds the timetables that keep every shift band connected.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Tramways</h3>
+<p>Ground-tier and micro-gauge tram lines and the depots that keep them rolling.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Micro-Tram Fitter</td>
+    <td>Maintains the small-gauge fleet with tiny-scale precision.</td>
+    <td><span class="tag">fine handling</span></td>
+  </tr>
+  <tr>
+    <td>Night Line Driver</td>
+    <td>Drives the night-band services that carry nocturnal commuters.</td>
+    <td><span class="tag">night work</span></td>
+  </tr>
+  <tr>
+    <td>Tram Driver</td>
+    <td>Drives a scheduled tram service and signs its run records.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Waterways</h3>
+<p>Ferries and tended swim lines along the Shorelines and rivers.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Ferry Pilot</td>
+    <td>Pilots harbor and river ferries between landings.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Swim-Line Warden</td>
+    <td>Patrols and tends the underwater commuter routes.</td>
+    <td><span class="tag">swimming</span></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

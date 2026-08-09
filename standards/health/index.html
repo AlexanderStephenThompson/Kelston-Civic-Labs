@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health &amp; Wellness · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Health &amp; Wellness</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Health &amp; Wellness</h1>
+<p class="lede">Clinics, species-aware medicine, and preventive care.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">4</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">9</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">18</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">137</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.health.care_plan/index.html">
+    <h3>Care Plan</h3>
+    <p>One patient&#39;s ongoing course of care at one clinic - the thread that ties visits together.</p>
+    <div class="meta"><code>kelston.health.care_plan</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.health.clinic/index.html">
+    <h3>Clinic</h3>
+    <p>An organization that gives medical care - a neighborhood surgery, the realm infirmary, a traveling field clinic&#39;s home base.</p>
+    <div class="meta"><code>kelston.health.clinic</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.health.clinic_visit/index.html">
+    <h3>Clinic Visit</h3>
+    <p>One patient seen once at one clinic - the basic unit of town medicine.</p>
+    <div class="meta"><code>kelston.health.clinic_visit</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Apothecary &amp; Remedies</h3>
+<p>Compounding, dosing by size class, and the herb gardens behind the dispensary.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Apothecary</td>
+    <td>Compounds remedies and doses honestly across five size classes.</td>
+    <td><span class="tag">fine handling</span></td>
+  </tr>
+  <tr>
+    <td>Dispensary Runner</td>
+    <td>Delivers prescriptions to homebound patients in every realm and band.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Clinical Care</h3>
+<p>Diagnosis and treatment at the clinics and the realm infirmary.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Aquatic Therapist</td>
+    <td>Runs recovery sessions in the swim treatment pools, in the water with the patient.</td>
+    <td><span class="tag">swimming</span></td>
+  </tr>
+  <tr>
+    <td>Clinician</td>
+    <td>Sees patients, leads care plans, and signs the visit records.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Night Clinician</td>
+    <td>Holds the night-band surgery so nocturnal patients are seen wide awake.</td>
+    <td><span class="tag">night work</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Preventive &amp; Community Health</h3>
+<p>Checkups, screenings, and the outreach rounds that catch trouble early.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Canopy Rounds Nurse</td>
+    <td>Carries the rounds up to the aeries and canopy homes.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  <tr>
+    <td>Rounds Nurse</td>
+    <td>Walks the outreach rounds, doing checkups where citizens actually live.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Species Medicine</h3>
+<p>The specialist crafts - molt and shed care, beak and dental work, hibernation medicine.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Hibernation Physician</td>
+    <td>Prepares patients for torpor and watches over them until spring.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Molt &amp; Shed Specialist</td>
+    <td>Sees citizens through difficult molts and sheds with steady, gentle hands.</td>
+    <td><span class="tag">fine handling</span></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

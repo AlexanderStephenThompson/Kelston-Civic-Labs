@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registry changelog · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Changelog</span></nav>
+<main id="main" class="shell">
+<p class="kicker">The Standards Office</p>
+<h1>How a standard changes in Kelston</h1>
+<p class="lede">
+  Every standard is semver'd, checksummed, and historied in the registry
+  manifest. Changes are classified mechanically: PATCH touches only prose,
+  MINOR adds things every record can adopt by re-validation, and MAJOR ships
+  with a migration - or the registry refuses it.
+</p>
+
+<h2>The worked example: growing plot 2.0.0</h2>
+<p>
+  On 2026-06-10 the standards office split the growing plot's combined 1.x soil
+  codes into texture (<code>soil_class</code>) plus water behavior
+  (<code>drainage_class</code>), and renamed <code>keeper</code> to
+  <code>steward</code>, the town-wide word. A MAJOR change - so it shipped with a
+  declarative migration, and one command brought every plot in town to the new
+  standard, re-validated:
+</p>
+<pre><code>$ kelston upgrade
+Scanned 188 legacy instances: 188 upgraded, 0 already current, 0 failures.</code></pre>
+<h2>kelston.agriculture.growing_plot</h2>
+<h3>1.2.0 -&gt; 2.0.0 (major)</h3>
+<ul>
+<li>removed field <code>keeper</code></li>
+<li>added optional field <code>drainage_class</code></li>
+<li>added optional field <code>steward</code></li>
+<li>reworded <code>soil_class</code> description</li>
+<li>added constraint <code>submerged_plots_need_semi_aquatic_steward</code></li>
+</ul><p>
+  Full standard: <a href="../../standards/schemas/kelston.agriculture.growing_plot/index.html"><code>kelston.agriculture.growing_plot</code></a>
+</p>
+
+<h2>Every standard's history</h2>
+<table>
+  <thead><tr><th>Standard</th><th>Current</th><th>History</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.growing_plot/index.html"><code>kelston.agriculture.growing_plot</code></a></td>
+    <td class="badge-version">2.0.0</td>
+    <td>2.0.0 (major, 2026-06-10) ← 1.2.0 (minor, 2026-05-01) ← 1.0.0 (initial, 2026-04-02)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.crop_variety/index.html"><code>kelston.agriculture.crop_variety</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.distribution_run/index.html"><code>kelston.agriculture.distribution_run</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.farm/index.html"><code>kelston.agriculture.farm</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.food_product/index.html"><code>kelston.agriculture.food_product</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.harvest_record/index.html"><code>kelston.agriculture.harvest_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.market_lot/index.html"><code>kelston.agriculture.market_lot</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.agriculture.planting/index.html"><code>kelston.agriculture.planting</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.arts.performance_company/index.html"><code>kelston.arts.performance_company</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.arts.performance_record/index.html"><code>kelston.arts.performance_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.arts.performance_venue/index.html"><code>kelston.arts.performance_venue</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.care.care_circle/index.html"><code>kelston.care.care_circle</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.care.care_lodge/index.html"><code>kelston.care.care_lodge</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.care.support_visit_record/index.html"><code>kelston.care.support_visit_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.commerce.market_hall/index.html"><code>kelston.commerce.market_hall</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.commerce.market_stall/index.html"><code>kelston.commerce.market_stall</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.commerce.trade_record/index.html"><code>kelston.commerce.trade_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.appointment/index.html"><code>kelston.core.appointment</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.dwelling/index.html"><code>kelston.core.dwelling</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.household/index.html"><code>kelston.core.household</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.industry/index.html"><code>kelston.core.industry</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.parcel/index.html"><code>kelston.core.parcel</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.role/index.html"><code>kelston.core.role</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.core.species_profile/index.html"><code>kelston.core.species_profile</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.education.course/index.html"><code>kelston.education.course</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.education.enrollment_record/index.html"><code>kelston.education.enrollment_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.education.school/index.html"><code>kelston.education.school</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.environment.habitat_reserve/index.html"><code>kelston.environment.habitat_reserve</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.environment.habitat_survey_record/index.html"><code>kelston.environment.habitat_survey_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.environment.stewardship_circle/index.html"><code>kelston.environment.stewardship_circle</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.finance.credit_union/index.html"><code>kelston.finance.credit_union</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.finance.ledger_entry/index.html"><code>kelston.finance.ledger_entry</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.finance.mutual_pool/index.html"><code>kelston.finance.mutual_pool</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.governance.civic_office/index.html"><code>kelston.governance.civic_office</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.governance.ordinance/index.html"><code>kelston.governance.ordinance</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.governance.petition_record/index.html"><code>kelston.governance.petition_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.health.care_plan/index.html"><code>kelston.health.care_plan</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.health.clinic/index.html"><code>kelston.health.clinic</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.health.clinic_visit/index.html"><code>kelston.health.clinic_visit</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.housing.building_works/index.html"><code>kelston.housing.building_works</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.housing.construction_site/index.html"><code>kelston.housing.construction_site</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.housing.dwelling_inspection_record/index.html"><code>kelston.housing.dwelling_inspection_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.making.commission_record/index.html"><code>kelston.making.commission_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.making.craft_workshop/index.html"><code>kelston.making.craft_workshop</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.making.tool_pattern/index.html"><code>kelston.making.tool_pattern</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.media.dispatch_record/index.html"><code>kelston.media.dispatch_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.media.notice_post/index.html"><code>kelston.media.notice_post</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.media.signal_house/index.html"><code>kelston.media.signal_house</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.mobility.service_run_record/index.html"><code>kelston.mobility.service_run_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.mobility.transit_line_operator/index.html"><code>kelston.mobility.transit_line_operator</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.mobility.transit_stop/index.html"><code>kelston.mobility.transit_stop</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.recreation.parks_trust/index.html"><code>kelston.recreation.parks_trust</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.recreation.patrol_record/index.html"><code>kelston.recreation.patrol_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.recreation.swim_way/index.html"><code>kelston.recreation.swim_way</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.safety.incident_record/index.html"><code>kelston.safety.incident_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.safety.rescue_station/index.html"><code>kelston.safety.rescue_station</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.safety.warden_post/index.html"><code>kelston.safety.warden_post</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.science.field_station/index.html"><code>kelston.science.field_station</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.science.observation_record/index.html"><code>kelston.science.observation_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.science.research_institute/index.html"><code>kelston.science.research_institute</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.utilities.meter_reading_record/index.html"><code>kelston.utilities.meter_reading_record</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.utilities.utility_works/index.html"><code>kelston.utilities.utility_works</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  <tr>
+    <td><a href="../../standards/schemas/kelston.utilities.works_site/index.html"><code>kelston.utilities.works_site</code></a></td>
+    <td class="badge-version">1.0.0</td>
+    <td>1.0.0 (initial, 2026-06-12)</td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

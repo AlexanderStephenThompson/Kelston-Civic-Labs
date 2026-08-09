@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appointment · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Appointment</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Appointment</h1>
+<p>
+  <code>kelston.core.appointment</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>APT-000482</code> · 2,226 records in town</p>
+<p class="lede">A citizen holding a role at an organization for a span of time, on a declared shift band. The join record every employment question runs through - who works where, doing what, and when.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>citizen</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen holding the position.</td>
+    </tr>
+    <tr>
+      <td><code>role</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.role/index.html">role</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The role being performed.</td>
+    </tr>
+    <tr>
+      <td><code>organization</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.organization/index.html">organization</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization where the role is held.</td>
+    </tr>
+    <tr>
+      <td><code>began_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>First day in the position.</td>
+    </tr>
+    <tr>
+      <td><code>ended_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>Last day in the position; absent while the appointment is active.</td>
+    </tr>
+    <tr>
+      <td><code>shift_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The shift band this appointment is worked in.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>role_matches_organization_sector</code></td>
+    <td>The role&#39;s industry belongs to the employing organization&#39;s sector.
+<br><code>check role.industry.sector eq organization.sector</code>    </td>
+  </tr>
+  <tr>
+    <td><code>citizen_meets_role_requirements</code></td>
+    <td>The citizen&#39;s species traits satisfy the role&#39;s required capabilities.
+<br><code>python:core.citizen_meets_role_capabilities</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.role/index.html"><code>kelston.core.role</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

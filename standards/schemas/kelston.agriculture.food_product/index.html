@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Product · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/agriculture/index.html">Agriculture &amp; Food Systems</a> <span class="crumb-sep">›</span> <span aria-current="page">Food Product</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Agriculture &amp; Food Systems</p>
+<h1>Food Product</h1>
+<p>
+  <code>kelston.agriculture.food_product</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>FOOD-000482</code> · 27 records in town</p>
+<p class="lede">A crafted food in the town register - a preserve, a flour, a pressed oil, a bakery line. Products name their main crop kind so nutrition and supply questions aggregate from shelf to field.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The product&#39;s register name, e.g. &#34;Evergreen cloudberry preserve&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>made_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.organization/index.html">organization</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The food-crafting organization that makes it.</td>
+    </tr>
+    <tr>
+      <td><code>main_crop_kind</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.crop_kind/index.html">crop_kind</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The crop kind the product is principally made from.</td>
+    </tr>
+    <tr>
+      <td><code>shelf_life_duration</code></td>
+      <td class="type-cell">duration</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>How long the product keeps under stated storage.</td>
+    </tr>
+    <tr>
+      <td><code>requires_cold_storage</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the product must be kept chilled.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.crop_kind/index.html"><code>kelston.vocab.crop_kind</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.market_lot/index.html"><code>kelston.agriculture.market_lot</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

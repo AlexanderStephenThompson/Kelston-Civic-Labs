@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realm · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Realm</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Realm</h1>
+<p>
+  <code>kelston.core.realm</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>RLM-000482</code> · 7 records in town</p>
+<p class="lede">One of Kelston&#39;s seven biome districts. A realm is the unit of geography, climate, and civic identity; every place in town belongs to exactly one.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm_code</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.realm_code/index.html">realm_code</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm&#39;s code in the realm standard.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm&#39;s everyday name, e.g. &#34;The Evergreen&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>biome</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The biome in plain words - temperate forest, tundra, desert.</td>
+    </tr>
+    <tr>
+      <td><code>character</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>One sentence of the realm&#39;s civic character and specialties.</td>
+    </tr>
+    <tr>
+      <td><code>dominant_tiers</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>The vertical tiers this realm&#39;s architecture leans on.</td>
+    </tr>
+    <tr>
+      <td><code>signature_growing_methods</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.growing_method/index.html">growing_method</a></td>
+      <td></td>
+      <td>The growing methods this realm&#39;s agriculture is known for.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/vocabularies/kelston.vocab.growing_method/index.html"><code>kelston.vocab.growing_method</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.realm_code/index.html"><code>kelston.vocab.realm_code</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html"><code>kelston.vocab.vertical_tier</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.distribution_run/index.html"><code>kelston.agriculture.distribution_run</code></a> · <a href="../../../standards/schemas/kelston.agriculture.market_lot/index.html"><code>kelston.agriculture.market_lot</code></a> · <a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a> · <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a> · <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a> · <a href="../../../standards/schemas/kelston.governance.civic_office/index.html"><code>kelston.governance.civic_office</code></a> · <a href="../../../standards/schemas/kelston.governance.ordinance/index.html"><code>kelston.governance.ordinance</code></a> · <a href="../../../standards/schemas/kelston.mobility.transit_line_operator/index.html"><code>kelston.mobility.transit_line_operator</code></a> · <a href="../../../standards/schemas/kelston.safety.incident_record/index.html"><code>kelston.safety.incident_record</code></a> · <a href="../../../standards/schemas/kelston.utilities.utility_works/index.html"><code>kelston.utilities.utility_works</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

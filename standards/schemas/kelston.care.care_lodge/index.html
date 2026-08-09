@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care Lodge · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/care/index.html">Social Services &amp; Care</a> <span class="crumb-sep">›</span> <span aria-current="page">Care Lodge</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Social Services &amp; Care</p>
+<h1>Care Lodge</h1>
+<p>
+  <code>kelston.care.care_lodge</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>CLDG-000482</code></p>
+<p class="lede">An organization that gives daily support - an elder lodge, an early-years day den, a respite house, a mutual-aid hall. Lodges are organizations first; what this adds is who the house can truly hold and keep comfortable, because care begins with a building that fits.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>home_parcel</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.parcel/index.html">parcel</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The civic parcel the lodge stands on.</td>
+    </tr>
+    <tr>
+      <td><code>lifespan_bands_served</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html">lifespan_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The lifespan bands the lodge serves. Elder care is band-aware - a brief-band shrew is an elder at twelve, a venerable tortoise at ninety - and the lodge&#39;s rhythms are set accordingly.
+</td>
+    </tr>
+    <tr>
+      <td><code>clearance_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The largest size class the lodge&#39;s rooms and doorways admit.</td>
+    </tr>
+    <tr>
+      <td><code>climate_provisions</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.climate_provision/index.html">climate_provision</a></td>
+      <td></td>
+      <td>Climate provisions the lodge maintains, such as heated basking for ectotherm elders.</td>
+    </tr>
+    <tr>
+      <td><code>resident_capacity</code></td>
+      <td class="type-cell">integer</td>
+      <td></td>
+      <td>How many citizens the lodge can host overnight; absent for day-only lodges.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>6 fields inherited from kelston.core.organization</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization&#39;s registered name.</td>
+    </tr>
+    <tr>
+      <td><code>sector</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.sector/index.html">sector</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The sector this organization works in.</td>
+    </tr>
+    <tr>
+      <td><code>industry</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.industry/index.html">industry</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The industry, from its sector&#39;s taxonomy.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the organization is based.</td>
+    </tr>
+    <tr>
+      <td><code>operating_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html">operating_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the organization is open and staffed.</td>
+    </tr>
+    <tr>
+      <td><code>founded_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The date the organization was registered.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>industry_belongs_to_sector</code></td>
+    <td>An organization&#39;s industry comes from its own sector&#39;s taxonomy.
+<br><code>check industry.sector eq sector</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.parcel/index.html"><code>kelston.core.parcel</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.climate_provision/index.html"><code>kelston.vocab.climate_provision</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html"><code>kelston.vocab.lifespan_band</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.care.care_circle/index.html"><code>kelston.care.care_circle</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

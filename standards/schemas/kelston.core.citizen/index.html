@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Citizen · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Citizen</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Citizen</h1>
+<p>
+  <code>kelston.core.citizen</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>CTZ-000482</code> · 5,000 records in town</p>
+<p class="lede">A resident of Kelston. The citizen record is the spine of the civic registry: every sector&#39;s records reach a citizen by this id, and the housing and scheduling guarantees are checked right here, where the citizen meets their home and their hours.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>given_name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen&#39;s personal name.</td>
+    </tr>
+    <tr>
+      <td><code>family_name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen&#39;s family or lodge name.</td>
+    </tr>
+    <tr>
+      <td><code>species</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.species_profile/index.html">species_profile</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The species profile whose structural traits apply to this citizen.</td>
+    </tr>
+    <tr>
+      <td><code>born_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Date of birth in the civic calendar.</td>
+    </tr>
+    <tr>
+      <td><code>household</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.household/index.html">household</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The household this citizen belongs to.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm of residence.</td>
+    </tr>
+    <tr>
+      <td><code>active_hours_preference</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The shift band this citizen prefers to be active in. Defaults follow the species activity cycle, but the preference is the citizen&#39;s own - owls with day jobs exist.
+</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>home_fits_citizen</code></td>
+    <td>A citizen&#39;s dwelling clearance must meet their size class.
+<br><code>check household.dwelling.clearance_class gte species.size_class</code>    </td>
+  </tr>
+  <tr>
+    <td><code>residence_realm_matches_home</code></td>
+    <td>The realm of residence is the realm the dwelling stands in.
+<br><code>check realm eq household.dwelling.realm</code>    </td>
+  </tr>
+  <tr>
+    <td><code>semi_aquatic_homes_have_water_access</code></td>
+    <td>Semi-aquatic citizens live in homes with swim-in access.
+<br><code>when species.locomotion contains semi_aquatic · check household.dwelling.has_water_access eq True</code>    </td>
+  </tr>
+  <tr>
+    <td><code>ectotherm_homes_keep_warm</code></td>
+    <td>Ectotherm citizens get basking provisions at home, unless they live in the Drylands where the realm itself provides.
+
+<br><code>when species.thermoregulation eq ectotherm · python:core.ectotherm_home_is_warm_enough</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.household/index.html"><code>kelston.core.household</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.species_profile/index.html"><code>kelston.core.species_profile</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.growing_plot/index.html"><code>kelston.agriculture.growing_plot</code></a> · <a href="../../../standards/schemas/kelston.agriculture.harvest_record/index.html"><code>kelston.agriculture.harvest_record</code></a> · <a href="../../../standards/schemas/kelston.care.care_circle/index.html"><code>kelston.care.care_circle</code></a> · <a href="../../../standards/schemas/kelston.care.support_visit_record/index.html"><code>kelston.care.support_visit_record</code></a> · <a href="../../../standards/schemas/kelston.commerce.trade_record/index.html"><code>kelston.commerce.trade_record</code></a> · <a href="../../../standards/schemas/kelston.core.appointment/index.html"><code>kelston.core.appointment</code></a> · <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a> · <a href="../../../standards/schemas/kelston.core.household/index.html"><code>kelston.core.household</code></a> · <a href="../../../standards/schemas/kelston.education.enrollment_record/index.html"><code>kelston.education.enrollment_record</code></a> · <a href="../../../standards/schemas/kelston.finance.ledger_entry/index.html"><code>kelston.finance.ledger_entry</code></a> · <a href="../../../standards/schemas/kelston.governance.petition_record/index.html"><code>kelston.governance.petition_record</code></a> · <a href="../../../standards/schemas/kelston.health.care_plan/index.html"><code>kelston.health.care_plan</code></a> · <a href="../../../standards/schemas/kelston.health.clinic_visit/index.html"><code>kelston.health.clinic_visit</code></a> · <a href="../../../standards/schemas/kelston.making.commission_record/index.html"><code>kelston.making.commission_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

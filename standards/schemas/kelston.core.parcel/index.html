@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parcel · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Parcel</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Parcel</h1>
+<p>
+  <code>kelston.core.parcel</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>PRC-000482</code> · 600 records in town</p>
+<p class="lede">A bounded piece of Kelston ground, water, or canopy with a declared primary use. The land registry&#39;s unit of record; dwellings and farms always stand on a parcel.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>land_use</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.land_use/index.html">land_use</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The parcel&#39;s declared primary use.</td>
+    </tr>
+    <tr>
+      <td><code>area</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(square_meter)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Registered surface area of the parcel.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.place</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm this place lies in.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>The place&#39;s everyday name, when it has earned one.</td>
+    </tr>
+    <tr>
+      <td><code>vertical_tier</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>Where the place sits in the town&#39;s layered architecture.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.land_use/index.html"><code>kelston.vocab.land_use</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.farm/index.html"><code>kelston.agriculture.farm</code></a> · <a href="../../../standards/schemas/kelston.care.care_lodge/index.html"><code>kelston.care.care_lodge</code></a> · <a href="../../../standards/schemas/kelston.commerce.market_hall/index.html"><code>kelston.commerce.market_hall</code></a> · <a href="../../../standards/schemas/kelston.core.dwelling/index.html"><code>kelston.core.dwelling</code></a> · <a href="../../../standards/schemas/kelston.education.school/index.html"><code>kelston.education.school</code></a> · <a href="../../../standards/schemas/kelston.health.clinic/index.html"><code>kelston.health.clinic</code></a> · <a href="../../../standards/schemas/kelston.housing.construction_site/index.html"><code>kelston.housing.construction_site</code></a> · <a href="../../../standards/schemas/kelston.science.research_institute/index.html"><code>kelston.science.research_institute</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

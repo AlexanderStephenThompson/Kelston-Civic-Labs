@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordinance · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/governance/index.html">Governance &amp; Civic Registry</a> <span class="crumb-sep">›</span> <span aria-current="page">Ordinance</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Governance &amp; Civic Registry</p>
+<h1>Ordinance</h1>
+<p>
+  <code>kelston.governance.ordinance</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>ORDN-000482</code></p>
+<p class="lede">A binding town standard adopted by the assembly - the housing guarantee, the climate provision rules, the market weights. An ordinance exists from the day it is proposed, and its whole life is queryable data.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The ordinance&#39;s short citable name, e.g. &#34;The Clearance Standard&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>summary</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>One or two plain sentences on what the ordinance requires.</td>
+    </tr>
+    <tr>
+      <td><code>stewarding_office</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.governance.civic_office/index.html">civic_office</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The civic office responsible for keeping this ordinance current.</td>
+    </tr>
+    <tr>
+      <td><code>lifecycle_stage</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.ordinance_status/index.html">ordinance_status</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Where the ordinance stands in its life, from proposed to retired.</td>
+    </tr>
+    <tr>
+      <td><code>adopted_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The day the assembly voted the ordinance in; absent while proposed.</td>
+    </tr>
+    <tr>
+      <td><code>applies_to_realms</code></td>
+      <td class="type-cell">list of ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td></td>
+      <td>Realms where the ordinance applies; an empty list means town-wide.</td>
+    </tr>
+    <tr>
+      <td><code>review_due_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>When the stewarding office must next review whether the ordinance still fits life.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>binding_ordinances_have_adoption_date</code></td>
+    <td>An ordinance that binds anyone records the day it was voted in.
+<br><code>when lifecycle_stage in [&#39;adopted&#39;, &#39;amended&#39;] · check adopted_on present </code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.governance.civic_office/index.html"><code>kelston.governance.civic_office</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.ordinance_status/index.html"><code>kelston.vocab.ordinance_status</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.governance.petition_record/index.html"><code>kelston.governance.petition_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

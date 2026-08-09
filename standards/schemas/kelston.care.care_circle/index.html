@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care Circle · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/care/index.html">Social Services &amp; Care</a> <span class="crumb-sep">›</span> <span aria-current="page">Care Circle</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Social Services &amp; Care</p>
+<h1>Care Circle</h1>
+<p>
+  <code>kelston.care.care_circle</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>CCIR-000482</code></p>
+<p class="lede">A small standing group of citizens organized around one neighbor who needs support - the signature unit of Kelston mutual aid. A circle exists from the day neighbors agree to share the looking-after, whether or not a lodge ever gets involved.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>focus_citizen</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen the circle gathers around.</td>
+    </tr>
+    <tr>
+      <td><code>coordinating_lodge</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.care.care_lodge/index.html">care_lodge</a></td>
+      <td></td>
+      <td>The care lodge backing the circle, when one does.</td>
+    </tr>
+    <tr>
+      <td><code>formed_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day the circle agreed to form.</td>
+    </tr>
+    <tr>
+      <td><code>support_kinds</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.care_support/index.html">care_support</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The kinds of support the circle provides, from shared meals to basking watch.</td>
+    </tr>
+    <tr>
+      <td><code>gathering_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td></td>
+      <td>The shift band the circle gathers and visits in - always the focus citizen&#39;s own preferred band, because care comes on their hours.
+</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>circle_gathers_on_focus_citizens_hours</code></td>
+    <td>When a circle sets a gathering band, it is the focus citizen&#39;s preferred band.
+<br><code>when gathering_band present  · check gathering_band eq focus_citizen.active_hours_preference</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.care.care_lodge/index.html"><code>kelston.care.care_lodge</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.care_support/index.html"><code>kelston.vocab.care_support</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.care.support_visit_record/index.html"><code>kelston.care.support_visit_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

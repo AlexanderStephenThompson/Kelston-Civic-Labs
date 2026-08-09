@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commerce &amp; Trade · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Commerce &amp; Trade</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Commerce &amp; Trade</h1>
+<p class="lede">Shops, market halls, and the night markets of the Drylands.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">4</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">8</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">40</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">305</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.commerce.market_hall/index.html">
+    <h3>Market Hall</h3>
+    <p>An organization that runs a covered trading floor - a commons exchange, a shoreline fish hall, or a Drylands night market.</p>
+    <div class="meta"><code>kelston.commerce.market_hall</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.commerce.market_stall/index.html">
+    <h3>Market Stall</h3>
+    <p>One pitch on a market hall&#39;s trading floor - the place where a seller sets up, trades, and is found again next week.</p>
+    <div class="meta"><code>kelston.commerce.market_stall</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.commerce.trade_record/index.html">
+    <h3>Trade Record</h3>
+    <p>One completed exchange at a market stall - goods handed over, kelmarks settled.</p>
+    <div class="meta"><code>kelston.commerce.trade_record</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Market Halls</h3>
+<p>Running the covered trading floors - stalls, pitch rosters, and floor order.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Hall Warden</td>
+    <td>Assigns stalls, keeps the floor orderly, and settles pitch disputes.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Stall Holder</td>
+    <td>Trades from a pitch on a hall floor, week in and week out.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Under-Market Trader</td>
+    <td>Works the burrow-level stalls beneath the hall floors.</td>
+    <td><span class="tag">burrowing</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Night Trade</h3>
+<p>The Drylands night markets and every after-dark counter in town.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Night Stallkeeper</td>
+    <td>Trades the night-band floors where the Drylands markets peak.</td>
+    <td><span class="tag">night work</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Provisioning &amp; Wholesale</h3>
+<p>Bulk buying, warehousing, and supplying the shops and stalls.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Freight Hand</td>
+    <td>Moves the heavy crates and barrels through the warehouse rows.</td>
+    <td><span class="tag">heavy handling</span></td>
+  </tr>
+  <tr>
+    <td>Provisioner</td>
+    <td>Buys in bulk and keeps the shops and stalls supplied between market days.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Shopkeeping</h3>
+<p>Storefront trade in every realm, from tiny-nook counters to grand-clearance emporiums.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Nook Trader</td>
+    <td>Runs the micro-scale counters built for tiny-class customers and wares.</td>
+    <td><span class="tag">fine handling</span></td>
+  </tr>
+  <tr>
+    <td>Shopkeeper</td>
+    <td>Keeps a storefront stocked, priced, and welcoming through its trading bands.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

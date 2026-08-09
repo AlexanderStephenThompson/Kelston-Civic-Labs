@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Incident Record · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/safety/index.html">Public Safety &amp; Justice</a> <span class="crumb-sep">›</span> <span aria-current="page">Incident Record</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Public Safety &amp; Justice</p>
+<h1>Incident Record</h1>
+<p>
+  <code>kelston.safety.incident_record</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>INCDT-000482</code></p>
+<p class="lede">One safety incident and its response, from first report to resolution. Incident records sit on the civic record spine, so the town can ask honest questions about where harm happens and how fast help arrives.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>responding_post</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.safety.warden_post/index.html">warden_post</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The warden post that answered the call.</td>
+    </tr>
+    <tr>
+      <td><code>incident_kind</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.incident_kind/index.html">incident_kind</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The kind of event this record describes.</td>
+    </tr>
+    <tr>
+      <td><code>severity</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.incident_severity/index.html">incident_severity</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>How serious the incident proved to be.</td>
+    </tr>
+    <tr>
+      <td><code>occurred_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the incident happened, as best the responders could fix it.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the incident occurred.</td>
+    </tr>
+    <tr>
+      <td><code>is_resolved</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the incident has been closed out.</td>
+    </tr>
+    <tr>
+      <td><code>resolved_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td></td>
+      <td>When the incident was closed out, once it has been.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>resolved_incidents_carry_a_resolution_time</code></td>
+    <td>A closed incident says when it was closed.
+<br><code>when is_resolved eq True · check resolved_at present </code>    </td>
+  </tr>
+  <tr>
+    <td><code>water_emergencies_go_to_water_capable_posts</code></td>
+    <td>A water emergency is answered by a post that fields water rescue.
+<br><code>when incident_kind eq water_emergency · check responding_post.rescue_specialties contains water_rescue</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.safety.warden_post/index.html"><code>kelston.safety.warden_post</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.incident_kind/index.html"><code>kelston.vocab.incident_kind</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.incident_severity/index.html"><code>kelston.vocab.incident_severity</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

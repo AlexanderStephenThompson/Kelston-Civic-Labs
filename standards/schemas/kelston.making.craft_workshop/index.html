@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Craft Workshop · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/making/index.html">Making &amp; Craft</a> <span class="crumb-sep">›</span> <span aria-current="page">Craft Workshop</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Making &amp; Craft</p>
+<h1>Craft Workshop</h1>
+<p>
+  <code>kelston.making.craft_workshop</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>WKSP-000482</code></p>
+<p class="lede">An organization that makes things by hand and tool - a joinery, a weavery, a pottery, a toolwright&#39;s bench hall. Workshops declare the size-class range they can serve, because a chisel that fits a badger&#39;s paw is no use in a wren&#39;s.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>disciplines</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.craft_discipline/index.html">craft_discipline</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The disciplines the workshop practices as mainstays.</td>
+    </tr>
+    <tr>
+      <td><code>bench_count</code></td>
+      <td class="type-cell">integer</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Working benches on the workshop floor.</td>
+    </tr>
+    <tr>
+      <td><code>smallest_served_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The smallest size class the workshop can fit work and tools for.</td>
+    </tr>
+    <tr>
+      <td><code>largest_served_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The largest size class the workshop can fit work and tools for.</td>
+    </tr>
+    <tr>
+      <td><code>allows_apprentices</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the workshop takes guild apprentices at its benches.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>6 fields inherited from kelston.core.organization</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization&#39;s registered name.</td>
+    </tr>
+    <tr>
+      <td><code>sector</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.sector/index.html">sector</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The sector this organization works in.</td>
+    </tr>
+    <tr>
+      <td><code>industry</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.industry/index.html">industry</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The industry, from its sector&#39;s taxonomy.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the organization is based.</td>
+    </tr>
+    <tr>
+      <td><code>operating_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html">operating_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the organization is open and staffed.</td>
+    </tr>
+    <tr>
+      <td><code>founded_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The date the organization was registered.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>industry_belongs_to_sector</code></td>
+    <td>An organization&#39;s industry comes from its own sector&#39;s taxonomy.
+<br><code>check industry.sector eq sector</code>    </td>
+  </tr>
+  <tr>
+    <td><code>served_range_reads_upward</code></td>
+    <td>The largest served class is at least the smallest, so the range is a range.
+<br><code>check largest_served_class gte smallest_served_class</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.craft_discipline/index.html"><code>kelston.vocab.craft_discipline</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.making.commission_record/index.html"><code>kelston.making.commission_record</code></a> · <a href="../../../standards/schemas/kelston.making.tool_pattern/index.html"><code>kelston.making.tool_pattern</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>
