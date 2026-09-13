@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinic Visit · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/health/index.html">Health &amp; Wellness</a> <span class="crumb-sep">›</span> <span aria-current="page">Clinic Visit</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Health &amp; Wellness</p>
+<h1>Clinic Visit</h1>
+<p>
+  <code>kelston.health.clinic_visit</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>CLNV-000482</code></p>
+<p class="lede">One patient seen once at one clinic - the basic unit of town medicine. Extends the civic record, so visits sit on the same event spine as every other dated record, and the species-fit guarantees are checked right here where patient meets room.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen who was seen.</td>
+    </tr>
+    <tr>
+      <td><code>clinic</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.health.clinic/index.html">clinic</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The clinic where the visit happened.</td>
+    </tr>
+    <tr>
+      <td><code>care_plan</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.health.care_plan/index.html">care_plan</a></td>
+      <td></td>
+      <td>The ongoing care plan this visit belongs to, when there is one.</td>
+    </tr>
+    <tr>
+      <td><code>visited_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day of the visit.</td>
+    </tr>
+    <tr>
+      <td><code>visit_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td></td>
+      <td>The shift band the visit was booked in. Scheduling follows the patient&#39;s preferred band, so a nocturnal patient is never asked to be examined half-asleep at noon.
+</td>
+    </tr>
+    <tr>
+      <td><code>body_mass</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(kilogram)</a></td>
+      <td></td>
+      <td>The patient&#39;s mass at check-in, the one vital every species shares.</td>
+    </tr>
+    <tr>
+      <td><code>body_temperature</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(celsius)</a></td>
+      <td></td>
+      <td>Body temperature at check-in, read against the species&#39; own normal range.</td>
+    </tr>
+    <tr>
+      <td><code>follow_up_due_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>When the patient should next be seen; absent if no follow-up is needed.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>clinic_clearance_fits_patient</code></td>
+    <td>The treatment rooms must admit the patient&#39;s size class.
+<br><code>check clinic.clearance_class gte patient.species.size_class</code>    </td>
+  </tr>
+  <tr>
+    <td><code>ectotherm_patients_get_basking_recovery</code></td>
+    <td>An ectotherm patient is only seen where recovery rooms can keep them warm.
+<br><code>when patient.species.thermoregulation eq ectotherm · check clinic.has_basking_recovery eq True</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.health.care_plan/index.html"><code>kelston.health.care_plan</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.health.clinic/index.html"><code>kelston.health.clinic</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

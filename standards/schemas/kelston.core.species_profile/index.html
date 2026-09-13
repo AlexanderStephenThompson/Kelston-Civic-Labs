@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Species Profile · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Species Profile</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Species Profile</h1>
+<p>
+  <code>kelston.core.species_profile</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>SPC-000482</code> · 58 records in town</p>
+<p class="lede">The structural trait standard for one species of citizen. Every system in town - housing, scheduling, transit, employment, care - reads traits from here rather than guessing, which is how Kelston serves a shrew and a giraffe with the same schemas.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>common_name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The everyday name of the species, e.g. &#34;red fox&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>animal_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.animal_class/index.html">animal_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Which citizen family the species belongs to - mammal, reptile, or bird.</td>
+    </tr>
+    <tr>
+      <td><code>family_group</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Informal family grouping used for naming pools and kinship flavor, e.g. &#34;canine&#34;, &#34;raptor&#34;, &#34;tortoise&#34;.
+</td>
+    </tr>
+    <tr>
+      <td><code>size_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Body-size band driving clearance, seating, and equipment standards.</td>
+    </tr>
+    <tr>
+      <td><code>activity_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.activity_cycle/index.html">activity_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the species is naturally awake and at its best.</td>
+    </tr>
+    <tr>
+      <td><code>locomotion</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.locomotion/index.html">locomotion</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>All movement modes the species is fully at home in.</td>
+    </tr>
+    <tr>
+      <td><code>thermoregulation</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.thermoregulation/index.html">thermoregulation</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Endotherm or ectotherm; drives climate provisions everywhere.</td>
+    </tr>
+    <tr>
+      <td><code>lifespan_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html">lifespan_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Expected lifespan band, used to pace lifelong services fairly.</td>
+    </tr>
+    <tr>
+      <td><code>habitat_affinity</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.realm_code/index.html">realm_code</a></td>
+      <td></td>
+      <td>Realms the species tends to settle in. Affinity weights distributions; it never restricts where a citizen may live.
+</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>reptiles_are_ectotherms</code></td>
+    <td>In Kelston&#39;s roster, reptile-class species are the ectotherms.
+<br><code>when animal_class eq reptile · check thermoregulation eq ectotherm</code>    </td>
+  </tr>
+  <tr>
+    <td><code>warm_classes_are_endotherms</code></td>
+    <td>Mammal- and bird-class species regulate their own heat.
+<br><code>when animal_class in [&#39;mammal&#39;, &#39;bird&#39;] · check thermoregulation eq endotherm</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/vocabularies/kelston.vocab.activity_cycle/index.html"><code>kelston.vocab.activity_cycle</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.animal_class/index.html"><code>kelston.vocab.animal_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html"><code>kelston.vocab.lifespan_band</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.locomotion/index.html"><code>kelston.vocab.locomotion</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.realm_code/index.html"><code>kelston.vocab.realm_code</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.thermoregulation/index.html"><code>kelston.vocab.thermoregulation</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

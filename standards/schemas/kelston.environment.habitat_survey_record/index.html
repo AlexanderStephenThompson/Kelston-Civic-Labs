@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitat Survey Record · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/environment/index.html">Environment &amp; Conservation</a> <span class="crumb-sep">›</span> <span aria-current="page">Habitat Survey Record</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Environment &amp; Conservation</p>
+<h1>Habitat Survey Record</h1>
+<p>
+  <code>kelston.environment.habitat_survey_record</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>HSURV-000482</code></p>
+<p class="lede">One walked (or swum, or flown) survey of one reserve - the moment a habitat&#39;s condition becomes a number the town can act on. Surveys sit on the civic record spine like every other dated record.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>reserve</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.environment.habitat_reserve/index.html">habitat_reserve</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The reserve that was surveyed.</td>
+    </tr>
+    <tr>
+      <td><code>surveyed_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day the survey was walked.</td>
+    </tr>
+    <tr>
+      <td><code>habitat_condition</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.habitat_condition/index.html">habitat_condition</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The condition band the surveyor assigned on the day.</td>
+    </tr>
+    <tr>
+      <td><code>wild_resident_count</code></td>
+      <td class="type-cell">integer</td>
+      <td></td>
+      <td>Tally of wild residents observed during the survey.</td>
+    </tr>
+    <tr>
+      <td><code>requires_follow_up</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the findings call for an intervention visit.</td>
+    </tr>
+    <tr>
+      <td><code>follow_up_due_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>When the intervention visit is due, set whenever one is needed.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>failing_habitats_get_follow_up</code></td>
+    <td>A reserve found failing always gets an intervention visit.
+<br><code>when habitat_condition eq failing · check requires_follow_up eq True</code>    </td>
+  </tr>
+  <tr>
+    <td><code>follow_ups_carry_a_due_date</code></td>
+    <td>Whenever follow-up is required, the survey says by when.
+<br><code>when requires_follow_up eq True · check follow_up_due_on present </code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.environment.habitat_reserve/index.html"><code>kelston.environment.habitat_reserve</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.habitat_condition/index.html"><code>kelston.vocab.habitat_condition</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

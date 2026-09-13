@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notice Post · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/media/index.html">Communication &amp; Media</a> <span class="crumb-sep">›</span> <span aria-current="page">Notice Post</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Communication &amp; Media</p>
+<h1>Notice Post</h1>
+<p>
+  <code>kelston.media.notice_post</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>NPST-000482</code></p>
+<p class="lede">A fixed point where one channel reaches the public - a chime tower on the square, a print board by the tram stop, a beacon lamp on a rooftop, a drum station in the under-market. Posts are places, so every citizen can find the nearest one in their own tier.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>maintainer</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.media.signal_house/index.html">signal_house</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The signal house that keeps the post working.</td>
+    </tr>
+    <tr>
+      <td><code>channel</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.signal_channel/index.html">signal_channel</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The single channel this post carries.</td>
+    </tr>
+    <tr>
+      <td><code>reach_radius</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(meter)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>How far the post carries - earshot, sightline, or felt range.</td>
+    </tr>
+    <tr>
+      <td><code>commissioned_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The day the post first carried a dispatch.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.place</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm this place lies in.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>The place&#39;s everyday name, when it has earned one.</td>
+    </tr>
+    <tr>
+      <td><code>vertical_tier</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>Where the place sits in the town&#39;s layered architecture.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>beacons_sit_high</code></td>
+    <td>A beacon light is read from the aerial lanes, so it sits at canopy or rooftop level.
+<br><code>when channel eq beacon_light · check vertical_tier in [&#39;canopy&#39;, &#39;rooftop&#39;]</code>    </td>
+  </tr>
+  <tr>
+    <td><code>drum_lines_sit_low</code></td>
+    <td>A drum line is felt through the ground, so its station sits in the burrow tier.
+<br><code>when channel eq drum_line · check vertical_tier eq burrow</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.media.signal_house/index.html"><code>kelston.media.signal_house</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.signal_channel/index.html"><code>kelston.vocab.signal_channel</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.media.dispatch_record/index.html"><code>kelston.media.dispatch_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

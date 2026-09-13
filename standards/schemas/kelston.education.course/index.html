@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/education/index.html">Education &amp; Learning</a> <span class="crumb-sep">›</span> <span aria-current="page">Course</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Education &amp; Learning</p>
+<h1>Course</h1>
+<p>
+  <code>kelston.education.course</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>CRSE-000482</code></p>
+<p class="lede">One named offering at one school - a unit of teaching that citizens enroll in, with a stage, a band, and a tempo. The tempo matters: Kelston paces curricula by lifespan band, so a brief-band mouse and a venerable tortoise each get a whole education in a lifetime that fits it.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>school</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.education.school/index.html">school</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The school that offers and timetables this course.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The course&#39;s listed name, e.g. &#34;Letters and Numbers II&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>stage</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.learning_stage/index.html">learning_stage</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The learning stage this course belongs to.</td>
+    </tr>
+    <tr>
+      <td><code>offered_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The shift band the course meets in, so cohorts share their waking hours.</td>
+    </tr>
+    <tr>
+      <td><code>paced_for_lifespan</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html">lifespan_band</a></td>
+      <td></td>
+      <td>The lifespan band this section is paced for. A brief-band section covers the same ground at a quicker tempo; absent means the standard pace fits all comers.
+</td>
+    </tr>
+    <tr>
+      <td><code>session_duration</code></td>
+      <td class="type-cell">duration</td>
+      <td></td>
+      <td>How long one class session runs.</td>
+    </tr>
+    <tr>
+      <td><code>seat_capacity</code></td>
+      <td class="type-cell">integer</td>
+      <td></td>
+      <td>How many learners the section seats.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>course_stage_is_taught_at_school</code></td>
+    <td>A course&#39;s stage is one its school actually teaches.
+<br><code>check school.stages_offered contains stage</code>    </td>
+  </tr>
+  <tr>
+    <td><code>course_band_is_taught_at_school</code></td>
+    <td>A course meets in a band when its school actually runs classes.
+<br><code>check school.instruction_bands contains offered_band</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.education.school/index.html"><code>kelston.education.school</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.learning_stage/index.html"><code>kelston.vocab.learning_stage</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.lifespan_band/index.html"><code>kelston.vocab.lifespan_band</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.education.enrollment_record/index.html"><code>kelston.education.enrollment_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

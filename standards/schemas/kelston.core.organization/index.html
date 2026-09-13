@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organization · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/core/index.html">Core standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Organization</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Core standard</p>
+<h1>Organization</h1>
+<p>
+  <code>kelston.core.organization</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>ORG-000482</code> · 296 records in town</p>
+<p class="lede">Any collective actor in town - a farm, a clinic, a guild school, the registry itself. Organizations declare their sector, industry, realm, and operating cycle so the whole economy is one queryable surface.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization&#39;s registered name.</td>
+    </tr>
+    <tr>
+      <td><code>sector</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.sector/index.html">sector</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The sector this organization works in.</td>
+    </tr>
+    <tr>
+      <td><code>industry</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.industry/index.html">industry</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The industry, from its sector&#39;s taxonomy.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the organization is based.</td>
+    </tr>
+    <tr>
+      <td><code>operating_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html">operating_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the organization is open and staffed.</td>
+    </tr>
+    <tr>
+      <td><code>founded_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The date the organization was registered.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>industry_belongs_to_sector</code></td>
+    <td>An organization&#39;s industry comes from its own sector&#39;s taxonomy.
+<br><code>check industry.sector eq sector</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Extended by</h2>
+<p><a href="../../../standards/schemas/kelston.agriculture.farm/index.html"><code>kelston.agriculture.farm</code></a> · <a href="../../../standards/schemas/kelston.arts.performance_company/index.html"><code>kelston.arts.performance_company</code></a> · <a href="../../../standards/schemas/kelston.care.care_lodge/index.html"><code>kelston.care.care_lodge</code></a> · <a href="../../../standards/schemas/kelston.commerce.market_hall/index.html"><code>kelston.commerce.market_hall</code></a> · <a href="../../../standards/schemas/kelston.education.school/index.html"><code>kelston.education.school</code></a> · <a href="../../../standards/schemas/kelston.environment.stewardship_circle/index.html"><code>kelston.environment.stewardship_circle</code></a> · <a href="../../../standards/schemas/kelston.finance.credit_union/index.html"><code>kelston.finance.credit_union</code></a> · <a href="../../../standards/schemas/kelston.governance.civic_office/index.html"><code>kelston.governance.civic_office</code></a> · <a href="../../../standards/schemas/kelston.health.clinic/index.html"><code>kelston.health.clinic</code></a> · <a href="../../../standards/schemas/kelston.housing.building_works/index.html"><code>kelston.housing.building_works</code></a> · <a href="../../../standards/schemas/kelston.making.craft_workshop/index.html"><code>kelston.making.craft_workshop</code></a> · <a href="../../../standards/schemas/kelston.media.signal_house/index.html"><code>kelston.media.signal_house</code></a> · <a href="../../../standards/schemas/kelston.mobility.transit_line_operator/index.html"><code>kelston.mobility.transit_line_operator</code></a> · <a href="../../../standards/schemas/kelston.recreation.parks_trust/index.html"><code>kelston.recreation.parks_trust</code></a> · <a href="../../../standards/schemas/kelston.safety.warden_post/index.html"><code>kelston.safety.warden_post</code></a> · <a href="../../../standards/schemas/kelston.science.research_institute/index.html"><code>kelston.science.research_institute</code></a> · <a href="../../../standards/schemas/kelston.utilities.utility_works/index.html"><code>kelston.utilities.utility_works</code></a></p>
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.industry/index.html"><code>kelston.core.industry</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html"><code>kelston.vocab.operating_cycle</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.sector/index.html"><code>kelston.vocab.sector</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.distribution_run/index.html"><code>kelston.agriculture.distribution_run</code></a> · <a href="../../../standards/schemas/kelston.agriculture.farm/index.html"><code>kelston.agriculture.farm</code></a> · <a href="../../../standards/schemas/kelston.agriculture.food_product/index.html"><code>kelston.agriculture.food_product</code></a> · <a href="../../../standards/schemas/kelston.agriculture.market_lot/index.html"><code>kelston.agriculture.market_lot</code></a> · <a href="../../../standards/schemas/kelston.arts.performance_company/index.html"><code>kelston.arts.performance_company</code></a> · <a href="../../../standards/schemas/kelston.arts.performance_venue/index.html"><code>kelston.arts.performance_venue</code></a> · <a href="../../../standards/schemas/kelston.care.care_lodge/index.html"><code>kelston.care.care_lodge</code></a> · <a href="../../../standards/schemas/kelston.commerce.market_hall/index.html"><code>kelston.commerce.market_hall</code></a> · <a href="../../../standards/schemas/kelston.commerce.market_stall/index.html"><code>kelston.commerce.market_stall</code></a> · <a href="../../../standards/schemas/kelston.commerce.trade_record/index.html"><code>kelston.commerce.trade_record</code></a> · <a href="../../../standards/schemas/kelston.core.appointment/index.html"><code>kelston.core.appointment</code></a> · <a href="../../../standards/schemas/kelston.education.school/index.html"><code>kelston.education.school</code></a> · <a href="../../../standards/schemas/kelston.environment.stewardship_circle/index.html"><code>kelston.environment.stewardship_circle</code></a> · <a href="../../../standards/schemas/kelston.finance.credit_union/index.html"><code>kelston.finance.credit_union</code></a> · <a href="../../../standards/schemas/kelston.governance.civic_office/index.html"><code>kelston.governance.civic_office</code></a> · <a href="../../../standards/schemas/kelston.health.clinic/index.html"><code>kelston.health.clinic</code></a> · <a href="../../../standards/schemas/kelston.housing.building_works/index.html"><code>kelston.housing.building_works</code></a> · <a href="../../../standards/schemas/kelston.making.craft_workshop/index.html"><code>kelston.making.craft_workshop</code></a> · <a href="../../../standards/schemas/kelston.media.signal_house/index.html"><code>kelston.media.signal_house</code></a> · <a href="../../../standards/schemas/kelston.mobility.transit_line_operator/index.html"><code>kelston.mobility.transit_line_operator</code></a> · <a href="../../../standards/schemas/kelston.recreation.parks_trust/index.html"><code>kelston.recreation.parks_trust</code></a> · <a href="../../../standards/schemas/kelston.safety.warden_post/index.html"><code>kelston.safety.warden_post</code></a> · <a href="../../../standards/schemas/kelston.science.research_institute/index.html"><code>kelston.science.research_institute</code></a> · <a href="../../../standards/schemas/kelston.utilities.utility_works/index.html"><code>kelston.utilities.utility_works</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finance &amp; Mutual Credit · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Finance &amp; Mutual Credit</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Finance &amp; Mutual Credit</h1>
+<p class="lede">The credit union, mutual insurance pools, and the kelmark ledger.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">4</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">8</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">8</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">56</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.finance.credit_union/index.html">
+    <h3>Credit Union</h3>
+    <p>A member-owned organization that keeps kelmark accounts, makes loans from its shared reserve, and stewards the mutual pools.</p>
+    <div class="meta"><code>kelston.finance.credit_union</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.finance.ledger_entry/index.html">
+    <h3>Kelmark Ledger Entry</h3>
+    <p>One movement of kelmarks on the credit union&#39;s books - a deposit, a loan, a pool contribution or payout.</p>
+    <div class="meta"><code>kelston.finance.ledger_entry</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.finance.mutual_pool/index.html">
+    <h3>Mutual Pool</h3>
+    <p>A shared kelmark fund that members pay into regularly and draw from in need - storm repair, lean-season bridging, care costs.</p>
+    <div class="meta"><code>kelston.finance.mutual_pool</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Circuit Banking</h3>
+<p>Carrying union services out to the realms on scheduled circuit visits.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Circuit Banker</td>
+    <td>Rides the routes to bring counter services to the far realms.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Wing Courier</td>
+    <td>Flies sealed ledger pouches between the realm counters.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Credit Union Services</h3>
+<p>Member accounts, lending, and the keeping of the common reserve.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Loan Steward</td>
+    <td>Hears loan requests and watches that limits stay within the reserve.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Teller</td>
+    <td>Takes deposits, pays withdrawals, and knows every member by name.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Ledger Keeping</h3>
+<p>Recording, reconciling, and auditing the kelmark ledger.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Ledger Clerk</td>
+    <td>Posts entries to the kelmark ledger with fine-nib precision.</td>
+    <td><span class="tag">fine handling</span></td>
+  </tr>
+  <tr>
+    <td>Night Auditor</td>
+    <td>Balances the day&#39;s books through the quiet of the night band.</td>
+    <td><span class="tag">night work</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Mutual Pools</h3>
+<p>Chartering and stewarding the shared funds members draw on in need.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Claims Visitor</td>
+    <td>Visits members in need to size up a fair payout on the spot.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pool Keeper</td>
+    <td>Tends a mutual pool&#39;s charter, contributions, and payout decisions.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observation Record · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/science/index.html">Science &amp; Research</a> <span class="crumb-sep">›</span> <span aria-current="page">Observation Record</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Science &amp; Research</p>
+<h1>Observation Record</h1>
+<p>
+  <code>kelston.science.observation_record</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>OBSV-000482</code></p>
+<p class="lede">One observation taken at one field station - a reading, a sighting, a measurement. Extends the civic record, so the town&#39;s science sits on the same dated spine as its harvests and hearings, open for any citizen to query.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>field_station</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.science.field_station/index.html">field_station</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The station where the observation was taken.</td>
+    </tr>
+    <tr>
+      <td><code>observed_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the phenomenon itself was observed, distinct from when the record was filed.</td>
+    </tr>
+    <tr>
+      <td><code>phenomenon</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>What was observed, in plain words - &#34;first frost on the upper terraces&#34;.</td>
+    </tr>
+    <tr>
+      <td><code>air_temperature</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(celsius)</a></td>
+      <td></td>
+      <td>Air temperature at the station when the observation was taken, when measured.</td>
+    </tr>
+    <tr>
+      <td><code>is_anomalous</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the observation falls outside the station&#39;s expected range.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>anomalies_carry_a_note</code></td>
+    <td>An anomalous observation explains itself for the next reader.
+<br><code>when is_anomalous eq True · check note present </code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.science.field_station/index.html"><code>kelston.science.field_station</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

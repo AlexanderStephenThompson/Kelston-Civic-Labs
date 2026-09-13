@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Lot · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/agriculture/index.html">Agriculture &amp; Food Systems</a> <span class="crumb-sep">›</span> <span aria-current="page">Market Lot</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Agriculture &amp; Food Systems</p>
+<h1>Market Lot</h1>
+<p>
+  <code>kelston.agriculture.market_lot</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>LOT-000482</code> · 225 records in town</p>
+<p class="lede">A quantity of food offered for trade - fresh from a harvest or crafted as a product. The lot is where agriculture meets commerce, priced in kelmarks at a declared market realm.
+</p>
+
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>seller</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.organization/index.html">organization</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization offering the lot.</td>
+    </tr>
+    <tr>
+      <td><code>harvest</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.agriculture.harvest_record/index.html">harvest_record</a></td>
+      <td></td>
+      <td>The harvest this lot draws from, for fresh produce.</td>
+    </tr>
+    <tr>
+      <td><code>product</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.agriculture.food_product/index.html">food_product</a></td>
+      <td></td>
+      <td>The crafted product this lot offers, for made goods.</td>
+    </tr>
+    <tr>
+      <td><code>lot_mass</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(kilogram)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Mass of food in the lot.</td>
+    </tr>
+    <tr>
+      <td><code>unit_price</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(kelmark)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Asking price per kilogram, in kelmarks.</td>
+    </tr>
+    <tr>
+      <td><code>offered_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day the lot was listed.</td>
+    </tr>
+    <tr>
+      <td><code>market_realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm whose market the lot is offered at.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>lot_offers_exactly_one_source</code></td>
+    <td>A lot draws from a harvest or offers a product - one, never both, never neither.
+<br><code>python:agriculture.lot_has_one_source</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.agriculture.food_product/index.html"><code>kelston.agriculture.food_product</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.agriculture.harvest_record/index.html"><code>kelston.agriculture.harvest_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.distribution_run/index.html"><code>kelston.agriculture.distribution_run</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

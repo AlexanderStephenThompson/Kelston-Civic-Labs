@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transit Line Operator · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/mobility/index.html">Mobility &amp; Transit</a> <span class="crumb-sep">›</span> <span aria-current="page">Transit Line Operator</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Mobility &amp; Transit</p>
+<h1>Transit Line Operator</h1>
+<p>
+  <code>kelston.mobility.transit_line_operator</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>TLOP-000482</code></p>
+<p class="lede">An organization that runs scheduled transit - a tram cooperative, the harbor ferry guild, a glideway marshal crew. Operators declare their mode, reach, and night coverage as data, so &#34;can I get home from here in my band&#34; is a query.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>primary_mode</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.transit_mode/index.html">transit_mode</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The transit mode this operator runs as its mainstay.</td>
+    </tr>
+    <tr>
+      <td><code>service_realms</code></td>
+      <td class="type-cell">list of ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realms this operator&#39;s lines reach.</td>
+    </tr>
+    <tr>
+      <td><code>fleet_clearance_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The largest size class the operator&#39;s vehicles seat comfortably - the figure every stop and rider checks against.
+</td>
+    </tr>
+    <tr>
+      <td><code>fleet_count</code></td>
+      <td class="type-cell">integer</td>
+      <td></td>
+      <td>How many vehicles the operator keeps in service.</td>
+    </tr>
+    <tr>
+      <td><code>has_night_service</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the operator runs through the night band for nocturnal commuters.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>6 fields inherited from kelston.core.organization</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization&#39;s registered name.</td>
+    </tr>
+    <tr>
+      <td><code>sector</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.sector/index.html">sector</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The sector this organization works in.</td>
+    </tr>
+    <tr>
+      <td><code>industry</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.industry/index.html">industry</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The industry, from its sector&#39;s taxonomy.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the organization is based.</td>
+    </tr>
+    <tr>
+      <td><code>operating_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html">operating_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the organization is open and staffed.</td>
+    </tr>
+    <tr>
+      <td><code>founded_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The date the organization was registered.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>industry_belongs_to_sector</code></td>
+    <td>An organization&#39;s industry comes from its own sector&#39;s taxonomy.
+<br><code>check industry.sector eq sector</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.realm/index.html"><code>kelston.core.realm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.transit_mode/index.html"><code>kelston.vocab.transit_mode</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.mobility.service_run_record/index.html"><code>kelston.mobility.service_run_record</code></a> · <a href="../../../standards/schemas/kelston.mobility.transit_stop/index.html"><code>kelston.mobility.transit_stop</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

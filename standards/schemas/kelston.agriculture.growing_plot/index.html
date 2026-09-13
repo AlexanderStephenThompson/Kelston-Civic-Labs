@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growing Plot · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/agriculture/index.html">Agriculture &amp; Food Systems</a> <span class="crumb-sep">›</span> <span aria-current="page">Growing Plot</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Agriculture &amp; Food Systems</p>
+<h1>Growing Plot</h1>
+<p>
+  <code>kelston.agriculture.growing_plot</code>
+  <span class="badge-version">v2.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>PLOT-000482</code> · 188 records in town</p>
+<p class="lede">A bounded area of cultivated ground within a farm or commons garden - the unit at which plantings, soil care, and harvests are recorded.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>farm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.agriculture.farm/index.html">farm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The farm or commons garden this plot belongs to.</td>
+    </tr>
+    <tr>
+      <td><code>area</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(square_meter)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Cultivable surface area of the plot.</td>
+    </tr>
+    <tr>
+      <td><code>soil_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.soil_class/index.html">soil_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Dominant soil classification used for crop matching.</td>
+    </tr>
+    <tr>
+      <td><code>drainage_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.drainage_class/index.html">drainage_class</a></td>
+      <td></td>
+      <td>How quickly the plot sheds water. Split from soil_class in 2.0.0 so texture and water behavior are recorded independently.
+</td>
+    </tr>
+    <tr>
+      <td><code>steward</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>Citizen responsible for day-to-day care of the plot.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.place</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm this place lies in.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>The place&#39;s everyday name, when it has earned one.</td>
+    </tr>
+    <tr>
+      <td><code>vertical_tier</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>Where the place sits in the town&#39;s layered architecture.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>submerged_plots_have_water_substrate</code></td>
+    <td>A submerged plot&#39;s growing medium is water, by definition.
+<br><code>when vertical_tier eq submerged · check soil_class eq substrate_water</code>    </td>
+  </tr>
+  <tr>
+    <td><code>submerged_plots_need_semi_aquatic_steward</code></td>
+    <td>Submerged plots - paddies, kelp lines, raft beds - are stewarded by citizens whose species is fully at home in the water.
+
+<br><code>when vertical_tier eq submerged · python:agriculture.semi_aquatic_steward_check</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">2.0.0</td>
+    <td>2026-06-10</td>
+    <td>major</td>
+    <td><code>2.0.0.yaml</code></td>
+  </tr>
+  <tr>
+    <td class="badge-version">1.2.0</td>
+    <td>2026-05-01</td>
+    <td>minor</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-04-02</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.agriculture.farm/index.html"><code>kelston.agriculture.farm</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.drainage_class/index.html"><code>kelston.vocab.drainage_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.soil_class/index.html"><code>kelston.vocab.soil_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.agriculture.planting/index.html"><code>kelston.agriculture.planting</code></a></p>
+
+<h2>Changelog</h2>
+<h2>kelston.agriculture.growing_plot</h2>
+<h3>1.2.0 -&gt; 2.0.0 (major)</h3>
+<ul>
+<li>removed field <code>keeper</code></li>
+<li>added optional field <code>drainage_class</code></li>
+<li>added optional field <code>steward</code></li>
+<li>reworded <code>soil_class</code> description</li>
+<li>added constraint <code>submerged_plots_need_semi_aquatic_steward</code></li>
+</ul>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

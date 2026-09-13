@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelmark Ledger Entry · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/finance/index.html">Finance &amp; Mutual Credit</a> <span class="crumb-sep">›</span> <span aria-current="page">Kelmark Ledger Entry</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Finance &amp; Mutual Credit</p>
+<h1>Kelmark Ledger Entry</h1>
+<p>
+  <code>kelston.finance.ledger_entry</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>LGR-000482</code></p>
+<p class="lede">One movement of kelmarks on the credit union&#39;s books - a deposit, a loan, a pool contribution or payout. Extends the civic record, so the town&#39;s money sits on the same event spine as everything else it does.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>union</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.finance.credit_union/index.html">credit_union</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The credit union whose books carry the entry.</td>
+    </tr>
+    <tr>
+      <td><code>member</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The member whose account the entry moves.</td>
+    </tr>
+    <tr>
+      <td><code>entry_kind</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.kelmark_entry_kind/index.html">kelmark_entry_kind</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>What kind of movement this entry records.</td>
+    </tr>
+    <tr>
+      <td><code>amount</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(kelmark)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Kelmarks moved by the entry, always a positive number.</td>
+    </tr>
+    <tr>
+      <td><code>pool</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.finance.mutual_pool/index.html">mutual_pool</a></td>
+      <td></td>
+      <td>The mutual pool involved, for contribution and payout entries.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>pool_payouts_name_their_pool</code></td>
+    <td>A pool payout always says which pool it drew from.
+<br><code>when entry_kind eq pool_payout · check pool present </code>    </td>
+  </tr>
+  <tr>
+    <td><code>pool_contributions_name_their_pool</code></td>
+    <td>A pool contribution always says which pool it paid into.
+<br><code>when entry_kind eq pool_contribution · check pool present </code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.finance.credit_union/index.html"><code>kelston.finance.credit_union</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.finance.mutual_pool/index.html"><code>kelston.finance.mutual_pool</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.kelmark_entry_kind/index.html"><code>kelston.vocab.kelmark_entry_kind</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

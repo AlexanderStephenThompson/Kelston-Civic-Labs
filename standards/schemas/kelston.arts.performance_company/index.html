@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performance Company · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/arts/index.html">Arts &amp; Culture</a> <span class="crumb-sep">›</span> <span aria-current="page">Performance Company</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Arts &amp; Culture</p>
+<h1>Performance Company</h1>
+<p>
+  <code>kelston.arts.performance_company</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>PERF-000482</code></p>
+<p class="lede">An organization that makes and shows art - a theater troupe, a swim ballet, a storytelling circle, a festival craft guild. Companies are organizations first, so the registry already knows their realm, hours, and people.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>art_forms</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.art_form/index.html">art_form</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The art forms the company works in.</td>
+    </tr>
+    <tr>
+      <td><code>home_venue</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.arts.performance_venue/index.html">performance_venue</a></td>
+      <td></td>
+      <td>The venue the company calls home, when it has one.</td>
+    </tr>
+    <tr>
+      <td><code>member_count</code></td>
+      <td class="type-cell">integer</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Performers and makers currently on the company&#39;s roll.</td>
+    </tr>
+    <tr>
+      <td><code>performance_bands</code></td>
+      <td class="type-cell">list of vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The shift bands the company usually performs in - dusk for the storytellers, night for the owl chorus, day for the school matinees.
+</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>6 fields inherited from kelston.core.organization</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The organization&#39;s registered name.</td>
+    </tr>
+    <tr>
+      <td><code>sector</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.sector/index.html">sector</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The sector this organization works in.</td>
+    </tr>
+    <tr>
+      <td><code>industry</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.industry/index.html">industry</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The industry, from its sector&#39;s taxonomy.</td>
+    </tr>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm where the organization is based.</td>
+    </tr>
+    <tr>
+      <td><code>operating_cycle</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.operating_cycle/index.html">operating_cycle</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the organization is open and staffed.</td>
+    </tr>
+    <tr>
+      <td><code>founded_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The date the organization was registered.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>industry_belongs_to_sector</code></td>
+    <td>An organization&#39;s industry comes from its own sector&#39;s taxonomy.
+<br><code>check industry.sector eq sector</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.arts.performance_venue/index.html"><code>kelston.arts.performance_venue</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.organization/index.html"><code>kelston.core.organization</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.art_form/index.html"><code>kelston.vocab.art_form</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+<p>Used by:
+<a href="../../../standards/schemas/kelston.arts.performance_record/index.html"><code>kelston.arts.performance_record</code></a></p>
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

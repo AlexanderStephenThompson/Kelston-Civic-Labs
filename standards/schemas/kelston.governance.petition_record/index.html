@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Petition Record · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/governance/index.html">Governance &amp; Civic Registry</a> <span class="crumb-sep">›</span> <span aria-current="page">Petition Record</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Governance &amp; Civic Registry</p>
+<h1>Petition Record</h1>
+<p>
+  <code>kelston.governance.petition_record</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>PETN-000482</code></p>
+<p class="lede">One citizen request to the town - a new crossing, an amended standard, a counter kept open later. Extends the civic record, so petitions sit on the same event spine as everything else, and every petition gets a recorded answer.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>petitioner</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The citizen who brought the petition.</td>
+    </tr>
+    <tr>
+      <td><code>subject</code></td>
+      <td class="type-cell">text</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>One sentence stating what is being asked for.</td>
+    </tr>
+    <tr>
+      <td><code>related_ordinance</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.governance.ordinance/index.html">ordinance</a></td>
+      <td></td>
+      <td>The ordinance the petition asks to change or invoke, when there is one.</td>
+    </tr>
+    <tr>
+      <td><code>submitted_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day the petition was logged at the counter.</td>
+    </tr>
+    <tr>
+      <td><code>heard_in_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td></td>
+      <td>The shift band the hearing is scheduled in. Hearings follow the petitioner&#39;s preferred band - the town comes to the citizen&#39;s hours.
+</td>
+    </tr>
+    <tr>
+      <td><code>outcome</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.petition_outcome/index.html">petition_outcome</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>How the petition fared; updated as it moves through the process.</td>
+    </tr>
+    <tr>
+      <td><code>decided_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>The day a decision was reached; absent until then.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>decided_petitions_have_decision_date</code></td>
+    <td>A granted or declined petition records the day it was answered.
+<br><code>when outcome in [&#39;granted&#39;, &#39;declined&#39;] · check decided_on present </code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.citizen/index.html"><code>kelston.core.citizen</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.governance.ordinance/index.html"><code>kelston.governance.ordinance</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.petition_outcome/index.html"><code>kelston.vocab.petition_outcome</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

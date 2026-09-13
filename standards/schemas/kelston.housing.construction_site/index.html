@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction Site · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/housing/index.html">Housing &amp; Construction</a> <span class="crumb-sep">›</span> <span aria-current="page">Construction Site</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Housing &amp; Construction</p>
+<h1>Construction Site</h1>
+<p>
+  <code>kelston.housing.construction_site</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>BUILD-000482</code></p>
+<p class="lede">A parcel where a home is being built or substantially rebuilt - the unit at which permits, progress, and inspections are tracked from groundbreak to handover.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>parcel</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.parcel/index.html">parcel</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The parcel the new home will stand on (or under, or above).</td>
+    </tr>
+    <tr>
+      <td><code>builder</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.housing.building_works/index.html">building_works</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The building works responsible for the site.</td>
+    </tr>
+    <tr>
+      <td><code>planned_dwelling_kind</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.dwelling_kind/index.html">dwelling_kind</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The built form the finished home will take.</td>
+    </tr>
+    <tr>
+      <td><code>planned_clearance_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The clearance class the finished home is being built to.</td>
+    </tr>
+    <tr>
+      <td><code>started_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day ground was broken.</td>
+    </tr>
+    <tr>
+      <td><code>expected_completion_on</code></td>
+      <td class="type-cell">date</td>
+      <td></td>
+      <td>Forecast handover date, revised as the build goes.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.place</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm this place lies in.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>The place&#39;s everyday name, when it has earned one.</td>
+    </tr>
+    <tr>
+      <td><code>vertical_tier</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>Where the place sits in the town&#39;s layered architecture.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>burrow_homes_built_at_burrow_tier</code></td>
+    <td>A burrow home is, by definition, built at the burrow tier.
+<br><code>when planned_dwelling_kind eq burrow_home · check vertical_tier eq burrow</code>    </td>
+  </tr>
+  <tr>
+    <td><code>builder_can_reach_planned_clearance</code></td>
+    <td>A site&#39;s planned clearance class never exceeds what its building works is proven to frame.
+
+<br><code>check planned_clearance_class lte builder.maximum_clearance_class</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.parcel/index.html"><code>kelston.core.parcel</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.housing.building_works/index.html"><code>kelston.housing.building_works</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.dwelling_kind/index.html"><code>kelston.vocab.dwelling_kind</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

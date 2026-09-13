@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Public Safety &amp; Justice · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../realms/index.html">Realms</a>
+      <a href="../../standards/index.html">Standards</a>
+      <a href="../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <span aria-current="page">Public Safety &amp; Justice</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Sector</p>
+<h1>Public Safety &amp; Justice</h1>
+<p class="lede">Wardens, dispute mediation, and rescue services.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">3</div>
+  <div class="stat-label">standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">4</div>
+  <div class="stat-label">industries</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">9</div>
+  <div class="stat-label">defined roles</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">12</div>
+  <div class="stat-label">organizations in town</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">97</div>
+  <div class="stat-label">appointments held</div>
+</div>
+</div>
+
+<h2>Standards</h2>
+<div class="card-grid">
+  <a class="card" href="../../standards/schemas/kelston.safety.incident_record/index.html">
+    <h3>Incident Record</h3>
+    <p>One safety incident and its response, from first report to resolution.</p>
+    <div class="meta"><code>kelston.safety.incident_record</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.safety.rescue_station/index.html">
+    <h3>Rescue Station</h3>
+    <p>A located, equipped point a rescue crew launches from - a boathouse on the shore, a perch tower over the canopy, a shored tunnel head at the burrow tier.</p>
+    <div class="meta"><code>kelston.safety.rescue_station</code> · v1.0.0</div>
+  </a>
+  <a class="card" href="../../standards/schemas/kelston.safety.warden_post/index.html">
+    <h3>Warden Post</h3>
+    <p>An organization of wardens responsible for safety in a stretch of town - patrol, rescue, and the first calm voice in a dispute.</p>
+    <div class="meta"><code>kelston.safety.warden_post</code> · v1.0.0</div>
+  </a>
+</div>
+
+<h2>Industries &amp; roles</h2>
+<p>The sector's taxonomy, as the registry holds it. Capability requirements are
+honest data: a role demands flight only when the work happens in the air.</p>
+<h3>Fire Response</h3>
+<p>Watching for, containing, and dousing structure and grass fires.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Fire Crew Lead</td>
+    <td>Leads the pump line and the heavy work of containment.</td>
+    <td><span class="tag">heavy handling</span></td>
+  </tr>
+  <tr>
+    <td>Fire Watcher</td>
+    <td>Watches the dry-season horizons from the high perch towers.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Dispute Mediation</h3>
+<p>Trained mediators who settle conflicts before they harden.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Dispute Mediator</td>
+    <td>Hears both sides and helps citizens find their own settlement.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Rescue Services</h3>
+<p>Water, aerial, burrow, and cliff rescue crews and their stations.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Aerial Rescuer</td>
+    <td>Reaches the canopy, rooftops, and anyone stranded aloft.</td>
+    <td><span class="tag">flight</span></td>
+  </tr>
+  <tr>
+    <td>Burrow Rescuer</td>
+    <td>Digs and shores the way to citizens caught in tunnel collapses.</td>
+    <td><span class="tag">burrowing</span></td>
+  </tr>
+  <tr>
+    <td>Cliff Rescuer</td>
+    <td>Works the Highlands faces and ledges on rope and claw.</td>
+    <td><span class="tag">climbing</span></td>
+  </tr>
+  <tr>
+    <td>Water Rescuer</td>
+    <td>Goes into the rivers, harbors, and submerged tier after citizens in trouble.</td>
+    <td><span class="tag">swimming</span></td>
+  </tr>
+  </tbody>
+</table>
+<h3>Warden Service</h3>
+<p>Patrol, presence, and the first response to anything amiss.</p>
+<table>
+  <thead><tr><th>Role</th><th>What they do</th><th>Requires</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>Night Warden</td>
+    <td>Keeps the night band safe for the town&#39;s nocturnal half.</td>
+    <td><span class="tag">night work</span></td>
+  </tr>
+  <tr>
+    <td>Patrol Warden</td>
+    <td>Walks a beat, knows its citizens, and writes the incident records.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

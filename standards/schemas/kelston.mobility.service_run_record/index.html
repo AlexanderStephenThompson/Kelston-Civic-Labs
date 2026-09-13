@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service Run Record · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/mobility/index.html">Mobility &amp; Transit</a> <span class="crumb-sep">›</span> <span aria-current="page">Service Run Record</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Mobility &amp; Transit</p>
+<h1>Service Run Record</h1>
+<p>
+  <code>kelston.mobility.service_run_record</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>SRUN-000482</code></p>
+<p class="lede">One completed run of one transit service - the unit the timetable is audited against. Run records are how the town knows its night service is real and its vehicles actually fit the riders who showed up.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>operator</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.mobility.transit_line_operator/index.html">transit_line_operator</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The operator that ran the service.</td>
+    </tr>
+    <tr>
+      <td><code>run_on</code></td>
+      <td class="type-cell">date</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The day the run was made.</td>
+    </tr>
+    <tr>
+      <td><code>shift_band</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html">shift_band</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The band the run departed in.</td>
+    </tr>
+    <tr>
+      <td><code>passenger_count</code></td>
+      <td class="type-cell">integer</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>How many riders boarded over the whole run.</td>
+    </tr>
+    <tr>
+      <td><code>largest_rider_size_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td></td>
+      <td>The size class of the largest rider carried, for fit auditing.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.civic_record</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>recorded_at</code></td>
+      <td class="type-cell">datetime</td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>When the record was made.</td>
+    </tr>
+    <tr>
+      <td><code>recorded_by</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.citizen/index.html">citizen</a></td>
+      <td></td>
+      <td>The citizen who made the record, when one signed it.</td>
+    </tr>
+    <tr>
+      <td><code>note</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>A free-text remark, used sparingly - structured fields first.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>night_runs_need_a_night_operator</code></td>
+    <td>A run in the night band belongs to an operator that offers night service.
+<br><code>when shift_band eq night · check operator.has_night_service eq True</code>    </td>
+  </tr>
+  <tr>
+    <td><code>riders_fit_the_fleet</code></td>
+    <td>The largest rider carried never exceeds the fleet&#39;s clearance class.
+<br><code>when largest_rider_size_class present  · check largest_rider_size_class lte operator.fleet_clearance_class</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.civic_record/index.html"><code>kelston.core.civic_record</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.mobility.transit_line_operator/index.html"><code>kelston.mobility.transit_line_operator</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.shift_band/index.html"><code>kelston.vocab.shift_band</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

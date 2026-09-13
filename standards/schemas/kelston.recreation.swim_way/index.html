@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swim-Way · Kelston Civic Labs</title>
+<link rel="stylesheet" href="../../../static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="../../../index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="../../../realms/index.html">Realms</a>
+      <a href="../../../standards/index.html">Standards</a>
+      <a href="../../../dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<nav class="breadcrumbs shell" aria-label="Breadcrumb">
+<a href="../../../index.html">Kelston</a> <span class="crumb-sep">›</span> <a href="../../../standards/index.html">Standards</a> <span class="crumb-sep">›</span> <a href="../../../standards/recreation/index.html">Recreation &amp; Parks</a> <span class="crumb-sep">›</span> <span aria-current="page">Swim-Way</span></nav>
+<main id="main" class="shell">
+<p class="kicker">Recreation &amp; Parks</p>
+<h1>Swim-Way</h1>
+<p>
+  <code>kelston.recreation.swim_way</code>
+  <span class="badge-version">v1.0.0</span> ·
+  <span class="status-stable">stable</span>
+ · ids look like <code>SWIM-000482</code></p>
+<p class="lede">A kept channel of open water for recreation - a marked river run, a shoreline lap lane, a still pond loop. Swim-ways declare their depth and the largest swimmer they admit, so an otter pup and a crocodile elder each find water that fits.
+</p>
+
+<p>Extends
+    <a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a>  — inherited fields appear below.
+</p>
+
+<h2>Fields</h2>
+  <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>trust</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.recreation.parks_trust/index.html">parks_trust</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The parks trust that keeps the swim-way.</td>
+    </tr>
+    <tr>
+      <td><code>channel_length</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(meter)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Marked swimmable length from entry to exit.</td>
+    </tr>
+    <tr>
+      <td><code>channel_depth</code></td>
+      <td class="type-cell">quantity <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.unit/index.html">(meter)</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>Typical depth along the marked channel.</td>
+    </tr>
+    <tr>
+      <td><code>largest_swimmer_class</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.size_class/index.html">size_class</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The largest size class the channel admits safely.</td>
+    </tr>
+    <tr>
+      <td><code>has_haul_out_ledges</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether the way keeps rest ledges where swimmers can haul out.</td>
+    </tr>
+    <tr>
+      <td><code>is_current_assisted</code></td>
+      <td class="type-cell">boolean</td>
+      <td></td>
+      <td>Whether a natural current carries swimmers along the run.</td>
+    </tr>
+  </tbody>
+</table>
+
+  <details>
+    <summary>3 fields inherited from kelston.core.place</summary>
+    <table class="field-table">
+  <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>realm</code></td>
+      <td class="type-cell">ref · <a class="type-link" href="../../../standards/schemas/kelston.core.realm/index.html">realm</a></td>
+      <td><span class="req-dot" title="required"></span><span class="visually-hidden">required</span></td>
+      <td>The realm this place lies in.</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td class="type-cell">text</td>
+      <td></td>
+      <td>The place&#39;s everyday name, when it has earned one.</td>
+    </tr>
+    <tr>
+      <td><code>vertical_tier</code></td>
+      <td class="type-cell">vocab · <a class="type-link" href="../../../standards/vocabularies/kelston.vocab.vertical_tier/index.html">vertical_tier</a></td>
+      <td></td>
+      <td>Where the place sits in the town&#39;s layered architecture.</td>
+    </tr>
+  </tbody>
+</table>
+  </details>
+
+<h2>Constraints</h2>
+<table>
+  <thead><tr><th>Rule</th><th>What it protects</th></tr></thead>
+  <tbody>
+  <tr>
+    <td><code>swim_ways_are_submerged</code></td>
+    <td>A swim-way is open water, so it sits in the submerged tier by definition.
+<br><code>check vertical_tier eq submerged</code>    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<h2>Registry record</h2>
+<table>
+  <thead><tr><th>Version</th><th>Date</th><th>Change</th><th>Migration</th></tr></thead>
+  <tbody>
+  <tr>
+    <td class="badge-version">1.0.0</td>
+    <td>2026-06-12</td>
+    <td>initial</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+<p>Depends on:
+<a href="../../../standards/schemas/kelston.core.place/index.html"><code>kelston.core.place</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/schemas/kelston.recreation.parks_trust/index.html"><code>kelston.recreation.parks_trust</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.size_class/index.html"><code>kelston.vocab.size_class</code></a><span class="badge-version">@^1</span> · <a href="../../../standards/vocabularies/kelston.vocab.unit/index.html"><code>kelston.vocab.unit</code></a><span class="badge-version">@^1</span></p>
+
+
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>

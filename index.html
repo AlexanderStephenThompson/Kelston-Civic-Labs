@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home · Kelston Civic Labs</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell">
+    <a class="wordmark" href="index.html">Kelston</a>
+    <nav aria-label="Site">
+      <a href="realms/index.html">Realms</a>
+      <a href="standards/index.html">Standards</a>
+      <a href="dashboards/index.html">Dashboards</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="shell">
+<p class="kicker">The Town of Kelston</p>
+<h1>A town that records things well only has to solve each problem once.</h1>
+<p class="lede">
+  Kelston is a thought experiment made real: a town of 5,000
+  animal citizens across seven biome realms, run on data standards designed to be
+  understood at first read. Everything on this site is generated from the town's
+  actual records - the same ones its validator proves.
+</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+  <div class="stat-value">5,000</div>
+  <div class="stat-label">citizens</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">7</div>
+  <div class="stat-label">realms</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">58</div>
+  <div class="stat-label">species</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">324</div>
+  <div class="stat-label">organizations</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">68</div>
+  <div class="stat-label">data standards</div>
+</div>
+  <div class="stat-card">
+  <div class="stat-value">13,317</div>
+  <div class="stat-label">civic records</div>
+</div>
+</div>
+
+<h2>The seven realms</h2>
+<div class="card-grid">
+  <a class="card" href="realms/canopy/index.html">
+    <h3>The Canopy</h3>
+    <p>Dense jungle and rainforest</p>
+    <div class="meta">650 residents</div>
+  </a>
+  <a class="card" href="realms/commons/index.html">
+    <h3>The Commons</h3>
+    <p>Temperate meadow and river junction</p>
+    <div class="meta">1,300 residents</div>
+  </a>
+  <a class="card" href="realms/drylands/index.html">
+    <h3>The Drylands</h3>
+    <p>Desert and scrubland</p>
+    <div class="meta">650 residents</div>
+  </a>
+  <a class="card" href="realms/evergreen/index.html">
+    <h3>The Evergreen</h3>
+    <p>Temperate conifer and broadleaf forest</p>
+    <div class="meta">750 residents</div>
+  </a>
+  <a class="card" href="realms/frostlands/index.html">
+    <h3>The Frostlands</h3>
+    <p>Tundra and snowfield</p>
+    <div class="meta">450 residents</div>
+  </a>
+  <a class="card" href="realms/highlands/index.html">
+    <h3>The Highlands</h3>
+    <p>Mountain slopes and alpine meadow</p>
+    <div class="meta">500 residents</div>
+  </a>
+  <a class="card" href="realms/shorelines/index.html">
+    <h3>The Shorelines</h3>
+    <p>Coast, estuary, and tidal flats</p>
+    <div class="meta">700 residents</div>
+  </a>
+</div>
+
+<figure class="chart-figure">
+  <svg viewBox="0 0 646 212" role="img" aria-labelledby="chart-population-by-realm" class="chart"><title id="chart-population-by-realm">Population by realm</title><text x="182" y="25" text-anchor="end" class="c-label">The Canopy</text><rect x="190" y="13" width="180.0" height="16" fill="#166e5a" rx="1"/><text x="376.0" y="25" class="c-value">650</text><text x="182" y="53" text-anchor="end" class="c-label">The Commons</text><rect x="190" y="41" width="360.0" height="16" fill="#166e5a" rx="1"/><text x="556.0" y="53" class="c-value">1,300</text><text x="182" y="81" text-anchor="end" class="c-label">The Drylands</text><rect x="190" y="69" width="180.0" height="16" fill="#166e5a" rx="1"/><text x="376.0" y="81" class="c-value">650</text><text x="182" y="109" text-anchor="end" class="c-label">The Evergreen</text><rect x="190" y="97" width="207.7" height="16" fill="#166e5a" rx="1"/><text x="403.7" y="109" class="c-value">750</text><text x="182" y="137" text-anchor="end" class="c-label">The Frostlands</text><rect x="190" y="125" width="124.6" height="16" fill="#166e5a" rx="1"/><text x="320.6" y="137" class="c-value">450</text><text x="182" y="165" text-anchor="end" class="c-label">The Highlands</text><rect x="190" y="153" width="138.5" height="16" fill="#166e5a" rx="1"/><text x="334.5" y="165" class="c-value">500</text><text x="182" y="193" text-anchor="end" class="c-label">The Shorelines</text><rect x="190" y="181" width="193.8" height="16" fill="#166e5a" rx="1"/><text x="389.8" y="193" class="c-value">700</text></svg>
+<figcaption>Population by realm, from the citizen register. Residence is recorded once,
+    in the kelston.core.citizen standard, so this count needs no reconciliation.</figcaption></figure>
+
+<hr class="section-rule">
+<div class="two-col">
+  <div>
+    <h2>The standards</h2>
+    <p>
+      Every field, industry, and role in town is defined up front, in
+      68 schemas and 38 shared vocabularies
+      maintained by the standards office. Names read as sentences, every field
+      carries a description, and updates reach every record in town through one
+      command.
+    </p>
+    <p><a href="standards/index.html">Browse the standards registry →</a></p>
+  </div>
+  <div>
+    <h2>The data</h2>
+    <p>
+      13,317 records - households, appointments,
+      harvests, market lots - all stamped with the exact standard version they
+      conform to, all queryable, all provably valid.
+    </p>
+    <p><a href="dashboards/index.html">See the civic dashboards →</a></p>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="shell">
+    The town of Kelston, as its records show it · seed-42 ·
+    13,317 records across 68 standards ·
+    <a href="https://github.com/AlexanderStephenThompson/Kelston-Civic-Labs">source</a>
+  </div>
+</footer>
+</body>
+</html>
