@@ -1,4 +1,4 @@
-<!-- LINEAGE: layer=3 brand=kelston-chronicles hub=../_Assets/kelston-chronicles-AI-Hub -->
+<!-- LINEAGE: layer=3 brand=kelston-chronicles hub=domain:kelston-chronicles parent=../../../Personal/Tools/personal-os -->
 
 # Kelston Civic Labs — Reference for AI assistants
 
